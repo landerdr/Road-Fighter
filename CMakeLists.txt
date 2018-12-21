@@ -5,7 +5,7 @@ set(EXECUTABLE_NAME "Road_Fighter")
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(${EXECUTABLE_NAME} main.cpp Entity.cpp Entity.h PlayerCar.cpp PlayerCar.h RacingCar.cpp RacingCar.h PassingCar.cpp PassingCar.h Bullet.cpp Bullet.h World.cpp World.h)
+add_executable(${EXECUTABLE_NAME} source/main.cpp source/Entity.cpp source/Entity.h source/PlayerCar.cpp source/PlayerCar.h source/RacingCar.cpp source/RacingCar.h source/PassingCar.cpp source/PassingCar.h source/Bullet.cpp source/Bullet.h source/World.cpp source/World.h source/Game.cpp source/Game.h)
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
