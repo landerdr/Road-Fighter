@@ -31,17 +31,9 @@ before_install:
   - mkdir cmake-dist
   - travis_retry wget -qO- https://cmake.org/files/v3.12/cmake-3.12.1-Linux-x86_64.tar.gz | sudo tar --strip-components=1 -C cmake-dist -xz
   - export PATH=$PWD/cmake-dist/bin:$PATH;
-  - mkdir sfml-dist
-  - travis_retry wget -qO- https://github.com/SFML/SFML/archive/2.4.2.tar.gz | sudo tar --strip-components=1 -C sfml-dist -xz
-  - cd sfml-dist
-  - mkdir build
-  - cd build
-  - cmake -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_INSTALL_FRAMEWORK_PREFIX=../install
-    -DSFML_BUILD_FRAMEWORKS=FALSE -DBUILD_SHARED_LIBS=TRUE ..
-  - make
-  - make install
-  - cd ../../
-  - export PATH=$PWD/sfml-dist/:$PATH;
+  - wget https://www.sfml-dev.org/files/SFML-2.4.2-linux-gcc-64-bit.tar.gz
+  - tar -xvf /tmp/sfml.tar.gz
+  - cp -r SFML-2.4.2/* /usr/
 
 
 install:
