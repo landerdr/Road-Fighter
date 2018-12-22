@@ -9,6 +9,10 @@
 #include <thread>
 
 void Game::run() {
+    /*
+     * Reference used for limiting fps to defined value:
+     * https://stackoverflow.com/questions/38730273/how-to-limit-fps-in-a-loop-with-c
+     */
     bool running = true;
     int fps = 60;
 
