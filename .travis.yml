@@ -22,7 +22,7 @@ addons:
       - libjpeg8-dev
       - libgpgme11-dev
       - libsndfile1-dev
-      - libsfml-dev
+      - libsfml-dev=2.4.2
       - libopenal-dev
       - libjpeg62
       - g++-7
