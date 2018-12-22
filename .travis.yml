@@ -1,9 +1,7 @@
 sudo: false
 dist: trusty
-matrix:
-  include:
-    - env: SFML=2.4.2
-    - os: linux
+env:
+  - SFML=2.4.2
 language: cpp
 compiler:
   - gcc
