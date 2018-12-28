@@ -6,8 +6,11 @@
 #define ROAD_FIGHTER_ENTITY_H
 
 
-class Entity {
+#include <string>
 
+class Entity {
+    std::string name;
+    std::string sprite;
 };
 
 
