@@ -21,12 +21,12 @@ void Game::run() {
     sf::RenderWindow App(sf::VideoMode(800, 600), "myproject");
     // Load a sprite to display
     sf::Texture texture;
-    if (!texture.loadFromFile("./Resources/Backdrop.png"))
+    if (!texture.loadFromFile("../Resources/Backdrop.png"))
         return;
     sf::Sprite road(texture);
     road.setScale(5,5);
     sf::Texture texture2;
-    if (!texture2.loadFromFile("./Resources/PlayerCar.png"))
+    if (!texture2.loadFromFile("../Resources/PlayerCar.png"))
         return;
     sf::Sprite car(texture2);
     car.setScale(5,5);
