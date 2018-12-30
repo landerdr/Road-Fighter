@@ -24,17 +24,33 @@ void Game::run() {
     if (!texture.loadFromFile("../Resources/Backdrop.png"))
         return;
     sf::Sprite road(texture);
-    road.setScale(5,5);
+    road.setScale(2.5,2.5);
+    road.setPosition(150, 0);
     sf::Texture texture2;
     if (!texture2.loadFromFile("../Resources/PlayerCar.png"))
         return;
     sf::Sprite car(texture2);
-    car.setScale(5,5);
+    car.setScale(2.5,2.5);
     car.setPosition(300, 400);
     PlayerCar car1;
 
+    sf::Font font;
+    font.loadFromFile("../Resources/ARCADECLASSIC.ttf");
+
+    sf::Text text("Score", font);
+    text.setCharacterSize(30);
+    text.setPosition(600, 30);
+    text.setStyle(sf::Text::Bold);
+
+    sf::Text score("00000", font);
+    score.setCharacterSize(30);
+    score.setPosition(620, 60);
+    score.setStyle(sf::Text::Bold);
+
     App.draw(road);
     App.draw(car);
+    App.draw(text);
+    App.draw(score);
 
     auto next_frame = std::chrono::steady_clock::now();
 
@@ -46,24 +62,26 @@ void Game::run() {
         // do something
         sf::Event Event;
         while (App.pollEvent(Event)) {
-            if (Event.type == sf::Event::Closed) {
+            if (Event.type == sf::Event::Closed || (Event.type == sf::Event::KeyPressed && Event.key.code == sf::Keyboard::Key::Escape)) {
                 App.close();
             }
-            else if (Event.type == sf::Event::KeyPressed) {
-                if (Event.key.code == sf::Keyboard::Key::D) {
-                    car1.move = 4;
-                }
-                else if (Event.key.code == sf::Keyboard::Key::A) {
-                    car1.move = 3;
-                }
-            }
         }
+        //Check keyboard input
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+            car1.move = 4;
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+            car1.move = 3;
+        }
+
         car1.run();
         car.setPosition(car1.xPos, 400);
         car1.move = 0;
 
         App.draw(road);
         App.draw(car);
+        App.draw(text);
+        App.draw(score);
         App.display();
 
 //        std::cout << std::time(nullptr) << '\n';
