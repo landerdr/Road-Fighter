@@ -5,6 +5,7 @@
 
 #include "Game.h"
 #include "Logic/PlayerCar.h"
+#include "Logic/Transformation.h"
 #include <SFML/Graphics.hpp>
 #include <chrono>
 #include <iostream>
@@ -19,6 +20,7 @@ void Game::run() {
 //    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(width, height), title);
 
     sf::RenderWindow App(sf::VideoMode(800, 600), "myproject");
+    Transformation::Instance()->setSize(800, 600);
     // Load a sprite to display
     sf::Texture texture;
     if (!texture.loadFromFile("../Resources/TestRoad.png"))
@@ -33,7 +35,7 @@ void Game::run() {
     sf::Sprite car(texture2);
     car.setScale(4,4);
     PlayerCar car1;
-    car.setPosition((car1.getUpperCorner_X()+4)*100, (car1.getUpperCorner_Y()+3)*100);
+    car.setPosition(Transformation::Instance()->transX(car1.getUpperCorner_X()), Transformation::Instance()->transY(car1.getUpperCorner_Y()));
 
 
     sf::Font font;
@@ -79,7 +81,7 @@ void Game::run() {
         car1.m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A);
 
         car1.run();
-        car.setPosition((car1.getUpperCorner_X()+4)*100, (car1.getUpperCorner_Y()+3)*100);
+        car.setPosition(Transformation::Instance()->transX(car1.getUpperCorner_X()), Transformation::Instance()->transY(car1.getUpperCorner_Y()));
 
         for (int i = -1; i<3; i++){
             road.setPosition(150, i*200+k);
