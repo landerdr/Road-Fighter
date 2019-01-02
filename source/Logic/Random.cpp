@@ -2,16 +2,17 @@
 // Created by lander on 12/22/18.
 //
 
+#include <memory>
 #include "Random.h"
 
-Random* Random::m_pRandom = nullptr;
+std::shared_ptr<Random> Random::m_pRandom = nullptr;
 
 Random::Random() {}
 Random::~Random() {}
 
-Random *Random::Instance() {
+std::shared_ptr<Random> Random::Instance() {
     if (m_pRandom == nullptr) {
-        m_pRandom = new Random;
+        m_pRandom = std::shared_ptr<Random>(new Random);
     }
     return m_pRandom;
 }

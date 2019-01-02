@@ -11,10 +11,10 @@ protected:
     Random();
 public:
     virtual ~Random();
-    static Random* Instance();
+    static std::shared_ptr<Random> Instance();
 
 private:
-    static Random* m_pRandom;
+    static std::shared_ptr<Random> m_pRandom;
 };
 
 
