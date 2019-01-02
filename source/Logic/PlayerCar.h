@@ -9,11 +9,11 @@
 #include "Entity.h"
 
 class PlayerCar : public Entity {
-    unsigned int amountBullets = 16;
-    unsigned int maxBullets = 64;
+    unsigned int amountBullets = 0;
+    unsigned int maxBullets = 8;
+
 public:
-    unsigned int xPos = 300;
-    unsigned int move = 0;
+    PlayerCar();
 
     void run();
 };

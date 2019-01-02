@@ -6,10 +6,17 @@
 #define ROAD_FIGHTER_WORLD_H
 
 
+#include <set>
 #include "Entity.h"
+#include "PlayerCar.h"
 
 class World : public Entity {
+    std::set<Entity*> Entities;
+    PlayerCar* player;
 
+public:
+
+    bool entityCollision(Entity* ent1, Entity* ent2);
 };
 
 

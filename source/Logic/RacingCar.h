@@ -9,6 +9,7 @@
 #include "Entity.h"
 
 class RacingCar : public Entity {
+    
 
 };
 
