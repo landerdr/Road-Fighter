@@ -9,6 +9,7 @@
 #include <string>
 
 class Entity {
+protected:
     // Center x position
     float c_x;
     // Center y position

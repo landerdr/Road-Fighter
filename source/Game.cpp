@@ -21,18 +21,20 @@ void Game::run() {
     sf::RenderWindow App(sf::VideoMode(800, 600), "myproject");
     // Load a sprite to display
     sf::Texture texture;
-    if (!texture.loadFromFile("../Resources/Backdrop.png"))
+    if (!texture.loadFromFile("../Resources/TestRoad.png"))
         return;
     sf::Sprite road(texture);
-    road.setScale(2.5,2.5);
+    road.setScale(4,4);
     road.setPosition(150, 0);
+
     sf::Texture texture2;
-    if (!texture2.loadFromFile("../Resources/PlayerCar.png"))
+    if (!texture2.loadFromFile("../Resources/TestCar.png"))
         return;
     sf::Sprite car(texture2);
-    car.setScale(2.5,2.5);
-    car.setPosition(300, 400);
+    car.setScale(4,4);
     PlayerCar car1;
+    car.setPosition((car1.getUpperCorner_X()+4)*100, (car1.getUpperCorner_Y()+3)*100);
+
 
     sf::Font font;
     font.loadFromFile("../Resources/ARCADECLASSIC.ttf");
@@ -47,14 +49,19 @@ void Game::run() {
     score.setPosition(620, 60);
     score.setStyle(sf::Text::Bold);
 
-    App.draw(road);
+
+    for (int i = -1; i<3; i++){
+        road.setPosition(150, i*200);
+        App.draw(road);
+    }
     App.draw(car);
     App.draw(text);
     App.draw(score);
 
     auto next_frame = std::chrono::steady_clock::now();
-
+    int k = 0;
     while(App.isOpen()) {
+        k = (k+1)%200;
         App.clear();
         // calculates end of frame
         next_frame += std::chrono::microseconds(1000000 / fps);
@@ -67,17 +74,17 @@ void Game::run() {
             }
         }
         //Check keyboard input
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-            car1.move = 4;
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-            car1.move = 3;
-        }
+        car1.m_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
+
+        car1.m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A);
 
         car1.run();
-        car.setPosition(car1.xPos, 400);
-        car1.move = 0;
+        car.setPosition((car1.getUpperCorner_X()+4)*100, (car1.getUpperCorner_Y()+3)*100);
 
+        for (int i = -1; i<3; i++){
+            road.setPosition(150, i*200+k);
+            App.draw(road);
+        }
         App.draw(road);
         App.draw(car);
         App.draw(text);
