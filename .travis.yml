@@ -43,5 +43,4 @@ script:
   - mkdir build
   - cd build
   - gcc -v && g++ -v && cmake --version
-  - ls
   - cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && make

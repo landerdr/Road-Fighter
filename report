@@ -1,0 +1,5 @@
+Travis trouble getting right version of sfml
+- solved with getting compiled package from site, extracting and copying to /usr/
+
+Problem with travis' filepath to be different from pc
+- looking into changing path to correct
