@@ -26,14 +26,13 @@ void Game::run() {
     if (!texture.loadFromFile("../Resources/TestRoad.png"))
         return;
     sf::Sprite road(texture);
-    road.setScale(4,4);
-    road.setPosition(150, 0);
+    road.setScale(Transformation::Instance()->getScale(),Transformation::Instance()->getScale());
 
     sf::Texture texture2;
     if (!texture2.loadFromFile("../Resources/TestCar.png"))
         return;
     sf::Sprite car(texture2);
-    car.setScale(4,4);
+    car.setScale(Transformation::Instance()->getScale(),Transformation::Instance()->getScale());
     PlayerCar car1;
     car.setPosition(Transformation::Instance()->transX(car1.getUpperCorner_X()), Transformation::Instance()->transY(car1.getUpperCorner_Y()));
 
@@ -43,17 +42,17 @@ void Game::run() {
 
     sf::Text text("Score", font);
     text.setCharacterSize(30);
-    text.setPosition(600, 30);
+    text.setPosition(Transformation::Instance()->transX(2), 30);
     text.setStyle(sf::Text::Bold);
 
     sf::Text score("00000", font);
     score.setCharacterSize(30);
-    score.setPosition(620, 60);
+    score.setPosition(Transformation::Instance()->transX(2.2), 60);
     score.setStyle(sf::Text::Bold);
 
 
     for (int i = -1; i<3; i++){
-        road.setPosition(150, i*200);
+        road.setPosition(Transformation::Instance()->transX(-2.5), i*200);
         App.draw(road);
     }
     App.draw(car);
@@ -84,7 +83,7 @@ void Game::run() {
         car.setPosition(Transformation::Instance()->transX(car1.getUpperCorner_X()), Transformation::Instance()->transY(car1.getUpperCorner_Y()));
 
         for (int i = -1; i<3; i++){
-            road.setPosition(150, i*200+k);
+            road.setPosition(Transformation::Instance()->transX(-2.5), i*200+k);
             App.draw(road);
         }
         App.draw(road);

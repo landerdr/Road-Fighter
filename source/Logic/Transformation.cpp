@@ -21,12 +21,19 @@ void Transformation::setSize(unsigned int ix, unsigned int iy) {
     y = iy;
 }
 
-int Transformation::transX(float fx) {
+int Transformation::transX(double fx) {
     // Hardcoded to use -4 : 4
     return static_cast<int> ((fx + 4) * (x/8.0));
 }
 
-int Transformation::transY(float fy) {
+int Transformation::transY(double fy) {
     // Hardcoded to use -3 : 3
     return static_cast<int> ((fy + 3) * (y/6.0));
+}
+
+float Transformation::getScale() {
+    if (x && y) {
+        return static_cast<float>(x)/200;
+    }
+    return 0;
 }

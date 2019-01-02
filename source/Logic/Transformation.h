@@ -16,8 +16,10 @@ public:
 
     void setSize(unsigned int ix, unsigned int iy);
 
-    int transX(float fx);
-    int transY(float fy);
+    int transX(double fx);
+    int transY(double fy);
+
+    float getScale();
 
 private:
     static std::shared_ptr<Transformation> m_pTransformation;
