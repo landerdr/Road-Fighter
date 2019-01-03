@@ -23,14 +23,12 @@ void Game::run() {
     Transformation::Instance()->setSize(800, 600);
     // Load a sprite to display
     sf::Texture texture;
-    if (!texture.loadFromFile("./Resources/TestRoad.png"))
-        return;
+    texture.loadFromFile("./Resources/TestRoad.png");
     sf::Sprite road(texture);
     road.setScale(Transformation::Instance()->getScale(),Transformation::Instance()->getScale());
 
     sf::Texture texture2;
-    if (!texture2.loadFromFile("./Resources/TestCar.png"))
-        return;
+    texture2.loadFromFile("./Resources/TestCar.png");
     sf::Sprite car(texture2);
     car.setScale(Transformation::Instance()->getScale(),Transformation::Instance()->getScale());
     PlayerCar car1;
