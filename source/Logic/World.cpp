@@ -7,3 +7,5 @@
 bool roadfighter::World::entityCollision(Entity *ent1, Entity *ent2) {
     return false;
 }
+
+roadfighter::World::World() {}

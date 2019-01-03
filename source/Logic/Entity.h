@@ -5,7 +5,7 @@
 #ifndef ROAD_FIGHTER_ENTITY_H
 #define ROAD_FIGHTER_ENTITY_H
 
-
+#include <memory>
 #include <string>
 
 namespace roadfighter {

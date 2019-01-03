@@ -12,10 +12,13 @@
 
 namespace roadfighter {
     class World : public Entity {
-        std::set<Entity*> Entities;
-        PlayerCar* player;
+        std::set<std::shared_ptr<roadfighter::Entity>> Entities;
+        std::shared_ptr<roadfighter::Entity> player;
 
     public:
+        World();
+
+
 
         bool entityCollision(Entity* ent1, Entity* ent2);
     };
