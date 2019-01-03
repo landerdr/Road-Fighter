@@ -4,4 +4,7 @@
 
 #include "PlayerCarSFML.h"
 
-PlayerCarSFML::PlayerCarSFML() {}
+PlayerCarSFML::PlayerCarSFML() {
+    texture.loadFromFile("./Resources/TestCar.png");
+    sprite.setTexture(texture);
+}

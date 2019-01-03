@@ -3,3 +3,5 @@ Travis trouble getting right version of sfml
 
 Problem with travis' filepath to be different from pc
 - looking into changing path to correct
+- Wasn't related to file path in the slightest, I had changed the linux version to xenial instead of trusty, this apparently caused a conflict where the SFML was compiled with different settings
+    fixed by changing back to trusty distro

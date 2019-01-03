@@ -8,10 +8,13 @@
 
 #include "Entity.h"
 
-class RacingCar : public Entity {
-    
+namespace roadfighter {
+    class RacingCar : public Entity {
 
-};
+
+    };
+}
+
 
 
 #endif //ROAD_FIGHTER_RACINGCAR_H

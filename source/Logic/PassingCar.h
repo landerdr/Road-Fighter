@@ -7,10 +7,12 @@
 
 
 #include "Entity.h"
+namespace roadfighter {
+    class PassingCar : public Entity {
 
-class PassingCar : public Entity {
+    };
+}
 
-};
 
 
 #endif //ROAD_FIGHTER_PASSINGCAR_H

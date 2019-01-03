@@ -6,9 +6,13 @@
 #define ROAD_FIGHTER_PLAYERCARSFML_H
 
 
+#include <SFML/Graphics.hpp>
 #include "../Logic/PlayerCar.h"
 
-class PlayerCarSFML : public PlayerCar {
+class PlayerCarSFML : public roadfighter::PlayerCar {
+public:
+    sf::Texture texture;
+    sf::Sprite sprite;
 public:
     PlayerCarSFML();
 };

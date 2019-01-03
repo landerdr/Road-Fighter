@@ -5,9 +5,18 @@ set(EXECUTABLE_NAME "Road_Fighter")
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_library(RoadFighter STATIC source/Logic/Entity.cpp source/Logic/Entity.h source/Logic/PlayerCar.cpp source/Logic/PlayerCar.h source/Logic/RacingCar.cpp source/Logic/RacingCar.h source/Logic/PassingCar.cpp source/Logic/PassingCar.h source/Logic/Bullet.cpp source/Logic/Bullet.h source/Logic/World.cpp source/Logic/World.h)
+add_library(RoadFighter STATIC
+        source/Logic/Entity.cpp source/Logic/Entity.h
+        source/Logic/PlayerCar.cpp source/Logic/PlayerCar.h
+        source/Logic/RacingCar.cpp source/Logic/RacingCar.h
+        source/Logic/PassingCar.cpp source/Logic/PassingCar.h
+        source/Logic/Bullet.cpp source/Logic/Bullet.h
+        source/Logic/World.cpp source/Logic/World.h
+        source/Logic/Random.cpp source/Logic/Random.h
+        source/Logic/Transformation.cpp source/Logic/Transformation.h
+        )
 
-add_executable(${EXECUTABLE_NAME} source/main.cpp source/Game.cpp source/Game.h source/Logic/Random.cpp source/Logic/Random.h source/Logic/Transformation.cpp source/Logic/Transformation.h source/sfmlgraph/PlayerCarSFML.cpp source/sfmlgraph/PlayerCarSFML.h source/sfmlgraph/WorldSFML.cpp source/sfmlgraph/WorldSFML.h)
+add_executable(${EXECUTABLE_NAME} source/main.cpp source/Game.cpp source/Game.h source/sfmlgraph/PlayerCarSFML.cpp source/sfmlgraph/PlayerCarSFML.h source/sfmlgraph/WorldSFML.cpp source/sfmlgraph/WorldSFML.h)
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})

@@ -8,7 +8,7 @@
 
 #include "../Logic/World.h"
 
-class WorldSFML : public World {
+class WorldSFML : public roadfighter::World {
 
 };
 

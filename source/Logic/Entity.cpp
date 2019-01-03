@@ -4,4 +4,4 @@
 
 #include "Entity.h"
 
-Entity::Entity() {}
+roadfighter::Entity::Entity() {}

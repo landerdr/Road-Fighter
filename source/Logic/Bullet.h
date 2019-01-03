@@ -8,9 +8,12 @@
 
 #include "Entity.h"
 
-class Bullet : public Entity {
+namespace roadfighter {
+    class Bullet : public Entity {
 
-};
+    };
+}
+
 
 
 #endif //ROAD_FIGHTER_BULLET_H

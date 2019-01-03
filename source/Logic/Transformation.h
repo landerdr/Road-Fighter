@@ -7,26 +7,28 @@
 
 #include <memory>
 
-class Transformation {
-protected:
-    Transformation();
-public:
-    virtual ~Transformation();
-    static std::shared_ptr<Transformation> Instance();
+namespace roadfighter {
+    class Transformation {
+    protected:
+        Transformation();
+    public:
+        virtual ~Transformation();
+        static std::shared_ptr<Transformation> Instance();
 
-    void setSize(unsigned int ix, unsigned int iy);
+        void setSize(unsigned int ix, unsigned int iy);
 
-    int transX(double fx);
-    int transY(double fy);
+        int transX(double fx);
+        int transY(double fy);
 
-    float getScale();
+        float getScale();
 
-private:
-    static std::shared_ptr<Transformation> m_pTransformation;
+    private:
+        static std::shared_ptr<Transformation> m_pTransformation;
 
-    unsigned int x;
-    unsigned int y;
-};
+        unsigned int x;
+        unsigned int y;
+    };
+}
 
 
 #endif //ROAD_FIGHTER_TRANSFORMATION_H

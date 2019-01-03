@@ -6,6 +6,7 @@
 #include "Game.h"
 #include "Logic/PlayerCar.h"
 #include "Logic/Transformation.h"
+#include "sfmlgraph/PlayerCarSFML.h"
 #include <SFML/Graphics.hpp>
 #include <chrono>
 #include <iostream>
@@ -20,19 +21,17 @@ void Game::run() {
 //    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(width, height), title);
 
     sf::RenderWindow App(sf::VideoMode(800, 600), "myproject");
-    Transformation::Instance()->setSize(800, 600);
+    roadfighter::Transformation::Instance()->setSize(800, 600);
     // Load a sprite to display
     sf::Texture texture;
     texture.loadFromFile("./Resources/TestRoad.png");
     sf::Sprite road(texture);
-    road.setScale(Transformation::Instance()->getScale(),Transformation::Instance()->getScale());
+    road.setScale(roadfighter::Transformation::Instance()->getScale(),roadfighter::Transformation::Instance()->getScale());
 
-    sf::Texture texture2;
-    texture2.loadFromFile("./Resources/TestCar.png");
-    sf::Sprite car(texture2);
-    car.setScale(Transformation::Instance()->getScale(),Transformation::Instance()->getScale());
-    PlayerCar car1;
-    car.setPosition(Transformation::Instance()->transX(car1.getUpperCorner_X()), Transformation::Instance()->transY(car1.getUpperCorner_Y()));
+    PlayerCarSFML car;
+    car.sprite.setScale(roadfighter::Transformation::Instance()->getScale(),roadfighter::Transformation::Instance()->getScale());
+
+    car.sprite.setPosition(roadfighter::Transformation::Instance()->transX(car.getUpperCorner_X()), roadfighter::Transformation::Instance()->transY(car.getUpperCorner_Y()));
 
 
     sf::Font font;
@@ -40,20 +39,20 @@ void Game::run() {
 
     sf::Text text("Score", font);
     text.setCharacterSize(30);
-    text.setPosition(Transformation::Instance()->transX(2), 30);
+    text.setPosition(roadfighter::Transformation::Instance()->transX(2), 30);
     text.setStyle(sf::Text::Bold);
 
     sf::Text score("00000", font);
     score.setCharacterSize(30);
-    score.setPosition(Transformation::Instance()->transX(2.2), 60);
+    score.setPosition(roadfighter::Transformation::Instance()->transX(2.2), 60);
     score.setStyle(sf::Text::Bold);
 
 
     for (int i = -1; i<3; i++){
-        road.setPosition(Transformation::Instance()->transX(-2.5), i*200);
+        road.setPosition(roadfighter::Transformation::Instance()->transX(-2.5), i*200);
         App.draw(road);
     }
-    App.draw(car);
+    App.draw(car.sprite);
     App.draw(text);
     App.draw(score);
 
@@ -73,19 +72,19 @@ void Game::run() {
             }
         }
         //Check keyboard input
-        car1.m_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
+        car.m_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
 
-        car1.m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A);
+        car.m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A);
 
-        car1.run();
-        car.setPosition(Transformation::Instance()->transX(car1.getUpperCorner_X()), Transformation::Instance()->transY(car1.getUpperCorner_Y()));
+        car.run();
+        car.sprite.setPosition(roadfighter::Transformation::Instance()->transX(car.getUpperCorner_X()), roadfighter::Transformation::Instance()->transY(car.getUpperCorner_Y()));
 
         for (int i = -1; i<3; i++){
-            road.setPosition(Transformation::Instance()->transX(-2.5), i*200+k);
+            road.setPosition(roadfighter::Transformation::Instance()->transX(-2.5), i*200+k);
             App.draw(road);
         }
         App.draw(road);
-        App.draw(car);
+        App.draw(car.sprite);
         App.draw(text);
         App.draw(score);
         App.display();
