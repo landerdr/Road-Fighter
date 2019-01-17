@@ -21,7 +21,7 @@ void Game::run() {
 //    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(width, height), title);
 
     sf::RenderWindow App(sf::VideoMode(800, 600), "myproject");
-    roadfighter::Transformation::Instance()->setSize(800, 600);
+    roadfighter::Transformation::Instance()->setSize(App.getSize().x, App.getSize().y);
     // Load a sprite to display
     sf::Texture texture;
     texture.loadFromFile("./Resources/TestRoad.png");
@@ -31,7 +31,7 @@ void Game::run() {
     PlayerCarSFML car;
     car.sprite.setScale(roadfighter::Transformation::Instance()->getScale(),roadfighter::Transformation::Instance()->getScale());
 
-    car.sprite.setPosition(roadfighter::Transformation::Instance()->transX(car.getUpperCorner_X()), roadfighter::Transformation::Instance()->transY(car.getUpperCorner_Y()));
+    car.sprite.setPosition(roadfighter::Transformation::Instance()->transX(car.getLeftX()), roadfighter::Transformation::Instance()->transY(car.getUpperY()));
 
 
     sf::Font font;
@@ -77,7 +77,7 @@ void Game::run() {
         car.m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A);
 
         car.run();
-        car.sprite.setPosition(roadfighter::Transformation::Instance()->transX(car.getUpperCorner_X()), roadfighter::Transformation::Instance()->transY(car.getUpperCorner_Y()));
+        car.sprite.setPosition(roadfighter::Transformation::Instance()->transX(car.getLeftX()), roadfighter::Transformation::Instance()->transY(car.getUpperY()));
 
         for (int i = -1; i<3; i++){
             road.setPosition(roadfighter::Transformation::Instance()->transX(-2.5), i*200+k);

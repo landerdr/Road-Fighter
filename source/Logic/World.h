@@ -20,7 +20,7 @@ namespace roadfighter {
 
 
 
-        bool entityCollision(Entity* ent1, Entity* ent2);
+        bool entityCollision(std::shared_ptr<roadfighter::Entity> ent1, std::shared_ptr<roadfighter::Entity> ent2);
     };
 }
 

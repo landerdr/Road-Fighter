@@ -12,21 +12,13 @@ roadfighter::PlayerCar::PlayerCar() {
 }
 
 void roadfighter::PlayerCar::run() {
-    if (m_left && c_x - r_w > -1.5) {
+    if (m_left && getLeftX() > -1.5) {
         c_x -= 0.02;
         m_left = false;
     }
-    if (m_right && c_x + r_w < 0.2) {
+    if (m_right && getRightX() < 0.2) {
         c_x += 0.02;
         m_right = false;
     }
 
-}
-
-float roadfighter::PlayerCar::getUpperCorner_X() {
-    return c_x - r_w;
-}
-
-float roadfighter::PlayerCar::getUpperCorner_Y() {
-    return c_y + r_h;
 }

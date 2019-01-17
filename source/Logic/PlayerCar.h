@@ -22,9 +22,6 @@ namespace roadfighter {
     public:
         PlayerCar();
 
-        float getUpperCorner_X();
-        float getUpperCorner_Y();
-
         void run();
     };
 }

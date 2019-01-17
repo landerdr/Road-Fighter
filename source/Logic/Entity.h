@@ -22,6 +22,11 @@ namespace roadfighter {
 
     public:
         Entity();
+
+        float getLeftX();
+        float getRightX();
+        float getUpperY();
+        float getLowerY();
     };
 }
 
