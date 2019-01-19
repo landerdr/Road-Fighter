@@ -4,8 +4,6 @@
 
 #include "Entity.h"
 
-roadfighter::Entity::Entity() {}
-
 float roadfighter::Entity::getLeftX() {
     return c_x - r_w;
 }

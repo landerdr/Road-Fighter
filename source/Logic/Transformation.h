@@ -9,10 +9,7 @@
 
 namespace roadfighter {
     class Transformation {
-    protected:
-        Transformation();
     public:
-        virtual ~Transformation();
         static std::shared_ptr<Transformation> Instance();
 
         void setSize(unsigned int ix, unsigned int iy);

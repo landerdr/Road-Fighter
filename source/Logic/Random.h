@@ -10,7 +10,6 @@ namespace roadfighter {
     protected:
         Random();
     public:
-        virtual ~Random();
         static std::shared_ptr<Random> Instance();
 
         int getInt();

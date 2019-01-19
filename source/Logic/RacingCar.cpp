@@ -5,9 +5,7 @@
 #include "RacingCar.h"
 #include "Random.h"
 
-void roadfighter::RacingCar::run() {
-
-}
+void roadfighter::RacingCar::run() {}
 
 void roadfighter::RacingCar::moveleft() {
     if (getLeftX() > -1.5) {

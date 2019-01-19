@@ -10,7 +10,6 @@ std::shared_ptr<roadfighter::Random> roadfighter::Random::m_pRandom = nullptr;
 roadfighter::Random::Random() {
     srand(1998);
 }
-roadfighter::Random::~Random() {}
 
 std::shared_ptr<roadfighter::Random> roadfighter::Random::Instance() {
     if (m_pRandom == nullptr) {

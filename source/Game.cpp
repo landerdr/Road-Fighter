@@ -21,6 +21,7 @@ void Game::run(unsigned int x, unsigned int y) {
     int fps = 100;
 
     auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "myproject");
+//    window->setVerticalSyncEnabled(false);
     roadfighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
 
     WorldSFML world(window);
@@ -50,6 +51,4 @@ void Game::run(unsigned int x, unsigned int y) {
         std::this_thread::sleep_until(next_frame);
     }
 }
-
-Game::Game() {}
 

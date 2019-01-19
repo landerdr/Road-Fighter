@@ -7,10 +7,7 @@
 
 
 class Game {
-
 public:
-    Game();
-
     void run(unsigned int x, unsigned int y);
 };
 

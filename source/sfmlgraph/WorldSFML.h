@@ -14,9 +14,6 @@
 #include "AbstractFactorySFML.h"
 
 class WorldSFML : public roadfighter::World {
-    int distance = 0;
-    int finish = 20000;
-    int speed = 0;
     sf::Font font;
     sf::Texture texture;
     sf::Text score_1;

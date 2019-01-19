@@ -14,7 +14,7 @@ class RacingCarSFML : public roadfighter::RacingCar {
     sf::Texture texture;
     std::shared_ptr<sf::RenderWindow> window;
 public:
-    RacingCarSFML(const std::shared_ptr<sf::RenderWindow> &window);
+    explicit RacingCarSFML(const std::shared_ptr<sf::RenderWindow> &window);
 
     void draw() override;
 };

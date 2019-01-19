@@ -6,12 +6,9 @@
 
 std::shared_ptr<roadfighter::Transformation> roadfighter::Transformation::m_pTransformation = nullptr;
 
-roadfighter::Transformation::Transformation() {}
-roadfighter::Transformation::~Transformation() {}
-
 std::shared_ptr<roadfighter::Transformation> roadfighter::Transformation::Instance() {
     if (m_pTransformation == nullptr) {
-        m_pTransformation = std::shared_ptr<roadfighter::Transformation>(new roadfighter::Transformation);
+        m_pTransformation = std::make_shared<roadfighter::Transformation>();
     }
     return m_pTransformation;
 }
@@ -33,6 +30,7 @@ int roadfighter::Transformation::transY(double fy) {
 
 float roadfighter::Transformation::getScaleX() {
     if (x && y) {
+        // 100px width of background, 2 because only half of window is used for background
         return static_cast<float>(x)/200;
     }
     return 0;
@@ -40,6 +38,7 @@ float roadfighter::Transformation::getScaleX() {
 
 float roadfighter::Transformation::getScaleY() {
     if (x && y) {
+        // 50px length of background, 3 stripes on screen
         return static_cast<float>(y)/150;
     }
     return 0;
