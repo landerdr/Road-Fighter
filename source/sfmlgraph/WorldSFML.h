@@ -10,6 +10,7 @@
 #include "../Logic/World.h"
 #include "PlayerCarSFML.h"
 #include "PassingCarSFML.h"
+#include "RacingCarSFML.h"
 
 class WorldSFML : public roadfighter::World {
     int distance = 0;
@@ -24,7 +25,8 @@ class WorldSFML : public roadfighter::World {
     sf::Sprite sprite;
     std::shared_ptr<sf::RenderWindow> window;
     std::shared_ptr<PlayerCarSFML> player;
-    std::set<std::shared_ptr<PassingCarSFML>> Entities;
+    std::set<std::shared_ptr<PassingCarSFML>> PassingCars;
+    std::set<std::shared_ptr<RacingCarSFML>> RaceCars;
 public:
     explicit WorldSFML(const std::shared_ptr<sf::RenderWindow> &window);
     void draw() override;

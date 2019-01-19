@@ -10,7 +10,7 @@
 
 namespace roadfighter {
     class PassingCar : public Entity {
-
+        
     };
 }
 

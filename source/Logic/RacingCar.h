@@ -10,9 +10,10 @@
 
 namespace roadfighter {
     class RacingCar : public Entity {
-
+    protected:
+        int speed = 0;
     public:
-        void run();
+        void run() override;
         void moveleft();
         void moveright();
     };

@@ -6,14 +6,7 @@
 #include "Random.h"
 
 void roadfighter::RacingCar::run() {
-    int movement = roadfighter::Random::Instance()->getInt() % 3;
 
-    if (movement == 0) {
-        moveleft();
-    }
-    else if (movement == 1) {
-        moveright();
-    }
 }
 
 void roadfighter::RacingCar::moveleft() {

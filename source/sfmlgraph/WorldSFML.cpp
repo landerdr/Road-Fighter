@@ -39,7 +39,10 @@ WorldSFML::WorldSFML(const std::shared_ptr<sf::RenderWindow> &window) : window(w
     speed_2.setStyle(sf::Text::Bold);
 
     auto p = std::make_shared<PassingCarSFML>(PassingCarSFML(window));
-    Entities.emplace(p);
+    PassingCars.emplace(p);
+
+    auto r = std::make_shared<RacingCarSFML>(RacingCarSFML(window));
+    RaceCars.emplace(r);
 }
 
 void WorldSFML::draw() {
@@ -49,7 +52,10 @@ void WorldSFML::draw() {
         window->draw(sprite);
     }
 
-    for(auto &e : Entities) {
+    for(auto &e : PassingCars) {
+        e->draw();
+    }
+    for(auto &e : RaceCars) {
         e->draw();
     }
 
@@ -66,6 +72,8 @@ void WorldSFML::draw() {
 void WorldSFML::run() {
     if (distance > finish) {
         score_2.setString("10000");
+        speed = 0;
+        return;
     }
     if (speed < 400 && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
         speed += 1;
@@ -83,7 +91,10 @@ void WorldSFML::run() {
     player->m_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
     player->m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q);
     player->run();
-    for(auto &e : Entities) {
+    for(auto &e : PassingCars) {
+        e->run(speed);
+    }
+    for(auto &e : RaceCars) {
         e->run(speed);
     }
 
