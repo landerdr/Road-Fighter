@@ -11,6 +11,7 @@
 #include "PlayerCarSFML.h"
 #include "PassingCarSFML.h"
 #include "RacingCarSFML.h"
+#include "AbstractFactorySFML.h"
 
 class WorldSFML : public roadfighter::World {
     int distance = 0;
@@ -24,8 +25,7 @@ class WorldSFML : public roadfighter::World {
     sf::Text speed_2;
     sf::Sprite sprite;
     std::shared_ptr<sf::RenderWindow> window;
-    std::set<std::shared_ptr<PassingCarSFML>> PassingCars;
-    std::set<std::shared_ptr<RacingCarSFML>> RaceCars;
+    std::shared_ptr<AbstractFactorySFML> factory;
 public:
     explicit WorldSFML(const std::shared_ptr<sf::RenderWindow> &window);
     void draw() override;

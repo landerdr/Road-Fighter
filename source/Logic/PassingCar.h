@@ -10,7 +10,8 @@
 
 namespace roadfighter {
     class PassingCar : public Entity {
-        
+    public:
+        void run(int speed);
     };
 }
 

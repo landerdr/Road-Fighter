@@ -23,7 +23,7 @@ add_executable(${EXECUTABLE_NAME} source/main.cpp
         source/sfmlgraph/WorldSFML.cpp source/sfmlgraph/WorldSFML.h
         source/sfmlgraph/AbstractFactorySFML.cpp source/sfmlgraph/AbstractFactorySFML.h
         source/sfmlgraph/RacingCarSFML.cpp source/sfmlgraph/RacingCarSFML.h
-        source/sfmlgraph/PassingCarSFML.cpp source/sfmlgraph/PassingCarSFML.h)
+        source/sfmlgraph/PassingCarSFML.cpp source/sfmlgraph/PassingCarSFML.h source/sfmlgraph/BulletSFML.cpp source/sfmlgraph/BulletSFML.h)
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})

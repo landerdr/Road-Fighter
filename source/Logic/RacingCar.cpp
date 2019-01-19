@@ -20,3 +20,19 @@ void roadfighter::RacingCar::moveright() {
         c_x += 0.02;
     }
 }
+
+void roadfighter::RacingCar::run(int speed) {
+    if (RacingCar::speed < 400) {
+        RacingCar::speed += 1;
+    }
+    int movement = roadfighter::Random::Instance()->getInt() % 3;
+
+    if (movement == 0) {
+        moveleft();
+    }
+    else if (movement == 1) {
+        moveright();
+    }
+
+    c_y += (speed-RacingCar::speed)/4000.0;
+}

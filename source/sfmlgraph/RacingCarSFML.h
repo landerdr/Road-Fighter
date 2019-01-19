@@ -16,7 +16,6 @@ class RacingCarSFML : public roadfighter::RacingCar {
 public:
     RacingCarSFML(const std::shared_ptr<sf::RenderWindow> &window);
 
-    void run(int speed);
     void draw() override;
 };
 

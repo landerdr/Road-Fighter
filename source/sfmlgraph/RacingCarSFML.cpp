@@ -16,22 +16,6 @@ RacingCarSFML::RacingCarSFML(const std::shared_ptr<sf::RenderWindow> &window) : 
     c_y = 0;
 }
 
-void RacingCarSFML::run(int speed) {
-    if (RacingCarSFML::speed < 400) {
-        RacingCarSFML::speed += 1;
-    }
-    int movement = roadfighter::Random::Instance()->getInt() % 3;
-
-    if (movement == 0) {
-        moveleft();
-    }
-    else if (movement == 1) {
-        moveright();
-    }
-
-    c_y += (speed-RacingCarSFML::speed)/4000.0;
-}
-
 void RacingCarSFML::draw() {
     sprite.setPosition(roadfighter::Transformation::Instance()->transX(getLeftX()), roadfighter::Transformation::Instance()->transY(getUpperY()));
     sprite.setTexture(texture);

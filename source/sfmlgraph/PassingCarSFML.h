@@ -16,8 +16,6 @@ class PassingCarSFML : public roadfighter::PassingCar {
 public:
     explicit PassingCarSFML(const std::shared_ptr<sf::RenderWindow> &window);
 
-    void run(int speed);
-
     void draw() override;
 };
 

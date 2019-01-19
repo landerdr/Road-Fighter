@@ -3,3 +3,7 @@
 //
 
 #include "PassingCar.h"
+
+void roadfighter::PassingCar::run(int speed) {
+    c_y += (speed-200)/4000.0;
+}

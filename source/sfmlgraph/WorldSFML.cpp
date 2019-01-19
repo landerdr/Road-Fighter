@@ -9,8 +9,8 @@
 #include "PassingCarSFML.h"
 
 WorldSFML::WorldSFML(const std::shared_ptr<sf::RenderWindow> &window) : window(window) {
-    AbstractFactorySFML pf(WorldSFML::window);
-    player = pf.createPlayerCar(); //std::make_shared<PlayerCarSFML> (WorldSFML::window);
+    factory = std::make_shared<AbstractFactorySFML>(WorldSFML::window);
+    Player = factory->createPlayerCar();
 
     texture.loadFromFile("../Resources/TestRoad.png");
     sprite.setTexture(texture);
@@ -38,29 +38,32 @@ WorldSFML::WorldSFML(const std::shared_ptr<sf::RenderWindow> &window) : window(w
     speed_2.setPosition(roadfighter::Transformation::Instance()->transX(2.2), 120);
     speed_2.setStyle(sf::Text::Bold);
 
-    auto p = std::make_shared<PassingCarSFML>(PassingCarSFML(window));
-    PassingCars.emplace(p);
-
-    auto r = std::make_shared<RacingCarSFML>(RacingCarSFML(window));
-    RaceCars.emplace(r);
+    PassingCars.emplace(factory->createPassingCar());
+    RaceCars.emplace(factory->createRacingCar());
+    Bullet = factory->createBullet();
 }
 
 void WorldSFML::draw() {
+    // Drawing background
     for (int i = -1; i<3; i++){
         sprite.setPosition(roadfighter::Transformation::Instance()->transX(-2.5),
                 roadfighter::Transformation::Instance()->transY(-3+i*2+0.01*(distance%200)));
         window->draw(sprite);
     }
-
+    // Drawing passing cars
     for(auto &e : PassingCars) {
         e->draw();
     }
+    // Drawing racing cars
     for(auto &e : RaceCars) {
         e->draw();
     }
 
-    player->draw();
+    Player->draw();
 
+    Bullet->draw();
+
+    // UI elements
     window->draw(score_1);
     window->draw(score_2);
     window->draw(speed_1);
@@ -88,9 +91,9 @@ void WorldSFML::run() {
         speed -= 1;
     }
 
-    player->m_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
-    player->m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q);
-    player->run();
+    Player->m_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
+    Player->m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q);
+    Player->run();
     for(auto &e : PassingCars) {
         e->run(speed);
     }

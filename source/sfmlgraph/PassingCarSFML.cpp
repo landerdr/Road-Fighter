@@ -15,10 +15,6 @@ PassingCarSFML::PassingCarSFML(const std::shared_ptr<sf::RenderWindow> &window) 
     c_y = -4;
 }
 
-void PassingCarSFML::run(int speed) {
-    c_y += (speed-200)/4000.0;
-}
-
 void PassingCarSFML::draw() {
     sprite.setPosition(roadfighter::Transformation::Instance()->transX(getLeftX()), roadfighter::Transformation::Instance()->transY(getUpperY()));
     sprite.setTexture(texture);

@@ -14,6 +14,7 @@ namespace roadfighter {
         int speed = 0;
     public:
         void run() override;
+        void run(int speed);
         void moveleft();
         void moveright();
     };
