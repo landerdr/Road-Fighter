@@ -9,16 +9,17 @@
 #include <set>
 #include "Entity.h"
 #include "PlayerCar.h"
+#include "ScoreObserver.h"
 
 namespace roadfighter {
+    class ScoreObserver;
     class World : public Entity {
+        std::shared_ptr<roadfighter::PlayerCar> player;
+    protected:
         std::set<std::shared_ptr<roadfighter::Entity>> Entities;
-        std::shared_ptr<roadfighter::Entity> player;
-
+        std::shared_ptr<roadfighter::ScoreObserver> score;
     public:
-        World();
-
-
+        void attach(std::shared_ptr<roadfighter::ScoreObserver> &score);
 
         bool entityCollision(std::shared_ptr<roadfighter::Entity> ent1, std::shared_ptr<roadfighter::Entity> ent2);
     };

@@ -11,7 +11,10 @@
 namespace roadfighter {
     class RacingCar : public Entity {
 
-
+    public:
+        void run();
+        void moveleft();
+        void moveright();
     };
 }
 

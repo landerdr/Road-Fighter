@@ -11,7 +11,7 @@ class Game {
 public:
     Game();
 
-    void run();
+    void run(unsigned int x, unsigned int y);
 };
 
 

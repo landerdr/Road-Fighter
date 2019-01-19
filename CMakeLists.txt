@@ -14,9 +14,17 @@ add_library(RoadFighter STATIC
         source/Logic/World.cpp source/Logic/World.h
         source/Logic/Random.cpp source/Logic/Random.h
         source/Logic/Transformation.cpp source/Logic/Transformation.h
-        source/Logic/AbstractFactory.cpp source/Logic/AbstractFactory.h source/Logic/PlayerFactory.cpp source/Logic/PlayerFactory.h)
+        source/Logic/AbstractFactory.cpp source/Logic/AbstractFactory.h
+        source/Logic/PlayerFactory.cpp source/Logic/PlayerFactory.h
+        source/Logic/ScoreObserver.cpp source/Logic/ScoreObserver.h)
 
-add_executable(${EXECUTABLE_NAME} source/main.cpp source/Game.cpp source/Game.h source/sfmlgraph/PlayerCarSFML.cpp source/sfmlgraph/PlayerCarSFML.h source/sfmlgraph/WorldSFML.cpp source/sfmlgraph/WorldSFML.h source/sfmlgraph/PlayerFactorySFML.cpp source/sfmlgraph/PlayerFactorySFML.h)
+add_executable(${EXECUTABLE_NAME} source/main.cpp
+        source/Game.cpp source/Game.h
+        source/sfmlgraph/PlayerCarSFML.cpp source/sfmlgraph/PlayerCarSFML.h
+        source/sfmlgraph/WorldSFML.cpp source/sfmlgraph/WorldSFML.h
+        source/sfmlgraph/PlayerFactorySFML.cpp source/sfmlgraph/PlayerFactorySFML.h
+        source/sfmlgraph/RacingCarSFML.cpp source/sfmlgraph/RacingCarSFML.h
+        source/sfmlgraph/PassingCarSFML.cpp source/sfmlgraph/PassingCarSFML.h)
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})

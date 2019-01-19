@@ -4,8 +4,8 @@
 
 #include "PlayerFactory.h"
 
-PlayerFactory::PlayerFactory() {}
+roadfighter::PlayerFactory::PlayerFactory() {}
 
-std::shared_ptr<roadfighter::Entity> PlayerFactory::create() {
+std::shared_ptr<roadfighter::PlayerCar> roadfighter::PlayerFactory::create() {
     return std::shared_ptr<roadfighter::PlayerCar>();
 }

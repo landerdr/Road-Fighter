@@ -9,10 +9,12 @@
 #include "../Logic/PlayerFactory.h"
 #include "PlayerCarSFML.h"
 
-class PlayerFactorySFML : public PlayerFactory {
+class PlayerFactorySFML : public roadfighter::PlayerFactory {
+    sf::Texture texture;
+    std::shared_ptr<sf::RenderWindow> window;
 public:
-    PlayerFactorySFML();
-    std::shared_ptr<roadfighter::Entity> create();
+    explicit PlayerFactorySFML(std::shared_ptr<sf::RenderWindow> &window);
+    std::shared_ptr<PlayerCarSFML> create();
 };
 
 

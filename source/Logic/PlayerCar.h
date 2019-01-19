@@ -15,14 +15,12 @@ namespace roadfighter {
         unsigned int maxBullets = 8;
 
         // Controls
-        bool m_up = false;
-        bool m_down = false;
         bool m_left = false;
         bool m_right = false;
     public:
-        PlayerCar();
-
-        void run();
+        void run() override;
+        void moveleft();
+        void moveright();
     };
 }
 

@@ -27,6 +27,9 @@ namespace roadfighter {
         float getRightX();
         float getUpperY();
         float getLowerY();
+
+        virtual void draw();
+        virtual void run();
     };
 }
 

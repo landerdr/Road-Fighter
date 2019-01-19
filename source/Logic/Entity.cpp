@@ -21,3 +21,8 @@ float roadfighter::Entity::getUpperY() {
 float roadfighter::Entity::getLowerY() {
     return c_y - r_h;
 }
+
+void roadfighter::Entity::draw() {}
+
+void roadfighter::Entity::run() {}
+

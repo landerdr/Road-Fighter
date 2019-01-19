@@ -9,11 +9,14 @@
 #include "AbstractFactory.h"
 #include "PlayerCar.h"
 
-class PlayerFactory : public AbstractFactory {
-public:
-    PlayerFactory();
-    std::shared_ptr<roadfighter::Entity> create();
-};
+namespace roadfighter {
+    class PlayerFactory : public AbstractFactory {
+    public:
+        PlayerFactory();
+        std::shared_ptr<roadfighter::PlayerCar> create();
+    };
+}
+
 
 
 #endif //ROAD_FIGHTER_PLAYERFACTORY_H

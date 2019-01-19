@@ -4,8 +4,12 @@
 
 #include "PlayerFactorySFML.h"
 
-PlayerFactorySFML::PlayerFactorySFML() {}
+PlayerFactorySFML::PlayerFactorySFML(std::shared_ptr<sf::RenderWindow> &window) {
+    PlayerFactorySFML::window = window;
+    texture.loadFromFile("./Resources/TestCar.png");
+}
 
-std::shared_ptr<roadfighter::Entity> PlayerFactorySFML::create() {
-    return std::shared_ptr<PlayerCarSFML>();
+std::shared_ptr<PlayerCarSFML> PlayerFactorySFML::create() {
+    PlayerCarSFML c(window);
+    return std::shared_ptr<PlayerCarSFML>(&c);
 }

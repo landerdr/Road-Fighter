@@ -8,11 +8,14 @@
 
 #include "Entity.h"
 
-class AbstractFactory {
-public:
-    AbstractFactory();
-    virtual std::shared_ptr<roadfighter::Entity> create();
-};
+namespace roadfighter {
+    class AbstractFactory {
+    public:
+        AbstractFactory();
+        std::shared_ptr<roadfighter::Entity> create();
+    };
+}
+
 
 
 #endif //ROAD_FIGHTER_ABSTRACTFACTORY_H

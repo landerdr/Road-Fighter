@@ -20,7 +20,9 @@ namespace roadfighter {
         int transX(double fx);
         int transY(double fy);
 
-        float getScale();
+        float getScaleX();
+        float getScaleY();
+
 
     private:
         static std::shared_ptr<Transformation> m_pTransformation;

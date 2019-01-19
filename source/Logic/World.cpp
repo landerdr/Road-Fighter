@@ -13,4 +13,6 @@ bool roadfighter::World::entityCollision(std::shared_ptr<roadfighter::Entity> en
     return (left_x || right_x) && (upper_y || lower_y);
 }
 
-roadfighter::World::World() {}
+void roadfighter::World::attach(std::shared_ptr<roadfighter::ScoreObserver> &score) {
+    World::score = score;
+}

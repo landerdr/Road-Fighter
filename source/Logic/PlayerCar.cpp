@@ -4,21 +4,26 @@
 
 #include "PlayerCar.h"
 
-roadfighter::PlayerCar::PlayerCar() {
-    r_w = 0.05;
-    r_h = 0.033333;
-    c_x = 0;
-    c_y = 2;
-}
-
 void roadfighter::PlayerCar::run() {
-    if (m_left && getLeftX() > -1.5) {
-        c_x -= 0.02;
+    if (m_left) {
+        moveleft();
         m_left = false;
     }
-    if (m_right && getRightX() < 0.2) {
-        c_x += 0.02;
+    if (m_right) {
+        moveright();
         m_right = false;
     }
 
+}
+
+void roadfighter::PlayerCar::moveleft() {
+    if (getLeftX() > -1.5) {
+        c_x -= 0.02;
+    }
+}
+
+void roadfighter::PlayerCar::moveright() {
+    if (getRightX() < 0.5) {
+        c_x += 0.02;
+    }
 }

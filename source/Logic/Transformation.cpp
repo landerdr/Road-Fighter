@@ -31,9 +31,16 @@ int roadfighter::Transformation::transY(double fy) {
     return static_cast<int> ((fy + 3) * (y/6.0));
 }
 
-float roadfighter::Transformation::getScale() {
+float roadfighter::Transformation::getScaleX() {
     if (x && y) {
         return static_cast<float>(x)/200;
+    }
+    return 0;
+}
+
+float roadfighter::Transformation::getScaleY() {
+    if (x && y) {
+        return static_cast<float>(y)/150;
     }
     return 0;
 }

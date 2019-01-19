@@ -4,9 +4,9 @@
 
 #include "AbstractFactory.h"
 
-AbstractFactory::AbstractFactory() {}
+roadfighter::AbstractFactory::AbstractFactory() {}
 
-std::shared_ptr<roadfighter::Entity> AbstractFactory::create() {
+std::shared_ptr<roadfighter::Entity> roadfighter::AbstractFactory::create() {
     return std::shared_ptr<roadfighter::Entity>();
 }
 

@@ -7,6 +7,7 @@
 
 
 #include "Entity.h"
+
 namespace roadfighter {
     class PassingCar : public Entity {
 
