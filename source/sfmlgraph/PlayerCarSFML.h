@@ -10,7 +10,6 @@
 #include "../Logic/PlayerCar.h"
 
 class PlayerCarSFML : public roadfighter::PlayerCar {
-public:
     std::shared_ptr<sf::RenderWindow> window;
     sf::Texture texture;
     sf::Sprite sprite;

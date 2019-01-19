@@ -11,9 +11,6 @@
 namespace roadfighter {
     class PlayerCar : public Entity {
     public:
-        unsigned int amountBullets = 0;
-        unsigned int maxBullets = 8;
-
         // Controls
         bool m_left = false;
         bool m_right = false;

@@ -4,19 +4,19 @@
 
 #include <cmath>
 #include "WorldSFML.h"
-#include "PlayerFactorySFML.h"
+#include "AbstractFactorySFML.h"
 #include "../Logic/Transformation.h"
 #include "PassingCarSFML.h"
 
 WorldSFML::WorldSFML(const std::shared_ptr<sf::RenderWindow> &window) : window(window) {
-    //PlayerFactorySFML pf(WorldSFML::window);
-    player = std::make_shared<PlayerCarSFML> (WorldSFML::window); //pf.create();
+    AbstractFactorySFML pf(WorldSFML::window);
+    player = pf.createPlayerCar(); //std::make_shared<PlayerCarSFML> (WorldSFML::window);
 
-    texture.loadFromFile("./Resources/TestRoad.png");
+    texture.loadFromFile("../Resources/TestRoad.png");
     sprite.setTexture(texture);
     sprite.setScale(roadfighter::Transformation::Instance()->getScaleX(),roadfighter::Transformation::Instance()->getScaleY());
 
-    font.loadFromFile("./Resources/ARCADECLASSIC.ttf");
+    font.loadFromFile("../Resources/ARCADECLASSIC.ttf");
 
     score_1 = sf::Text("Score", font);
     score_1.setCharacterSize(30);

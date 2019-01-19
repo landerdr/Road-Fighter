@@ -24,7 +24,6 @@ class WorldSFML : public roadfighter::World {
     sf::Text speed_2;
     sf::Sprite sprite;
     std::shared_ptr<sf::RenderWindow> window;
-    std::shared_ptr<PlayerCarSFML> player;
     std::set<std::shared_ptr<PassingCarSFML>> PassingCars;
     std::set<std::shared_ptr<RacingCarSFML>> RaceCars;
 public:

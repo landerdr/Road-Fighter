@@ -5,7 +5,7 @@ set(EXECUTABLE_NAME "Road_Fighter")
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_library(RoadFighter STATIC
+add_library(RoadFighterCore STATIC
         source/Logic/Entity.cpp source/Logic/Entity.h
         source/Logic/PlayerCar.cpp source/Logic/PlayerCar.h
         source/Logic/RacingCar.cpp source/Logic/RacingCar.h
@@ -15,14 +15,13 @@ add_library(RoadFighter STATIC
         source/Logic/Random.cpp source/Logic/Random.h
         source/Logic/Transformation.cpp source/Logic/Transformation.h
         source/Logic/AbstractFactory.cpp source/Logic/AbstractFactory.h
-        source/Logic/PlayerFactory.cpp source/Logic/PlayerFactory.h
         source/Logic/ScoreObserver.cpp source/Logic/ScoreObserver.h)
 
 add_executable(${EXECUTABLE_NAME} source/main.cpp
         source/Game.cpp source/Game.h
         source/sfmlgraph/PlayerCarSFML.cpp source/sfmlgraph/PlayerCarSFML.h
         source/sfmlgraph/WorldSFML.cpp source/sfmlgraph/WorldSFML.h
-        source/sfmlgraph/PlayerFactorySFML.cpp source/sfmlgraph/PlayerFactorySFML.h
+        source/sfmlgraph/AbstractFactorySFML.cpp source/sfmlgraph/AbstractFactorySFML.h
         source/sfmlgraph/RacingCarSFML.cpp source/sfmlgraph/RacingCarSFML.h
         source/sfmlgraph/PassingCarSFML.cpp source/sfmlgraph/PassingCarSFML.h)
 
@@ -36,7 +35,7 @@ if(SFML_FOUND)
     target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 endif()
 
-target_link_libraries(${EXECUTABLE_NAME} RoadFighter)
+target_link_libraries(${EXECUTABLE_NAME} RoadFighterCore)
 
 # Install target
 install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)

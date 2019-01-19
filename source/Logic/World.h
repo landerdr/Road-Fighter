@@ -14,8 +14,8 @@
 namespace roadfighter {
     class ScoreObserver;
     class World : public Entity {
-        std::shared_ptr<roadfighter::PlayerCar> player;
     protected:
+        std::shared_ptr<roadfighter::PlayerCar> player;
         std::set<std::shared_ptr<roadfighter::Entity>> Entities;
         std::shared_ptr<roadfighter::ScoreObserver> score;
     public:
