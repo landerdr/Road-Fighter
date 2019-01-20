@@ -17,6 +17,7 @@ namespace roadfighter {
         void run(int speed);
         void moveleft();
         void moveright();
+        void slow(int speed);
     };
 }
 

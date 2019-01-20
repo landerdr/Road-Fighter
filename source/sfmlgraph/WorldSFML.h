@@ -22,11 +22,10 @@ class WorldSFML : public roadfighter::World {
     sf::Text speed_2;
     sf::Sprite sprite;
     std::shared_ptr<sf::RenderWindow> window;
-    std::shared_ptr<AbstractFactorySFML> factory;
 public:
     explicit WorldSFML(const std::shared_ptr<sf::RenderWindow> &window);
     void draw() override;
-    void run() override;
+    void handleInput();
 };
 
 

@@ -34,3 +34,7 @@ void roadfighter::RacingCar::run(int speed) {
 
     c_y += (speed-RacingCar::speed)/4000.0;
 }
+
+void roadfighter::RacingCar::slow(int s) {
+    speed = std::max(0, speed - s);
+}

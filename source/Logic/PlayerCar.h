@@ -20,7 +20,6 @@ namespace roadfighter {
         void moveright();
         void setM_left(bool m_left);
         void setM_right(bool m_right);
-
     };
 }
 

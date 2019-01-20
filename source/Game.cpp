@@ -43,6 +43,7 @@ void Game::run(unsigned int x, unsigned int y) {
             }
         }
         //Check keyboard input
+        world->handleInput();
         world->run();
         world->draw();
         window->display();

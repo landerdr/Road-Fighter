@@ -15,7 +15,6 @@ class RacingCarSFML : public roadfighter::RacingCar {
     std::shared_ptr<sf::RenderWindow> window;
 public:
     explicit RacingCarSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y);
-
     void draw() override;
 };
 
