@@ -15,8 +15,8 @@ std::shared_ptr<roadfighter::PlayerCar> AbstractFactorySFML::createPlayerCar(flo
     return std::make_shared<PlayerCarSFML>(window, x, y);
 }
 
-std::shared_ptr<roadfighter::PassingCar> AbstractFactorySFML::createPassingCar(float x, float y) {
-    return std::make_shared<PassingCarSFML>(window, x, y);
+std::shared_ptr<roadfighter::PassingCar> AbstractFactorySFML::createPassingCar(float x, float y, int t) {
+    return std::make_shared<PassingCarSFML>(window, x, y, t);
 }
 
 std::shared_ptr<roadfighter::RacingCar> AbstractFactorySFML::createRacingCar(float x, float y) {

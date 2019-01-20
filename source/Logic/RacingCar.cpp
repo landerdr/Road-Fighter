@@ -22,6 +22,8 @@ void roadfighter::RacingCar::moveright() {
 void roadfighter::RacingCar::run(int speed) {
     if (RacingCar::speed < 400) {
         RacingCar::speed += 1;
+    } else if (RacingCar::speed > 600) {
+        RacingCar::speed -= 1;
     }
     int movement = roadfighter::Random::Instance()->getInt() % 3;
 

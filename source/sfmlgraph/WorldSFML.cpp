@@ -12,9 +12,10 @@
 WorldSFML::WorldSFML(const std::shared_ptr<sf::RenderWindow> &window) : window(window) {
     factory = std::make_shared<AbstractFactorySFML>(WorldSFML::window);
 
-    Player = factory->createPlayerCar(0, 1);
+    Player = factory->createPlayerCar(0, 0.5);
     RaceCars.emplace(factory->createRacingCar(-1, 0));
     RaceCars.emplace(factory->createRacingCar(-1, 1));
+    RaceCars.emplace(factory->createRacingCar(0, -1));
 
     texture.loadFromFile("../Resources/TestRoad.png");
     sprite.setTexture(texture);

@@ -53,7 +53,7 @@ void roadfighter::World::run() {
     if (speed < 600 && Z) {
         speed += 1;
     }
-    if (speed > 400 && !Z) {
+    if (speed > 400 && (!Z || speed > 600)) {
         speed -= 1;
     }
     if (speed > 200 && S) {
@@ -105,18 +105,28 @@ void roadfighter::World::run() {
         if (!removed) {
             collision = entityCollision(Player, *it);
             if (std::get<0>(collision) || std::get<1>(collision)) {
+                if ((*it)->getType() == 1) {
+                    speed = std::max(0, speed + 200);
+                }
+                else {
+                    speed = std::max(0, speed - 200);
+                    a_collisions += 1;
+                }
                 it = PassingCars.erase(it);
-                speed = std::max(0, speed - 200);
                 removed = true;
-                a_collisions += 1;
             }
         }
         if (!removed) {
             for(auto &e : RaceCars) {
                 collision = entityCollision(e, *it);
                 if (std::get<0>(collision) || std::get<1>(collision)) {
+                    if ((*it)->getType() == 1) {
+                        e->slow(-200);
+                    }
+                    else {
+                        e->slow(200);
+                    }
                     it = PassingCars.erase(it);
-                    e->slow(200);
                     removed = true;
                     break;
                 }
@@ -180,7 +190,12 @@ void roadfighter::World::randomEvent() {
     if (event < 10) {
         double x = -1.5 + 0.001*(roadfighter::Random::Instance()->getInt() % 2000);
         x = std::min(std::max(x, -1.3), 0.3);
-        PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4));
+        PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, 0));
+    }
+    else if (event < 15) {
+        double x = -1.5 + 0.001*(roadfighter::Random::Instance()->getInt() % 2000);
+        x = std::min(std::max(x, -1.3), 0.3);
+        PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, 1));
     }
 }
 

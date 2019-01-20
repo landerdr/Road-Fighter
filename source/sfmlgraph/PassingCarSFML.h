@@ -14,7 +14,7 @@ class PassingCarSFML : public roadfighter::PassingCar {
     sf::Texture texture;
     std::shared_ptr<sf::RenderWindow> window;
 public:
-    explicit PassingCarSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y);
+    explicit PassingCarSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y, int t);
     void draw() override;
 };
 
