@@ -7,7 +7,7 @@
 #include "../Logic/Random.h"
 
 RacingCarSFML::RacingCarSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y) : window(window) {
-    texture.loadFromFile("../Resources/RaceCar.png");
+    texture.loadFromFile("./Resources/RaceCar.png");
     sprite.setTexture(texture);
     sprite.setScale(roadfighter::Transformation::Instance()->getScaleX(),roadfighter::Transformation::Instance()->getScaleY());
     r_w = static_cast<float> (texture.getSize().x * roadfighter::Transformation::Instance()->getScaleX() * 4.0 / window->getSize().x);

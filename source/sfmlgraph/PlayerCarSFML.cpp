@@ -6,7 +6,7 @@
 #include "../Logic/Transformation.h"
 
 PlayerCarSFML::PlayerCarSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y) : window(window) {
-    texture.loadFromFile("../Resources/PlayerCar.png");
+    texture.loadFromFile("./Resources/PlayerCar.png");
     sprite.setTexture(texture);
     sprite.setScale(roadfighter::Transformation::Instance()->getScaleX(),roadfighter::Transformation::Instance()->getScaleY());
 

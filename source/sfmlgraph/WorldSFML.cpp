@@ -15,13 +15,13 @@ WorldSFML::WorldSFML(const std::shared_ptr<sf::RenderWindow> &window) : window(w
     Player = factory->createPlayerCar(0, 0.5);
     RaceCars.emplace(factory->createRacingCar(-1, 0));
     RaceCars.emplace(factory->createRacingCar(-1, 1));
-    RaceCars.emplace(factory->createRacingCar(0, -1));
+    RaceCars.emplace(factory->createRacingCar(static_cast<float>(-0.5), -1));
 
-    texture.loadFromFile("../Resources/TestRoad.png");
+    texture.loadFromFile("./Resources/TestRoad.png");
     sprite.setTexture(texture);
     sprite.setScale(roadfighter::Transformation::Instance()->getScaleX(),roadfighter::Transformation::Instance()->getScaleY());
 
-    font.loadFromFile("../Resources/ARCADECLASSIC.ttf");
+    font.loadFromFile("./Resources/ARCADECLASSIC.ttf");
 
     score_1 = sf::Text("Score", font);
     score_1.setCharacterSize(30);

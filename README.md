@@ -3,6 +3,8 @@
 
 Clang format file from: [here](https://github.com/broeckho/prog2)
 
+Important: To run game either use run.sh or change working directory to the root from this repo.
+
 #### Game Controls
 
 Button | Action
