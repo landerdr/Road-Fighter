@@ -32,3 +32,11 @@ float roadfighter::Entity::getR_h() const {
     return r_h;
 }
 
+float roadfighter::Entity::getC_x() const {
+    return c_x;
+}
+
+float roadfighter::Entity::getC_y() const {
+    return c_y;
+}
+

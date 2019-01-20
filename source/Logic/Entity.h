@@ -12,15 +12,19 @@ namespace roadfighter {
     class Entity {
     protected:
         // Center x position
-        float c_x;
+        float c_x = 0;
         // Center y position
-        float c_y;
+        float c_y = 0;
         // Half width of sprite
-        float r_w;
+        float r_w = 0;
         // Half length of sprite
-        float r_h;
+        float r_h = 0;
 
     public:
+        float getC_x() const;
+
+        float getC_y() const;
+
         float getR_w() const;
 
         float getR_h() const;

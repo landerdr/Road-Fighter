@@ -10,7 +10,8 @@
 
 namespace roadfighter {
     class Bullet : public Entity {
-
+    public:
+        void run() override;
     };
 }
 

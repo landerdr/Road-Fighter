@@ -96,6 +96,9 @@ void WorldSFML::run() {
     if (speed > 200 && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
         speed -= 1;
     }
+    if (!Bullet && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
+        Bullet = factory->createBullet(Player->getC_x(), Player->getUpperY());
+    }
     Player->setM_right(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D));
     Player->setM_left(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q));
 
@@ -103,7 +106,7 @@ void WorldSFML::run() {
 
     for(auto it = PassingCars.begin(); it != PassingCars.end();) {
         (*it)->run(speed);
-        if ((*it)->getUpperY() > 5) {
+        if ((*it)->getUpperY() > 4) {
             it = PassingCars.erase(it);
         }
         else {
@@ -112,6 +115,13 @@ void WorldSFML::run() {
     }
     for(auto &e : RaceCars) {
         e->run(speed);
+    }
+
+    if (Bullet) {
+        Bullet->run();
+        if (Bullet->getLowerY() < -4) {
+            Bullet = nullptr;
+        }
     }
 
     speed_2.setString(std::to_string(speed) + "  kmph");

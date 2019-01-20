@@ -20,7 +20,7 @@ void Game::run(unsigned int x, unsigned int y) {
      */
     int fps = 100;
 
-    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "myproject");
+    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing Game");
 //    window->setVerticalSyncEnabled(false);
     roadfighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
 

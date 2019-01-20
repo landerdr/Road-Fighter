@@ -3,3 +3,7 @@
 //
 
 #include "Bullet.h"
+
+void roadfighter::Bullet::run() {
+    c_y -= 0.14;
+}
