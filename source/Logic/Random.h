@@ -5,6 +5,8 @@
 #ifndef ROAD_FIGHTER_RANDOM_H
 #define ROAD_FIGHTER_RANDOM_H
 
+#include <memory>
+
 namespace roadfighter {
 class Random
 {

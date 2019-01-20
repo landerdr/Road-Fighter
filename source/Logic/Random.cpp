@@ -3,7 +3,6 @@
 //
 
 #include "Random.h"
-#include <memory>
 
 std::shared_ptr<roadfighter::Random> roadfighter::Random::m_pRandom = nullptr;
 
