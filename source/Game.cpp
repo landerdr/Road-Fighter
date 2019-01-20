@@ -3,9 +3,7 @@
 //
 
 #include "Game.h"
-#include "Logic/PlayerCar.h"
 #include "Logic/Transformation.h"
-#include "sfmlgraph/PlayerCarSFML.h"
 #include "sfmlgraph/WorldSFML.h"
 #include <SFML/Graphics.hpp>
 #include <chrono>
