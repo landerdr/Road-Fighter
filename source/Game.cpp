@@ -24,7 +24,9 @@ void Game::run(unsigned int x, unsigned int y) {
 //    window->setVerticalSyncEnabled(false);
     roadfighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
 
-    WorldSFML world(window);
+    auto world = std::make_shared<WorldSFML>(window);
+    auto score = std::make_shared<roadfighter::ScoreObserver>(world);
+    world->attach(score);
 
     auto next_frame = std::chrono::steady_clock::now();
 
@@ -41,8 +43,8 @@ void Game::run(unsigned int x, unsigned int y) {
             }
         }
         //Check keyboard input
-        world.run();
-        world.draw();
+        world->run();
+        world->draw();
         window->display();
 
 //        std::cout << std::time(nullptr) << '\n';

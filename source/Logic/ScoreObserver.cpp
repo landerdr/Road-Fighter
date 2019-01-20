@@ -11,5 +11,12 @@ int roadfighter::ScoreObserver::getScore() const {
 }
 
 void roadfighter::ScoreObserver::update() {
-    score += 1;
+    int placementScore = 0;
+    for (auto &c : subject->getRaceCars()) {
+        // Checks if player is further on screen than other racecars
+        if (c->getUpperY() > subject->getPlayer()->getUpperY()) {
+            placementScore += 5000;
+        }
+    }
+    score = subject->getDistance() + placementScore;
 }

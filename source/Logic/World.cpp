@@ -16,3 +16,23 @@ bool roadfighter::World::entityCollision(std::shared_ptr<roadfighter::Entity> en
 void roadfighter::World::attach(std::shared_ptr<roadfighter::ScoreObserver> &score) {
     World::score = score;
 }
+
+int roadfighter::World::getDistance() const {
+    return distance;
+}
+
+int roadfighter::World::getFinish() const {
+    return finish;
+}
+
+int roadfighter::World::getSpeed() const {
+    return speed;
+}
+
+const std::shared_ptr<roadfighter::PlayerCar> &roadfighter::World::getPlayer() const {
+    return Player;
+}
+
+const std::set<std::shared_ptr<roadfighter::RacingCar>> &roadfighter::World::getRaceCars() const {
+    return RaceCars;
+}

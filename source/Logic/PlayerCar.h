@@ -10,7 +10,7 @@
 
 namespace roadfighter {
     class PlayerCar : public Entity {
-    public:
+    protected:
         // Controls
         bool m_left = false;
         bool m_right = false;
@@ -18,6 +18,9 @@ namespace roadfighter {
         void run() override;
         void moveleft();
         void moveright();
+        void setM_left(bool m_left);
+        void setM_right(bool m_right);
+
     };
 }
 

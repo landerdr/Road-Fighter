@@ -14,7 +14,7 @@ class PlayerCarSFML : public roadfighter::PlayerCar {
     sf::Texture texture;
     sf::Sprite sprite;
 public:
-    explicit PlayerCarSFML(const std::shared_ptr<sf::RenderWindow> &window);
+    explicit PlayerCarSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y);
 
     void draw() override;
 };

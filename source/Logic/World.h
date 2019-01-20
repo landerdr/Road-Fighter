@@ -27,6 +27,14 @@ namespace roadfighter {
         std::set<std::shared_ptr<RacingCar>> RaceCars;
         std::shared_ptr<roadfighter::ScoreObserver> score;
     public:
+        int getDistance() const;
+        int getFinish() const;
+        int getSpeed() const;
+
+        const std::shared_ptr<PlayerCar> &getPlayer() const;
+
+        const std::set<std::shared_ptr<RacingCar>> &getRaceCars() const;
+
         void attach(std::shared_ptr<roadfighter::ScoreObserver> &score);
         bool entityCollision(std::shared_ptr<roadfighter::Entity> ent1, std::shared_ptr<roadfighter::Entity> ent2);
     };

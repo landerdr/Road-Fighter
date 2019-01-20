@@ -10,7 +10,10 @@
 
 WorldSFML::WorldSFML(const std::shared_ptr<sf::RenderWindow> &window) : window(window) {
     factory = std::make_shared<AbstractFactorySFML>(WorldSFML::window);
-    Player = factory->createPlayerCar();
+
+    Player = factory->createPlayerCar(0, 1);
+    RaceCars.emplace(factory->createRacingCar(-1, 0));
+    RaceCars.emplace(factory->createRacingCar(-1, 1));
 
     texture.loadFromFile("../Resources/TestRoad.png");
     sprite.setTexture(texture);
@@ -38,9 +41,9 @@ WorldSFML::WorldSFML(const std::shared_ptr<sf::RenderWindow> &window) : window(w
     speed_2.setPosition(roadfighter::Transformation::Instance()->transX(2.2), 120);
     speed_2.setStyle(sf::Text::Bold);
 
-    PassingCars.emplace(factory->createPassingCar());
-    RaceCars.emplace(factory->createRacingCar());
-    Bullet = factory->createBullet();
+    PassingCars.emplace(factory->createPassingCar(0, -5));
+
+//    Bullet = factory->createBullet();
 }
 
 void WorldSFML::draw() {
@@ -61,7 +64,9 @@ void WorldSFML::draw() {
 
     Player->draw();
 
-    Bullet->draw();
+    if (Bullet) {
+        Bullet->draw();
+    }
 
     // UI elements
     window->draw(score_1);
@@ -73,11 +78,12 @@ void WorldSFML::draw() {
 }
 
 void WorldSFML::run() {
+    // Player passed finish
     if (distance > finish) {
-        score_2.setString("10000");
         speed = 0;
         return;
     }
+    // Handle keyboard input
     if (speed < 400 && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
         speed += 1;
     }
@@ -90,19 +96,26 @@ void WorldSFML::run() {
     if (speed > 200 && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
         speed -= 1;
     }
+    Player->setM_right(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D));
+    Player->setM_left(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q));
 
-    Player->m_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
-    Player->m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q);
     Player->run();
-    for(auto &e : PassingCars) {
-        e->run(speed);
+
+    for(auto it = PassingCars.begin(); it != PassingCars.end();) {
+        (*it)->run(speed);
+        if ((*it)->getUpperY() > 5) {
+            it = PassingCars.erase(it);
+        }
+        else {
+            ++it;
+        }
     }
     for(auto &e : RaceCars) {
         e->run(speed);
     }
 
     speed_2.setString(std::to_string(speed) + "  kmph");
-//    score->update();
-//    score_2.setString(std::to_string(score->getScore()));
+    score->update();
+    score_2.setString(std::to_string(score->getScore()));
 }
 

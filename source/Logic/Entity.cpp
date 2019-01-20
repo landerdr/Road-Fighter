@@ -24,3 +24,11 @@ void roadfighter::Entity::draw() {}
 
 void roadfighter::Entity::run() {}
 
+float roadfighter::Entity::getR_w() const {
+    return r_w;
+}
+
+float roadfighter::Entity::getR_h() const {
+    return r_h;
+}
+

@@ -15,10 +15,10 @@
 namespace roadfighter {
     class AbstractFactory {
     public:
-        virtual std::shared_ptr<roadfighter::PlayerCar> createPlayerCar() = 0;
-        virtual std::shared_ptr<roadfighter::PassingCar> createPassingCar() = 0;
-        virtual std::shared_ptr<roadfighter::RacingCar> createRacingCar() = 0;
-        virtual std::shared_ptr<roadfighter::Bullet> createBullet() = 0;
+        virtual std::shared_ptr<roadfighter::PlayerCar> createPlayerCar(float x, float y) = 0;
+        virtual std::shared_ptr<roadfighter::PassingCar> createPassingCar(float x, float y) = 0;
+        virtual std::shared_ptr<roadfighter::RacingCar> createRacingCar(float x, float y) = 0;
+        virtual std::shared_ptr<roadfighter::Bullet> createBullet(float x, float y) = 0;
     };
 }
 

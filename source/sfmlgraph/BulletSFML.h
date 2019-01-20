@@ -13,7 +13,7 @@ class BulletSFML : public roadfighter::Bullet {
     sf::RectangleShape shape;
     std::shared_ptr<sf::RenderWindow> window;
 public:
-    explicit BulletSFML(const std::shared_ptr<sf::RenderWindow> &window);
+    explicit BulletSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y);
     void draw() override;
 };
 

@@ -21,6 +21,10 @@ namespace roadfighter {
         float r_h;
 
     public:
+        float getR_w() const;
+
+        float getR_h() const;
+
         float getLeftX();
         float getRightX();
         float getUpperY();

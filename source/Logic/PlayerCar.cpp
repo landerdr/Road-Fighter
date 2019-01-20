@@ -27,3 +27,11 @@ void roadfighter::PlayerCar::moveright() {
         c_x += 0.02;
     }
 }
+
+void roadfighter::PlayerCar::setM_left(bool m_left) {
+    PlayerCar::m_left = m_left;
+}
+
+void roadfighter::PlayerCar::setM_right(bool m_right) {
+    PlayerCar::m_right = m_right;
+}
