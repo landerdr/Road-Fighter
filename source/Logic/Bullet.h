@@ -5,16 +5,14 @@
 #ifndef ROAD_FIGHTER_BULLET_H
 #define ROAD_FIGHTER_BULLET_H
 
-
 #include "Entity.h"
 
 namespace roadfighter {
-    class Bullet : public Entity {
-    public:
+class Bullet : public Entity
+{
+public:
         void run() override;
-    };
-}
+};
+} // namespace roadfighter
 
-
-
-#endif //ROAD_FIGHTER_BULLET_H
+#endif // ROAD_FIGHTER_BULLET_H

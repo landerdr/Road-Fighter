@@ -5,18 +5,30 @@
 #ifndef ROAD_FIGHTER_RACINGCARSFML_H
 #define ROAD_FIGHTER_RACINGCARSFML_H
 
-
-#include <SFML/Graphics.hpp>
 #include "../Logic/RacingCar.h"
+#include <SFML/Graphics.hpp>
 
-class RacingCarSFML : public roadfighter::RacingCar {
-    sf::Sprite sprite;
-    sf::Texture texture;
-    std::shared_ptr<sf::RenderWindow> window;
+class RacingCarSFML : public roadfighter::RacingCar
+{
+        // Car sprite
+        sf::Sprite sprite;
+        // Car texture
+        sf::Texture texture;
+        // Pointer to game window
+        std::shared_ptr<sf::RenderWindow> window;
+
 public:
-    explicit RacingCarSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y);
-    void draw() override;
+        /**
+         * Creates car, loads texture etc
+         * @param window
+         * @param x
+         * @param y
+         */
+        explicit RacingCarSFML(const std::shared_ptr<sf::RenderWindow>& window, float x, float y);
+        /**
+         * Draws car on screen
+         */
+        void draw() override;
 };
 
-
-#endif //ROAD_FIGHTER_RACINGCARSFML_H
+#endif // ROAD_FIGHTER_RACINGCARSFML_H

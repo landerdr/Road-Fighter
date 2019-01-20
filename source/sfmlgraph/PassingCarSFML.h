@@ -5,18 +5,31 @@
 #ifndef ROAD_FIGHTER_PASSINGCARSFML_H
 #define ROAD_FIGHTER_PASSINGCARSFML_H
 
-
-#include <SFML/Graphics.hpp>
 #include "../Logic/PassingCar.h"
+#include <SFML/Graphics.hpp>
 
-class PassingCarSFML : public roadfighter::PassingCar {
-    sf::Sprite sprite;
-    sf::Texture texture;
-    std::shared_ptr<sf::RenderWindow> window;
+class PassingCarSFML : public roadfighter::PassingCar
+{
+        // Car sprite
+        sf::Sprite sprite;
+        // Car texture
+        sf::Texture texture;
+        // Pointer to game window
+        std::shared_ptr<sf::RenderWindow> window;
+
 public:
-    explicit PassingCarSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y, int t);
-    void draw() override;
+        /**
+         * Creates car, loads texture etc
+         * @param window
+         * @param x
+         * @param y
+         * @param t
+         */
+        explicit PassingCarSFML(const std::shared_ptr<sf::RenderWindow>& window, float x, float y, int t);
+        /**
+         * Draws car on window
+         */
+        void draw() override;
 };
 
-
-#endif //ROAD_FIGHTER_PASSINGCAR_H
+#endif // ROAD_FIGHTER_PASSINGCAR_H

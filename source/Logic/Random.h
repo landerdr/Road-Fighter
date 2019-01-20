@@ -6,18 +6,23 @@
 #define ROAD_FIGHTER_RANDOM_H
 
 namespace roadfighter {
-    class Random {
-    protected:
+class Random
+{
+protected:
         Random();
-    public:
+
+public:
         static std::shared_ptr<Random> Instance();
 
+        /**
+         * Returns random int value
+         * @return
+         */
         int getInt();
-    private:
+
+private:
         static std::shared_ptr<Random> m_pRandom;
-    };
-}
+};
+} // namespace roadfighter
 
-
-
-#endif //ROAD_FIGHTER_RANDOM_H
+#endif // ROAD_FIGHTER_RANDOM_H

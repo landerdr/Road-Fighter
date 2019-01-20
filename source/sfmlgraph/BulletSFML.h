@@ -5,17 +5,28 @@
 #ifndef ROAD_FIGHTER_BULLETSFML_H
 #define ROAD_FIGHTER_BULLETSFML_H
 
-
-#include <SFML/Graphics.hpp>
 #include "../Logic/Bullet.h"
+#include <SFML/Graphics.hpp>
 
-class BulletSFML : public roadfighter::Bullet {
-    sf::RectangleShape shape;
-    std::shared_ptr<sf::RenderWindow> window;
+class BulletSFML : public roadfighter::Bullet
+{
+        // Bullet shape
+        sf::RectangleShape shape;
+        // Pointer to game window
+        std::shared_ptr<sf::RenderWindow> window;
+
 public:
-    explicit BulletSFML(const std::shared_ptr<sf::RenderWindow> &window, float x, float y);
-    void draw() override;
+        /**
+         * Handles creation of bullet, loading texture etc
+         * @param window
+         * @param x
+         * @param y
+         */
+        explicit BulletSFML(const std::shared_ptr<sf::RenderWindow>& window, float x, float y);
+        /**
+         * Draws bullet on window
+         */
+        void draw() override;
 };
 
-
-#endif //ROAD_FIGHTER_BULLETSFML_H
+#endif // ROAD_FIGHTER_BULLETSFML_H

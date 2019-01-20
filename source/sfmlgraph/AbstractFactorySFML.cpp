@@ -3,26 +3,28 @@
 //
 
 #include "AbstractFactorySFML.h"
+#include "BulletSFML.h"
 #include "PassingCarSFML.h"
 #include "RacingCarSFML.h"
-#include "BulletSFML.h"
 
-AbstractFactorySFML::AbstractFactorySFML(std::shared_ptr<sf::RenderWindow> &window) : window(window) {
+AbstractFactorySFML::AbstractFactorySFML(std::shared_ptr<sf::RenderWindow>& window) : window(window) {}
 
+std::shared_ptr<roadfighter::PlayerCar> AbstractFactorySFML::createPlayerCar(float x, float y)
+{
+        return std::make_shared<PlayerCarSFML>(window, x, y);
 }
 
-std::shared_ptr<roadfighter::PlayerCar> AbstractFactorySFML::createPlayerCar(float x, float y) {
-    return std::make_shared<PlayerCarSFML>(window, x, y);
+std::shared_ptr<roadfighter::PassingCar> AbstractFactorySFML::createPassingCar(float x, float y, int t)
+{
+        return std::make_shared<PassingCarSFML>(window, x, y, t);
 }
 
-std::shared_ptr<roadfighter::PassingCar> AbstractFactorySFML::createPassingCar(float x, float y, int t) {
-    return std::make_shared<PassingCarSFML>(window, x, y, t);
+std::shared_ptr<roadfighter::RacingCar> AbstractFactorySFML::createRacingCar(float x, float y)
+{
+        return std::make_shared<RacingCarSFML>(window, x, y);
 }
 
-std::shared_ptr<roadfighter::RacingCar> AbstractFactorySFML::createRacingCar(float x, float y) {
-    return std::make_shared<RacingCarSFML>(window, x, y);
-}
-
-std::shared_ptr<roadfighter::Bullet> AbstractFactorySFML::createBullet(float x, float y) {
-    return std::make_shared<BulletSFML>(window, x, y);
+std::shared_ptr<roadfighter::Bullet> AbstractFactorySFML::createBullet(float x, float y)
+{
+        return std::make_shared<BulletSFML>(window, x, y);
 }

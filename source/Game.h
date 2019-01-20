@@ -5,11 +5,10 @@
 #ifndef ROAD_FIGHTER_GAME_H
 #define ROAD_FIGHTER_GAME_H
 
-
-class Game {
+class Game
+{
 public:
-    void run(unsigned int x, unsigned int y);
+        void run(unsigned int x, unsigned int y);
 };
 
-
-#endif //ROAD_FIGHTER_GAME_H
+#endif // ROAD_FIGHTER_GAME_H
