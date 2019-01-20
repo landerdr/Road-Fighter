@@ -18,5 +18,6 @@ void roadfighter::ScoreObserver::update() {
             placementScore += 5000;
         }
     }
-    score = subject->getDistance() + placementScore;
+    score = subject->getDistance() + placementScore - subject->getA_collisions() * 500;
+    score = std::max(score, 0);
 }

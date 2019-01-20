@@ -26,6 +26,11 @@ namespace roadfighter {
         bool D = false;
         bool Space = false;
 
+        unsigned int a_collisions = 0;
+    public:
+        unsigned int getA_collisions() const;
+
+    protected:
         int distance = 0;
         int finish = 20000;
         int speed = 0;

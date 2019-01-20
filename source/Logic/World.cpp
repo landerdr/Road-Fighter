@@ -8,10 +8,10 @@
 std::tuple<bool, bool> roadfighter::World::entityCollision(std::shared_ptr<roadfighter::Entity> ent1, std::shared_ptr<roadfighter::Entity> ent2) {
     if (ent1 == ent2)
         return {false, false};
-    bool left_x = ent1->getLeftX() > ent2->getLeftX() && ent1->getLeftX() < ent2->getRightX();
-    bool right_x = ent1->getRightX() > ent2->getLeftX() && ent1->getRightX() < ent2->getRightX();
-    bool upper_y = ent1->getUpperY() < ent2->getUpperY() && ent1->getUpperY() > ent2->getLowerY();
-    bool lower_y = ent1->getLowerY() < ent2->getUpperY() && ent1->getLowerY() > ent2->getLowerY();
+    bool left_x = ent1->getLeftX() >= ent2->getLeftX() && ent1->getLeftX() <= ent2->getRightX();
+    bool right_x = ent1->getRightX() >= ent2->getLeftX() && ent1->getRightX() <= ent2->getRightX();
+    bool upper_y = ent1->getUpperY() <= ent2->getUpperY() && ent1->getUpperY() >= ent2->getLowerY();
+    bool lower_y = ent1->getLowerY() <= ent2->getUpperY() && ent1->getLowerY() >= ent2->getLowerY();
     return {left_x && (upper_y || lower_y) , right_x && (upper_y || lower_y)};
 }
 
@@ -108,6 +108,18 @@ void roadfighter::World::run() {
                 it = PassingCars.erase(it);
                 speed = std::max(0, speed - 200);
                 removed = true;
+                a_collisions += 1;
+            }
+        }
+        if (!removed) {
+            for(auto &e : RaceCars) {
+                collision = entityCollision(e, *it);
+                if (std::get<0>(collision) || std::get<1>(collision)) {
+                    it = PassingCars.erase(it);
+                    e->slow(200);
+                    removed = true;
+                    break;
+                }
             }
         }
         if (!removed) {
@@ -178,6 +190,10 @@ void roadfighter::World::clearInput() {
     S = false;
     D = false;
     Space = false;
+}
+
+unsigned int roadfighter::World::getA_collisions() const {
+    return a_collisions;
 }
 
 
