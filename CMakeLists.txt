@@ -15,7 +15,7 @@ add_library(RoadFighterCore STATIC
         source/Logic/Random.cpp source/Logic/Random.h
         source/Logic/Transformation.cpp source/Logic/Transformation.h
         source/Logic/AbstractFactory.cpp source/Logic/AbstractFactory.h
-        source/Logic/ScoreObserver.cpp source/Logic/ScoreObserver.h)
+        source/Logic/ScoreObserver.cpp source/Logic/ScoreObserver.h source/Logic/HighSoreModule.cpp source/Logic/HighSoreModule.h)
 
 add_executable(${EXECUTABLE_NAME} source/main.cpp
         source/Game.cpp source/Game.h

@@ -4,6 +4,7 @@
 
 #include "Game.h"
 #include "Logic/Transformation.h"
+#include "Logic/HighSoreModule.h"
 #include "sfmlgraph/WorldSFML.h"
 #include <SFML/Graphics.hpp>
 #include <chrono>
@@ -17,6 +18,7 @@ void Game::run(unsigned int x, unsigned int y)
          * https://stackoverflow.com/questions/38730273/how-to-limit-fps-in-a-loop-with-c
          */
         int fps = 100;
+        roadfighter::HighSoreModule h;
 
         auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing Game");
         //    window->setVerticalSyncEnabled(false);
@@ -38,6 +40,7 @@ void Game::run(unsigned int x, unsigned int y)
                 while (window->pollEvent(*event)) {
                         if (event->type == sf::Event::Closed ||
                             (event->type == sf::Event::KeyPressed && event->key.code == sf::Keyboard::Key::Escape)) {
+                                h.save(world->getScore());
                                 window->close();
                         }
                 }

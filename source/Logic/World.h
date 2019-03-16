@@ -80,6 +80,8 @@ public:
          * Resets all the input bools
          */
         void clearInput();
+
+        int getScore();
 };
 } // namespace roadfighter
 

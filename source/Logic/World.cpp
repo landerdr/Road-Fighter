@@ -196,3 +196,7 @@ void roadfighter::World::clearInput()
 }
 
 unsigned int roadfighter::World::getA_collisions() const { return a_collisions; }
+
+int roadfighter::World::getScore() {
+        return score->getScore();
+}
