@@ -14,15 +14,29 @@ roadfighter::HighSoreModule::HighSoreModule()
                 for (int i = 0; i < 4; i++) {
                         // Scans variable name
                         getline(myfile, line);
+                        std::cout << line << " ";
                         if (line == "Highscore:") {
                                 getline(myfile, line);
                                 highscore = std::stoi(line);
-                                std::cout << highscore;
+                                std::cout << line << std::endl;
+                                continue;
+                        }
+                        if (line == "Width:") {
+                                getline(myfile, line);
+                                width = (unsigned)std::stoi(line);
+                                std::cout << line << std::endl;
+                                continue;
+                        }
+                        if (line == "Height:") {
+                                getline(myfile, line);
+                                height = (unsigned)std::stoi(line);
+                                std::cout << line << std::endl;
                                 continue;
                         }
 
                         // Does nothing if variable doen't match
                         getline(myfile, line);
+                        std::cout << line << std::endl;
                 }
 
                 myfile.close();
@@ -30,12 +44,16 @@ roadfighter::HighSoreModule::HighSoreModule()
 
         else {
                 std::ofstream outfile(savefile);
-                outfile << "Name:\n\nHighscore:\n0";
+                outfile << "Name:\n\nHighscore:\n0\nWidth:\n800\nHeight:\n600";
                 outfile.close();
         }
 }
 
 int roadfighter::HighSoreModule::getHighscore() const { return highscore; }
+
+unsigned int roadfighter::HighSoreModule::getWidth() const { return width; }
+
+unsigned int roadfighter::HighSoreModule::getHeight() const { return height; }
 
 void roadfighter::HighSoreModule::save(int score)
 {

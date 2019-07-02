@@ -8,7 +8,7 @@
 class Game
 {
 public:
-        void run(unsigned int x, unsigned int y);
+        void run();
 };
 
 #endif // ROAD_FIGHTER_GAME_H
