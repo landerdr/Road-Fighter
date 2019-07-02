@@ -60,7 +60,7 @@ void roadfighter::HighSoreModule::save(int score)
         if (score > highscore) {
                 std::ofstream outfile(savefile);
 
-                outfile << "Name:\n\nHighscore:\n" << score;
+                outfile << "Name:\n\nHighscore:\n" << score << "\nWidth:\n" << width << "\n Height:\n" << height;
 
                 outfile.close();
         }
