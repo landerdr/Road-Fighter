@@ -1,12 +1,12 @@
 //
-// Created by Lander on 16.03.19.
+// Created by Lander on 03.06.19.
 //
 
-#include "HighSoreModule.h"
+#include "Configuration.h"
 #include <fstream>
 #include <iostream>
 
-roadfighter::HighSoreModule::HighSoreModule()
+roadfighter::Configuration::Configuration()
 {
         std::string line;
         std::ifstream myfile(savefile);
@@ -15,12 +15,6 @@ roadfighter::HighSoreModule::HighSoreModule()
                         // Scans variable name
                         getline(myfile, line);
                         std::cout << line << " ";
-                        if (line == "Highscore:") {
-                                getline(myfile, line);
-                                highscore = std::stoi(line);
-                                std::cout << line << std::endl;
-                                continue;
-                        }
                         if (line == "Width:") {
                                 getline(myfile, line);
                                 width = (unsigned)std::stoi(line);
@@ -44,20 +38,11 @@ roadfighter::HighSoreModule::HighSoreModule()
 
         else {
                 std::ofstream outfile(savefile);
-                outfile << "Name:\n\nHighscore:\n0";
+                outfile << "Width:\n800\nHeight:\n600";
                 outfile.close();
         }
 }
 
-int roadfighter::HighSoreModule::getHighscore() const { return highscore; }
+unsigned int roadfighter::Configuration::getWidth() const { return width; }
 
-void roadfighter::HighSoreModule::save(int score)
-{
-        if (score > highscore) {
-                std::ofstream outfile(savefile);
-
-                outfile << "Name:\n\nHighscore:\n" << score;
-
-                outfile.close();
-        }
-}
+unsigned int roadfighter::Configuration::getHeight() const { return height; }

@@ -4,6 +4,7 @@
 
 #include "Game.h"
 #include "Logic/HighSoreModule.h"
+#include "Logic/Configuration.h"
 #include "Logic/Transformation.h"
 #include "sfmlgraph/WorldSFML.h"
 #include <SFML/Graphics.hpp>
@@ -19,8 +20,9 @@ void Game::run()
          */
         int fps = 100;
         roadfighter::HighSoreModule h;
-        unsigned int x = h.getHeight();
-        unsigned int y = h.getWidth();
+        roadfighter::Configuration config;
+        unsigned int x = config.getHeight();
+        unsigned int y = config.getWidth();
 
         auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing Game");
         //    window->setVerticalSyncEnabled(false);
