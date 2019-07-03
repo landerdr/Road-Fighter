@@ -50,7 +50,7 @@ void roadfighter::World::run()
         if (speed > 200 && S) {
                 speed -= 1;
         }
-        if (!Bullet && Space && shot + std::chrono::seconds(1) < std::chrono::steady_clock::now()) {
+        if (!Bullet && Space && shot + std::chrono::seconds(2) < std::chrono::steady_clock::now()) {
                 Bullet = factory->createBullet(Player->getC_x(), Player->getUpperY());
         }
         Player->setM_right(D);
@@ -197,6 +197,4 @@ void roadfighter::World::clearInput()
 
 unsigned int roadfighter::World::getA_collisions() const { return a_collisions; }
 
-int roadfighter::World::getScore() {
-        return score->getScore();
-}
+int roadfighter::World::getScore() { return score->getScore(); }
