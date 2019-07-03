@@ -11,7 +11,7 @@ roadfighter::HighSoreModule::HighSoreModule()
         std::string line;
         std::ifstream myfile(savefile);
         if (myfile.is_open()) {
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 2; i++) {
                         // Scans variable name
                         getline(myfile, line);
                         std::cout << line << " ";

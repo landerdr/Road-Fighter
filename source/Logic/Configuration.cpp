@@ -9,11 +9,19 @@
 roadfighter::Configuration::Configuration()
 {
         std::string line;
+        std::string lastline;
         std::ifstream myfile(savefile);
         if (myfile.is_open()) {
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 500; i++) {
+                        lastline = line;
+
                         // Scans variable name
                         getline(myfile, line);
+
+                        if (lastline == line) {
+                                break;
+                        }
+
                         std::cout << line << " ";
                         if (line == "Width:") {
                                 getline(myfile, line);
