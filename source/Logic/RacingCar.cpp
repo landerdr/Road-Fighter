@@ -19,7 +19,7 @@ void roadfighter::RacingCar::moveright()
         }
 }
 
-void roadfighter::RacingCar::run(int speed)
+void roadfighter::RacingCar::run(int playerspeed)
 {
         if (RacingCar::speed < 400) {
                 RacingCar::speed += 1;
@@ -34,7 +34,7 @@ void roadfighter::RacingCar::run(int speed)
                 moveright();
         }
 
-        c_y += (speed - RacingCar::speed) / 4000.0;
+        c_y += (playerspeed - RacingCar::speed) / 4000.0;
 }
 
-void roadfighter::RacingCar::slow(int s) { speed = std::max(0, speed - s); }
+void roadfighter::RacingCar::slow(int speedChange) { speed = std::max(0, speed - speedChange); }

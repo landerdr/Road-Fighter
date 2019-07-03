@@ -2,9 +2,9 @@
 // Created by lander on 12/10/18.
 //
 
-#include <tuple>
 #include "World.h"
 #include "Random.h"
+#include <tuple>
 
 std::tuple<bool, bool> roadfighter::World::entityCollision(std::shared_ptr<roadfighter::Entity> ent1,
                                                            std::shared_ptr<roadfighter::Entity> ent2)
@@ -51,7 +51,7 @@ void roadfighter::World::run()
         if (speed > 200 && S) {
                 speed -= 1;
         }
-        if (!Bullet && Space && shot + std::chrono::seconds(2) < std::chrono::steady_clock::now()) {
+        if (!Bullet && Space && shot + std::chrono::seconds(1) < std::chrono::steady_clock::now()) {
                 Bullet = factory->createBullet(Player->getC_x(), Player->getUpperY());
                 shot = std::chrono::steady_clock::now();
         }

@@ -16,9 +16,9 @@ protected:
 public:
         /**
          * Calculates virtual position on screen depending on playerspeed
-         * @param speed
+         * @param playerspeed
          */
-        void run(int speed);
+        void run(int playerspeed);
         /**
          * Moves car left if possible
          */
@@ -29,9 +29,9 @@ public:
         void moveright();
         /**
          * Slows down car
-         * @param speed
+         * @param speedChange
          */
-        void slow(int speed);
+        void slow(int speedChange);
 };
 } // namespace roadfighter
 
