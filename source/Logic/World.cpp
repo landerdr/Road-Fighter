@@ -2,6 +2,7 @@
 // Created by lander on 12/10/18.
 //
 
+#include <tuple>
 #include "World.h"
 #include "Random.h"
 
@@ -52,6 +53,7 @@ void roadfighter::World::run()
         }
         if (!Bullet && Space && shot + std::chrono::seconds(2) < std::chrono::steady_clock::now()) {
                 Bullet = factory->createBullet(Player->getC_x(), Player->getUpperY());
+                shot = std::chrono::steady_clock::now();
         }
         Player->setM_right(D);
         Player->setM_left(Q);
