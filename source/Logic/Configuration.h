@@ -11,8 +11,8 @@ namespace roadfighter {
 class Configuration
 {
         std::string savefile = "./Resources/config";
-        unsigned int width = 600;
-        unsigned int height = 800;
+        unsigned int width = 800;
+        unsigned int height = 600;
 
 public:
         Configuration();

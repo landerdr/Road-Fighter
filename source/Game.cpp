@@ -21,8 +21,8 @@ void Game::run()
         int fps = 100;
         roadfighter::HighSoreModule h;
         roadfighter::Configuration config;
-        unsigned int x = config.getHeight();
-        unsigned int y = config.getWidth();
+        unsigned int x = config.getWidth();
+        unsigned int y = config.getHeight();
 
         auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing Game");
         //    window->setVerticalSyncEnabled(false);
