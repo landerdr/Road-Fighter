@@ -21,18 +21,6 @@ roadfighter::HighSoreModule::HighSoreModule()
                                 std::cout << line << std::endl;
                                 continue;
                         }
-                        if (line == "Width:") {
-                                getline(myfile, line);
-                                width = (unsigned)std::stoi(line);
-                                std::cout << line << std::endl;
-                                continue;
-                        }
-                        if (line == "Height:") {
-                                getline(myfile, line);
-                                height = (unsigned)std::stoi(line);
-                                std::cout << line << std::endl;
-                                continue;
-                        }
 
                         // Does nothing if variable doen't match
                         getline(myfile, line);
