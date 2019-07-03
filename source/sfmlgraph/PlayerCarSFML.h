@@ -13,7 +13,7 @@ class PlayerCarSFML : public roadfighter::PlayerCar
         // Pointer to game window
         std::shared_ptr<sf::RenderWindow> window;
         // Car texture
-        static sf::Texture texture;
+        sf::Texture texture;
         // Car sprite
         sf::Sprite sprite;
 
