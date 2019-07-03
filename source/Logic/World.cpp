@@ -50,7 +50,7 @@ void roadfighter::World::run()
         if (speed > 200 && S) {
                 speed -= 1;
         }
-        if (!Bullet && Space) {
+        if (!Bullet && Space && shot + std::chrono::seconds(1) < std::chrono::steady_clock::now()) {
                 Bullet = factory->createBullet(Player->getC_x(), Player->getUpperY());
         }
         Player->setM_right(D);
