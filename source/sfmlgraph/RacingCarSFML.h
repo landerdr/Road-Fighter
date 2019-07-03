@@ -13,7 +13,7 @@ class RacingCarSFML : public roadfighter::RacingCar
         // Car sprite
         sf::Sprite sprite;
         // Car texture
-        sf::Texture texture;
+        static sf::Texture texture;
         // Pointer to game window
         std::shared_ptr<sf::RenderWindow> window;
 
