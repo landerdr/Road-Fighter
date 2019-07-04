@@ -19,14 +19,14 @@ void roadfighter::PlayerCar::run()
 void roadfighter::PlayerCar::moveleft()
 {
         if (getLeftX() > -1.5) {
-                c_x -= 0.00005‬ * playerspeed;
+                c_x -= (0.00005‬ * playerspeed);
         }
 }
 
 void roadfighter::PlayerCar::moveright()
 {
         if (getRightX() < 0.5) {
-                c_x += 0.00005‬ * playerspeed;
+                c_x += (0.00005‬ * playerspeed);
         }
 }
 
