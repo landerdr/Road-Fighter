@@ -57,6 +57,7 @@ void roadfighter::World::run()
         }
         Player->setM_right(D);
         Player->setM_left(Q);
+        Player->setPlayerspeed(speed);
         clearInput();
 
         // Run Entities

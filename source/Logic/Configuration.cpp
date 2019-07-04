@@ -36,7 +36,7 @@ roadfighter::Configuration::Configuration()
                                 continue;
                         }
 
-                        // Does nothing if variable doen't match
+                        // Does nothing if variable doesn't match
                         getline(myfile, line);
                         std::cout << line << std::endl;
                 }

@@ -3,8 +3,8 @@
 //
 
 #include "Game.h"
-#include "Logic/HighSoreModule.h"
 #include "Logic/Configuration.h"
+#include "Logic/HighSoreModule.h"
 #include "Logic/Transformation.h"
 #include "sfmlgraph/WorldSFML.h"
 #include <SFML/Graphics.hpp>

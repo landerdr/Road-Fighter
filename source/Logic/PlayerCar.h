@@ -15,6 +15,8 @@ protected:
         bool m_left = false;
         bool m_right = false;
 
+        int playerspeed = 0;
+
 public:
         /**
          * Calculates virtual position
@@ -31,6 +33,7 @@ public:
 
         void setM_left(bool m_left);
         void setM_right(bool m_right);
+        void setPlayerspeed(int playerspeed);
 };
 } // namespace roadfighter
 
