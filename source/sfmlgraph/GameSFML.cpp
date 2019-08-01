@@ -38,6 +38,7 @@ void GameSFML::draw_screen()
                     (event->type == sf::Event::KeyPressed && event->key.code == sf::Keyboard::Key::Escape)) {
                         h.save(world->getScore());
                         window->close();
+                        running = false;
                 }
         }
         // Check keyboard input
