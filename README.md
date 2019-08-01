@@ -13,7 +13,7 @@ Z | Accelerate (max 600km/h)
 S | Decelerate (min 200km/h)
 Q | Move left
 D | Move right
-Space | Shoot bullet (only 1 at a time on screen)
+Space | Shoot bullet (1s delay)
 Escape | Closes game
 
 #### Game Rules

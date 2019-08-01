@@ -1,9 +1,9 @@
-#include "Game.h"
+#include "sfmlgraph/GameSFML.h"
 #include <iostream>
 
 int main()
 {
-        Game g;
+        GameSFML g;
         g.run();
         return 0;
 }

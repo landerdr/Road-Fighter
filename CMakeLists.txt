@@ -17,10 +17,12 @@ add_library(RoadFighterCore STATIC
         source/Logic/AbstractFactory.cpp source/Logic/AbstractFactory.h
         source/Logic/ScoreObserver.cpp source/Logic/ScoreObserver.h 
 		source/Logic/HighSoreModule.cpp source/Logic/HighSoreModule.h
-		source/Logic/Configuration.cpp source/Logic/Configuration.h)
+		source/Logic/Configuration.cpp source/Logic/Configuration.h
+        source/Logic/ExceptionBase.cpp source/Logic/ExceptionBase.h
+        source/Logic/Game.cpp source/Logic/Game.h)
 
 add_executable(${EXECUTABLE_NAME} source/main.cpp
-        source/Game.cpp source/Game.h
+        source/sfmlgraph/GameSFML.cpp source/sfmlgraph/GameSFML.h
         source/sfmlgraph/PlayerCarSFML.cpp source/sfmlgraph/PlayerCarSFML.h
         source/sfmlgraph/WorldSFML.cpp source/sfmlgraph/WorldSFML.h
         source/sfmlgraph/AbstractFactorySFML.cpp source/sfmlgraph/AbstractFactorySFML.h
