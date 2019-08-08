@@ -18,7 +18,7 @@ public:
 
         int getHighscore() const;
 
-		void save(int score);
+        void save(int score);
 };
 } // namespace roadfighter
 

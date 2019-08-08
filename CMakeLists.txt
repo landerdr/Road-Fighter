@@ -19,7 +19,8 @@ add_library(RoadFighterCore STATIC
 		source/Logic/HighSoreModule.cpp source/Logic/HighSoreModule.h
 		source/Logic/Configuration.cpp source/Logic/Configuration.h
         source/Logic/ExceptionBase.cpp source/Logic/ExceptionBase.h
-        source/Logic/Game.cpp source/Logic/Game.h)
+        source/Logic/Game.cpp source/Logic/Game.h
+        source/Logic/FileReader.cpp source/Logic/FileReader.h)
 
 add_executable(${EXECUTABLE_NAME} source/main.cpp
         source/sfmlgraph/GameSFML.cpp source/sfmlgraph/GameSFML.h

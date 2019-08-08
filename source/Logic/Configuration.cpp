@@ -8,49 +8,16 @@
 
 roadfighter::Configuration::Configuration()
 {
-        std::string line;
-        std::string lastline;
-        std::ifstream myfile(savefile);
-        if (myfile.is_open()) {
-                for (int i = 0; i < 500; i++) {
-                        lastline = line;
+        config = std::make_unique<FileReader>(FileReader("./Resources/config"));
 
-                        // Scans variable name
-                        getline(myfile, line);
-
-                        if (lastline == line) {
-                                break;
-                        }
-
-                        std::cout << line << " ";
-                        if (line == "Width:") {
-                                getline(myfile, line);
-                                width = (unsigned)std::stoi(line);
-                                std::cout << line << std::endl;
-                                continue;
-                        }
-                        if (line == "Height:") {
-                                getline(myfile, line);
-                                height = (unsigned)std::stoi(line);
-                                std::cout << line << std::endl;
-                                continue;
-                        }
-
-                        // Does nothing if variable doesn't match
-                        getline(myfile, line);
-                        std::cout << line << std::endl;
-                }
-
-                myfile.close();
-        }
-
-        else {
-                std::ofstream outfile(savefile);
-                outfile << "Width:\n800\nHeight:\n600";
+        if (!config->hasData()) {
+                std::ofstream outfile("./Resources/config");
+                outfile << "Width:800\nHeight:600";
                 outfile.close();
+                config = std::make_unique<FileReader>(FileReader("./Resources/config"));
         }
 }
 
-unsigned int roadfighter::Configuration::getWidth() const { return width; }
+unsigned int roadfighter::Configuration::getWidth() const { return static_cast<unsigned int>(config->getInt("Width")); }
 
-unsigned int roadfighter::Configuration::getHeight() const { return height; }
+unsigned int roadfighter::Configuration::getHeight() const { return static_cast<unsigned int>(config->getInt("Height")); }

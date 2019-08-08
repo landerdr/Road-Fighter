@@ -44,7 +44,7 @@ public:
         /**
          * Checks keyboard input and puts internal control bools correct
          */
-        void handleInput();
+        void handleInput() override;
 };
 
 #endif // ROAD_FIGHTER_WORLDSFML_H

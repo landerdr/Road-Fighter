@@ -14,6 +14,11 @@
 #include <type_traits>
 
 namespace roadfighter {
+enum GameState {
+        Menu,
+        Playing,
+        Paused
+}
 class Game
 {
 protected:
