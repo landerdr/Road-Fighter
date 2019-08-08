@@ -5,12 +5,14 @@
 #ifndef ROAD_FIGHTER_HIGHSOREMODULE_H
 #define ROAD_FIGHTER_HIGHSOREMODULE_H
 
+#include "FileReader.h"
+#include <memory>
 #include <string>
 
 namespace roadfighter {
 class HighSoreModule
 {
-        std::string savefile = "./Resources/save";
+        std::unique_ptr<FileReader> file;
         int highscore = 0;
 
 public:
