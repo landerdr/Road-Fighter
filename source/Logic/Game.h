@@ -18,7 +18,8 @@ enum GameState {
         Menu,
         Playing,
         Paused
-}
+};
+
 class Game
 {
 protected:
