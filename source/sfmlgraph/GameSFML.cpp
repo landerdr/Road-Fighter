@@ -4,6 +4,8 @@
 
 #include "GameSFML.h"
 #include "../Logic/Transformation.h"
+#include <iomanip>
+#include <sstream>
 
 /*
  * TODO
@@ -52,11 +54,19 @@ void GameSFML::init_game()
         unsigned int x = config.getWidth();
         unsigned int y = config.getHeight();
 
-        window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing GameSFML");
+        window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing Game");
         //    window->setVerticalSyncEnabled(false);
         roadfighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
 
         world = std::make_shared<WorldSFML>(window);
         score = std::make_shared<roadfighter::ScoreObserver>(world);
         world->attach(score);
+}
+void GameSFML::update_title()
+{
+        std::stringstream stream;
+        stream << std::fixed << std::setprecision(2) << avg_fps;
+        std::string s = stream.str();
+
+        window->setTitle("Racing Game - " + s);
 }

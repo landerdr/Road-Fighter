@@ -17,6 +17,7 @@ private:
 public:
         void draw_screen() override;
         void init_game() override;
+        void update_title() override;
 };
 
 #endif // ROAD_FIGHTER_GAMESFML_H

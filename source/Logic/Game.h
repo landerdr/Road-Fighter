@@ -25,6 +25,7 @@ class Game
 protected:
         bool running = true;
         int fps = 100;
+        double avg_fps;
         std::shared_ptr<World> world;
         std::shared_ptr<roadfighter::ScoreObserver> score;
         roadfighter::HighSoreModule h;
@@ -34,6 +35,7 @@ public:
         void run();
         virtual void init_game() = 0;
         virtual void draw_screen() = 0;
+        virtual void update_title() = 0;
 };
 } // namespace roadfighter
 
