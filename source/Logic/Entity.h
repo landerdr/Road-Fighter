@@ -14,43 +14,43 @@ class Entity
 {
 protected:
         // Center x position
-        float c_x = 0;
+        double c_x = 0;
         // Center y position
-        float c_y = 0;
+        double c_y = 0;
         // Half width of sprite
-        float r_w = 0;
+        double r_w = 0;
         // Half length of sprite
-        float r_h = 0;
+        double r_h = 0;
 
 public:
-        float getC_x() const;
+        double getC_x() const;
 
-        float getC_y() const;
+        double getC_y() const;
 
-        float getR_w() const;
+        double getR_w() const;
 
-        float getR_h() const;
+        double getR_h() const;
 
         /**
          * Calculates left x value
          * @return
          */
-        float getLeftX();
+        double getLeftX();
         /**
          * Calculates right x value
          * @return
          */
-        float getRightX();
+        double getRightX();
         /**
          * Calculates top y value
          * @return
          */
-        float getUpperY();
+        double getUpperY();
         /**
          * Calculates lower y value
          * @return
          */
-        float getLowerY();
+        double getLowerY();
 
         virtual void draw();
 

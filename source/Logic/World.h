@@ -70,8 +70,8 @@ public:
          * @param ent2
          * @return
          */
-        std::tuple<bool, bool> entityCollision(std::shared_ptr<roadfighter::Entity> ent1,
-                                               std::shared_ptr<roadfighter::Entity> ent2);
+        static std::tuple<bool, bool> entityCollision(const std::shared_ptr<roadfighter::Entity>& ent1,
+                                               const std::shared_ptr<roadfighter::Entity>& ent2);
         /**
          * Runs game, calls run from all entities
          */

@@ -12,6 +12,8 @@ namespace roadfighter {
 class Configuration
 {
         std::unique_ptr<FileReader> config;
+
+        static void createConfigFile();
 public:
         Configuration();
 

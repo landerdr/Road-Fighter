@@ -20,22 +20,22 @@ void roadfighter::Transformation::setSize(unsigned int ix, unsigned int iy)
         y = iy;
 }
 
-int roadfighter::Transformation::transX(double fx)
+float roadfighter::Transformation::transX(double fx)
 {
         /**
          * Hardcoded to use -4 : 4
          * changes fx to 0 : 1 * screensize
          */
-        return static_cast<int>((fx + 4) * (x / 8.0));
+        return static_cast<float >((fx + 4) * (x / 8.0));
 }
 
-int roadfighter::Transformation::transY(double fy)
+float roadfighter::Transformation::transY(double fy)
 {
         /**
          * Hardcoded to use -3 : 3
          * changes fy to 0 : 1 * screensize
          */
-        return static_cast<int>((fy + 3) * (y / 6.0));
+        return static_cast<float >((fy + 3) * (y / 6.0));
 }
 
 float roadfighter::Transformation::getScaleX()

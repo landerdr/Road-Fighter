@@ -25,7 +25,7 @@ public:
          * @param y
          * @param t
          */
-        explicit PassingCarSFML(const std::shared_ptr<sf::RenderWindow>& window, float x, float y, int t);
+        explicit PassingCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y, roadfighter::CarType t);
         /**
          * Draws car on window
          */

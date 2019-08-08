@@ -8,10 +8,14 @@
 #include "Entity.h"
 
 namespace roadfighter {
+enum CarType {
+        Slow,
+        Speed
+};
 class PassingCar : public Entity
 {
 protected:
-        int type = 0;
+        CarType type = Slow;
 
 public:
         /**
@@ -20,7 +24,7 @@ public:
          */
         void run(int speed);
 
-        int getType() const;
+        CarType getType() const;
 };
 } // namespace roadfighter
 

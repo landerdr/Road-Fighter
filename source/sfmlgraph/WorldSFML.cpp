@@ -8,8 +8,9 @@
 #include "AbstractFactorySFML.h"
 #include "PassingCarSFML.h"
 #include <cmath>
+#include <utility>
 
-WorldSFML::WorldSFML(const std::shared_ptr<sf::RenderWindow>& window) : window(window)
+WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window) : window(std::move(window))
 {
         factory = std::make_shared<AbstractFactorySFML>(WorldSFML::window);
 

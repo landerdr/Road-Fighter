@@ -24,10 +24,10 @@ class FileReader
 protected:
         std::map<std::string, std::string> data;
 
-        std::vector<std::string> splitString(const std::string& str, char delimiter);
+        static std::vector<std::string> splitString(const std::string& str, char delimiter);
 
 public:
-        FileReader(const std::string& fileName);
+        explicit FileReader(const std::string& fileName);
 
         bool hasData() { return !data.empty(); };
 

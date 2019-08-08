@@ -14,10 +14,10 @@ class AbstractFactorySFML : public roadfighter::AbstractFactory
 
 public:
         explicit AbstractFactorySFML(std::shared_ptr<sf::RenderWindow>& window);
-        std::shared_ptr<roadfighter::PlayerCar> createPlayerCar(float x, float y) override;
-        std::shared_ptr<roadfighter::PassingCar> createPassingCar(float x, float y, int t) override;
-        std::shared_ptr<roadfighter::RacingCar> createRacingCar(float x, float y) override;
-        std::shared_ptr<roadfighter::Bullet> createBullet(float x, float y) override;
+        std::shared_ptr<roadfighter::PlayerCar> createPlayerCar(double x, double y) override;
+        std::shared_ptr<roadfighter::PassingCar> createPassingCar(double x, double y, roadfighter::CarType t) override;
+        std::shared_ptr<roadfighter::RacingCar> createRacingCar(double x, double y) override;
+        std::shared_ptr<roadfighter::Bullet> createBullet(double x, double y) override;
 };
 
 #endif // ROAD_FIGHTER_ABSTRACTFACTORYSFML_H

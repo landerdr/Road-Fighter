@@ -6,8 +6,8 @@
 #include "Random.h"
 #include <tuple>
 
-std::tuple<bool, bool> roadfighter::World::entityCollision(std::shared_ptr<roadfighter::Entity> ent1,
-                                                           std::shared_ptr<roadfighter::Entity> ent2)
+std::tuple<bool, bool> roadfighter::World::entityCollision(const std::shared_ptr<roadfighter::Entity>& ent1,
+                                                           const std::shared_ptr<roadfighter::Entity>& ent2)
 {
         if (ent1 == ent2)
                 return {false, false};
@@ -98,7 +98,7 @@ void roadfighter::World::run()
                 if (!removed) {
                         collision = entityCollision(Player, *it);
                         if (std::get<0>(collision) || std::get<1>(collision)) {
-                                if ((*it)->getType() == 1) {
+                                if ((*it)->getType() == Speed) {
                                         speed = std::max(0, speed + 200);
                                 } else {
                                         speed = std::max(0, speed - 200);
@@ -112,7 +112,7 @@ void roadfighter::World::run()
                         for (auto& e : RaceCars) {
                                 collision = entityCollision(e, *it);
                                 if (std::get<0>(collision) || std::get<1>(collision)) {
-                                        if ((*it)->getType() == 1) {
+                                        if ((*it)->getType() == Speed) {
                                                 e->slow(-200);
                                         } else {
                                                 e->slow(200);
@@ -181,11 +181,11 @@ void roadfighter::World::randomEvent()
         if (event < 10) {
                 double x = -1.5 + 0.001 * (roadfighter::Random::Instance()->getInt() % 2000);
                 x = std::min(std::max(x, -1.3), 0.3);
-                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, 0));
+                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, roadfighter::Slow));
         } else if (event < 15) {
                 double x = -1.5 + 0.001 * (roadfighter::Random::Instance()->getInt() % 2000);
                 x = std::min(std::max(x, -1.3), 0.3);
-                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, 1));
+                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, roadfighter::Speed));
         }
 }
 

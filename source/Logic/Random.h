@@ -20,7 +20,7 @@ public:
          * Returns random int value
          * @return
          */
-        int getInt();
+        static int getInt();
 
 private:
         static std::shared_ptr<Random> m_pRandom;

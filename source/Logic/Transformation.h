@@ -20,13 +20,13 @@ public:
          * @param fx
          * @return
          */
-        int transX(double fx);
+        float transX(double fx);
         /**
          * Transforms virtual y position to absolute y position on screen
          * @param fy
          * @return
          */
-        int transY(double fy);
+        float transY(double fy);
         /**
          * Calculates the x scale
          * @return

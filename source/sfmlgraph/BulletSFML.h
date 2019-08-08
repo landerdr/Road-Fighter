@@ -22,7 +22,7 @@ public:
          * @param x
          * @param y
          */
-        explicit BulletSFML(const std::shared_ptr<sf::RenderWindow>& window, float x, float y);
+        explicit BulletSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y);
         /**
          * Draws bullet on window
          */

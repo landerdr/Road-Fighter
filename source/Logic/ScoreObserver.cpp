@@ -4,7 +4,9 @@
 
 #include "ScoreObserver.h"
 
-roadfighter::ScoreObserver::ScoreObserver(const std::shared_ptr<roadfighter::World>& subject) : subject(subject) {}
+#include <utility>
+
+roadfighter::ScoreObserver::ScoreObserver(std::shared_ptr<roadfighter::World>  subject) : subject(std::move(subject)) {}
 
 int roadfighter::ScoreObserver::getScore() const { return score; }
 

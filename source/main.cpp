@@ -1,5 +1,4 @@
 #include "sfmlgraph/GameSFML.h"
-#include <iostream>
 
 int main()
 {

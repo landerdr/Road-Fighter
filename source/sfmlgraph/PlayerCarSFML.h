@@ -24,7 +24,7 @@ public:
          * @param x
          * @param y
          */
-        explicit PlayerCarSFML(const std::shared_ptr<sf::RenderWindow>& window, float x, float y);
+        explicit PlayerCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y);
         /**
          * Draws car on screen
          */
