@@ -32,7 +32,7 @@ void RoadFighter::Game::run()
 
                 if (std::chrono::steady_clock::now() - fps_time > std::chrono::seconds(1)) {
                         fps_time = std::chrono::steady_clock::now();
-                        avg_fps = 0.9 * avg_fps + 0.1 * actual_fps;
+                        avg_fps = 0.5 * avg_fps + 0.5 * actual_fps;
                         update_title();
                         actual_fps = 0;
                 }
