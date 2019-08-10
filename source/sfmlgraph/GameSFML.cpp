@@ -49,9 +49,19 @@ void GameSFML::draw_screen()
 }
 void GameSFML::init_game()
 {
-        world = std::make_shared<WorldSFML>(window);
+        std::string levelFile;
+        if (selector == -1) {
+                levelFile = "./Resources/level1";
+        } else if (selector == 0) {
+                levelFile = "./Resources/level2";
+        } else if (selector == 1) {
+                levelFile = "./Resources/level3";
+        }
+
+        world = std::make_shared<WorldSFML>(window, levelFile);
         score = std::make_shared<RoadFighter::ScoreObserver>(world);
         world->attach(score);
+
         state = RoadFighter::Playing;
 }
 void GameSFML::update_title()
@@ -103,7 +113,6 @@ GameSFML::GameSFML()
         window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing Game");
         //    window->setVerticalSyncEnabled(false);
         RoadFighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
-
 
         font.loadFromFile("./Resources/ARCADECLASSIC.ttf");
 

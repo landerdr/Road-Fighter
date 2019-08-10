@@ -3,6 +3,7 @@
 //
 
 #include "WorldSFML.h"
+#include "../Logic/FileReader.h"
 #include "../Logic/Random.h"
 #include "../Logic/Transformation.h"
 #include "AbstractFactorySFML.h"
@@ -10,14 +11,23 @@
 #include <cmath>
 #include <utility>
 
-WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window) : window(std::move(window))
+WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::string& levelFile) : window(std::move(window))
 {
+        auto levelConfig = RoadFighter::FileReader(levelFile);
         factory = std::make_shared<AbstractFactorySFML>(WorldSFML::window);
 
         Player = factory->createPlayerCar(0, 0.5);
-        RaceCars.emplace(factory->createRacingCar(-1, 0));
-        RaceCars.emplace(factory->createRacingCar(-1, 1));
-        RaceCars.emplace(factory->createRacingCar(static_cast<float>(-0.5), -1));
+
+        if (levelConfig.getBool("Enemies")) {
+                RaceCars.emplace(factory->createRacingCar(-1, 0));
+                RaceCars.emplace(factory->createRacingCar(-1, 1));
+                RaceCars.emplace(factory->createRacingCar(static_cast<float>(-0.5), -1));
+        }
+        if (levelConfig.getBool("Boss")) {
+
+        }
+
+        finish = levelConfig.getInt("Finish");
 
         texture.loadFromFile("./Resources/TestRoad.png");
         sprite.setTexture(texture);

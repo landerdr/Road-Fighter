@@ -36,7 +36,7 @@ public:
          * Creates world, loads in player and race cars, loads font data and texture data for background
          * @param window
          */
-        explicit WorldSFML(std::shared_ptr<sf::RenderWindow>  window);
+        WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::string& levelFile);
         /**
          * Draws the world and all entities
          */
