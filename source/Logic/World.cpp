@@ -4,6 +4,7 @@
 
 #include "World.h"
 #include "Random.h"
+#include <iostream>
 #include <tuple>
 
 std::tuple<bool, bool> RoadFighter::World::entityCollision(const std::shared_ptr<RoadFighter::Entity>& ent1,
@@ -74,9 +75,11 @@ void RoadFighter::World::run()
 
         for (auto& e : RaceCars) {
                 e->run(speed);
+                std::cout << "So far so good ..." << std::endl;
                 if (e->hasShot()) {
                         Bullets.emplace(factory->createBullet(e->getC_x(), e->getUpperY()));
                 }
+                std::cout << "Pew pew pew..." << std::endl;
         }
 
         for (auto Bullet = Bullets.begin(); Bullet != Bullets.end();) {
