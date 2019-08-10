@@ -5,7 +5,7 @@
 #include "BossCarSFML.h"
 #include "../Logic/Transformation.h"
 
-BossCarSFML::BossCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y)
+BossCarSFML::BossCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y) : window(window)
 {
         texture.loadFromFile("./Resources/BossCar.png");
         sprite.setTexture(texture);

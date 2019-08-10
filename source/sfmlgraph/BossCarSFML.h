@@ -10,12 +10,12 @@
 
 class BossCarSFML : public RoadFighter::BossCar
 {
-        // Pointer to game window
-        std::shared_ptr<sf::RenderWindow> window;
-        // Car texture
-        sf::Texture texture;
         // Car sprite
         sf::Sprite sprite;
+        // Car texture
+        sf::Texture texture;
+        // Pointer to game window
+        std::shared_ptr<sf::RenderWindow> window;
 
 public:
         /**
