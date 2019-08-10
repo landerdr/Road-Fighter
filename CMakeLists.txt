@@ -14,11 +14,11 @@ add_library(RoadFighterCore STATIC
         source/Logic/World.cpp source/Logic/World.h
         source/Logic/Random.cpp source/Logic/Random.h
         source/Logic/Transformation.cpp source/Logic/Transformation.h
-        source/Logic/AbstractFactory.cpp source/Logic/AbstractFactory.h
+        source/Logic/AbstractFactory.hpp
         source/Logic/ScoreObserver.cpp source/Logic/ScoreObserver.h 
 		source/Logic/HighSoreModule.cpp source/Logic/HighSoreModule.h
 		source/Logic/Configuration.cpp source/Logic/Configuration.h
-        source/Logic/ExceptionBase.cpp source/Logic/ExceptionBase.h
+        source/Logic/ExceptionBase.hpp
         source/Logic/Game.cpp source/Logic/Game.h
         source/Logic/FileReader.cpp source/Logic/FileReader.h)
 
