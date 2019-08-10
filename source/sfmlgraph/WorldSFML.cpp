@@ -73,7 +73,6 @@ void WorldSFML::draw()
         // Drawing racing cars
         for (auto& e : RaceCars) {
                 e->draw();
-                std::cout << "Hello???" << std::endl;
         }
 
         Player->draw();
