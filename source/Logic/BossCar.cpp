@@ -7,7 +7,7 @@
 
 bool RoadFighter::BossCar::hasShot()
 {
-        bool ret = canShoot() && RoadFighter::Random::Instance()->getInt() % 100 < 10;
+        bool ret = canShoot();
         if (ret) {
                 shot = std::chrono::steady_clock::now();
         }
