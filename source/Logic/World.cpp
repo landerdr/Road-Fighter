@@ -75,7 +75,7 @@ void RoadFighter::World::run()
         for (auto& e : RaceCars) {
                 e->run(speed);
                 if (e->hasShot()) {
-                        Bullets.emplace(factory->createBullet(e->getC_x(), e->getUpperY() - 0.2));
+                        Bullets.emplace(factory->createBullet(e->getC_x(), e->getUpperY() - 0.6));
                 }
         }
 
