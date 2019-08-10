@@ -26,8 +26,6 @@
  * create logic control
  *
  * each entity keeps own distance
- *
- * game -> gameSFML
  */
 void GameSFML::draw_screen()
 {
@@ -51,15 +49,15 @@ void GameSFML::draw_screen()
 }
 void GameSFML::init_game()
 {
-        unsigned int x = config.getWidth();
-        unsigned int y = config.getHeight();
+        unsigned int x = RoadFighter::Configuration::Instance()->getWidth();
+        unsigned int y = RoadFighter::Configuration::Instance()->getHeight();
 
         window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing Game");
         //    window->setVerticalSyncEnabled(false);
-        roadfighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
+        RoadFighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
 
         world = std::make_shared<WorldSFML>(window);
-        score = std::make_shared<roadfighter::ScoreObserver>(world);
+        score = std::make_shared<RoadFighter::ScoreObserver>(world);
         world->attach(score);
 }
 void GameSFML::update_title()
@@ -68,5 +66,5 @@ void GameSFML::update_title()
         stream << std::fixed << std::setprecision(2) << avg_fps;
         std::string s = stream.str();
 
-        window->setTitle("Racing Game - " + s);
+        window->setTitle("Racing Game - " + s + " FPS");
 }

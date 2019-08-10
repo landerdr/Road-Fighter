@@ -13,7 +13,7 @@
 #include <thread>
 #include <type_traits>
 
-namespace roadfighter {
+namespace RoadFighter {
 enum GameState {
         Menu,
         Playing,
@@ -24,19 +24,19 @@ class Game
 {
 protected:
         bool running = true;
-        int fps = 100;
+        int target_fps = 100;
         double avg_fps;
         std::shared_ptr<World> world;
-        std::shared_ptr<roadfighter::ScoreObserver> score;
-        roadfighter::HighSoreModule h;
-        roadfighter::Configuration config;
+        std::shared_ptr<RoadFighter::ScoreObserver> score;
+        RoadFighter::HighSoreModule h;
 
 public:
+        Game();
         void run();
         virtual void init_game() = 0;
         virtual void draw_screen() = 0;
         virtual void update_title() = 0;
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_GAME_H

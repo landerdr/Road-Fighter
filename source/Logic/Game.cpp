@@ -4,10 +4,10 @@
 
 #include "Game.h"
 
-void roadfighter::Game::run()
+void RoadFighter::Game::run()
 {
         /*
-         * Reference used for limiting fps to defined value:
+         * Reference used for limiting target_fps to defined value:
          * https://stackoverflow.com/questions/38730273/how-to-limit-fps-in-a-loop-with-c
          */
 
@@ -16,19 +16,18 @@ void roadfighter::Game::run()
 
         auto next_frame = std::chrono::steady_clock::now();
 
-        // Calculating average fps
+        // Calculating average target_fps
         auto fps_time = std::chrono::steady_clock::now();
         int actual_fps = 0;
-        avg_fps = static_cast<double>(fps);
 
         while (running) {
                 // Calculates end of frame
-                next_frame += std::chrono::microseconds(1000000 / fps);
+                next_frame += std::chrono::microseconds(1000000 / target_fps);
 
                 // Draws the screen
                 draw_screen();
 
-                // Avg fps calculation
+                // Avg target_fps calculation
                 actual_fps += 1;
 
                 if (std::chrono::steady_clock::now() - fps_time > std::chrono::seconds(1)) {
@@ -41,4 +40,8 @@ void roadfighter::Game::run()
                 // Wait for end of frame
                 std::this_thread::sleep_until(next_frame);
         }
+}
+RoadFighter::Game::Game() {
+        target_fps = static_cast<int>(RoadFighter::Configuration::Instance()->getFPS());
+        avg_fps = static_cast<double>(target_fps);
 }
