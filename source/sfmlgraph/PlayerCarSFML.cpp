@@ -3,11 +3,12 @@
 //
 
 #include "PlayerCarSFML.h"
+#include "../Logic/Configuration.h"
 #include "../Logic/Transformation.h"
 
 PlayerCarSFML::PlayerCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y) : window(window)
 {
-        texture.loadFromFile("./Resources/PlayerCar.png");
+        texture.loadFromFile(RoadFighter::Configuration::Instance()->getPath("PlayerCar"));
         sprite.setTexture(texture);
         sprite.setScale(RoadFighter::Transformation::Instance()->getScaleX(),
                         RoadFighter::Transformation::Instance()->getScaleY());

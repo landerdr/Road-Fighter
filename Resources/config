@@ -1,0 +1,26 @@
+// Game window parameters
+Width:800
+Height:600
+FPS:100
+
+// Game run parameters
+Min Speed:200
+Normal Speed:400
+Max Speed:600
+PassingCar Speed:190
+Bullet delay:1
+
+
+// Resource files
+BossCar:./Resources/BossCar.png
+PassingCar Slow:./Resources/PassingCar.png
+PassingCar Quick:./Resources/PassingCar1.png
+RacingCar:./Resources/RaceCar.png
+PlayerCar:./Resources/PlayerCar.png
+Backdrop:./Resources/TestRoad.png
+Font:./Resources/ARCADECLASSIC.ttf
+
+// Level config files
+Level 1:./Resources/level1
+Level 2:./Resources/level2
+Level 3:./Resources/level3

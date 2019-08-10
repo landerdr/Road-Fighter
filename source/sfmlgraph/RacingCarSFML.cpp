@@ -4,11 +4,10 @@
 
 #include "RacingCarSFML.h"
 #include "../Logic/Random.h"
-#include "../Logic/Transformation.h"
 
 RacingCarSFML::RacingCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y) : window(window)
 {
-        texture.loadFromFile("./Resources/RaceCar.png");
+        texture.loadFromFile(RoadFighter::Configuration::Instance()->getPath("RacingCar"));
         sprite.setTexture(texture);
         sprite.setScale(RoadFighter::Transformation::Instance()->getScaleX(),
                         RoadFighter::Transformation::Instance()->getScaleY());

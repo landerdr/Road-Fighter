@@ -3,7 +3,6 @@
 //
 
 #include "BulletSFML.h"
-#include "../Logic/Transformation.h"
 
 BulletSFML::BulletSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y) : window(window)
 {

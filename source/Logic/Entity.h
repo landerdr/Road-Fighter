@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <memory>
 #include <string>
+#include "../Logic/Configuration.h"
+#include "../Logic/Transformation.h"
 
 namespace RoadFighter {
 class Entity

@@ -3,17 +3,16 @@
 //
 
 #include "PassingCarSFML.h"
-#include "../Logic/Transformation.h"
 
 PassingCarSFML::PassingCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y,
                                RoadFighter::CarType t)
     : window(window)
 {
         type = t;
-        if (type == RoadFighter::Speed) {
-                texture.loadFromFile("./Resources/PassingCar1.png");
+        if (type == RoadFighter::Quick) {
+                texture.loadFromFile(RoadFighter::Configuration::Instance()->getPath("PassingCar Quick"));
         } else {
-                texture.loadFromFile("./Resources/PassingCar.png");
+                texture.loadFromFile(RoadFighter::Configuration::Instance()->getPath("PassingCar Slow"));
         }
         sprite.setTexture(texture);
         sprite.setScale(RoadFighter::Transformation::Instance()->getScaleX(),

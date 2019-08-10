@@ -5,10 +5,8 @@
 #include "WorldSFML.h"
 #include "../Logic/FileReader.h"
 #include "../Logic/Random.h"
-#include "../Logic/Transformation.h"
 #include "AbstractFactorySFML.h"
 #include "PassingCarSFML.h"
-#include <cmath>
 #include <utility>
 
 WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::string& levelFile) : window(std::move(window))
@@ -29,12 +27,12 @@ WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::strin
 
         finish = levelConfig.getInt("Finish");
 
-        texture.loadFromFile("./Resources/TestRoad.png");
+        texture.loadFromFile(RoadFighter::Configuration::Instance()->getPath("Backdrop"));
         sprite.setTexture(texture);
         sprite.setScale(RoadFighter::Transformation::Instance()->getScaleX(),
                         RoadFighter::Transformation::Instance()->getScaleY());
 
-        font.loadFromFile("./Resources/ARCADECLASSIC.ttf");
+        font.loadFromFile(RoadFighter::Configuration::Instance()->getPath("Font"));
 
         score_1 = sf::Text("Score", font);
         score_1.setCharacterSize(30);
@@ -46,7 +44,7 @@ WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::strin
         score_2.setPosition(RoadFighter::Transformation::Instance()->transX(2.2), 60);
         score_2.setStyle(sf::Text::Bold);
 
-        speed_1 = sf::Text("Speed", font);
+        speed_1 = sf::Text("Quick", font);
         speed_1.setCharacterSize(30);
         speed_1.setPosition(RoadFighter::Transformation::Instance()->transX(2), 90);
         speed_1.setStyle(sf::Text::Bold);

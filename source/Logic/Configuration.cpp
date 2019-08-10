@@ -20,8 +20,7 @@ RoadFighter::Configuration::Configuration()
         config = std::make_unique<FileReader>(FileReader("./Resources/config"));
 
         if (!config->hasData()) {
-                createConfigFile();
-                config = std::make_unique<FileReader>(FileReader("./Resources/config"));
+                throw MissingConfigFile();
         }
 }
 
@@ -34,9 +33,25 @@ unsigned int RoadFighter::Configuration::getHeight() const
 
 unsigned int RoadFighter::Configuration::getFPS() const { return static_cast<unsigned int>(config->getInt("FPS")); }
 
-void RoadFighter::Configuration::createConfigFile()
+std::string RoadFighter::Configuration::getPath(const std::string& key) { return config->getString(key); }
+
+unsigned int RoadFighter::Configuration::getMaxSpeed() const
 {
-        std::ofstream outfile("./Resources/config");
-        outfile << "Width:800\nHeight:600\nFPS:100";
-        outfile.close();
+        return static_cast<unsigned int>(config->getInt("Max Speed"));
+}
+unsigned int RoadFighter::Configuration::getMinSpeed() const
+{
+        return static_cast<unsigned int>(config->getInt("Min Speed"));
+}
+unsigned int RoadFighter::Configuration::getNormalSpeed() const
+{
+        return static_cast<unsigned int>(config->getInt("Normal Speed"));
+}
+unsigned int RoadFighter::Configuration::getPassingCarSpeed()
+{
+        return static_cast<unsigned int>(config->getInt("PassingCar Speed"));
+}
+unsigned int RoadFighter::Configuration::getBulletDelay() const
+{
+        return static_cast<unsigned int>(config->getInt("Bullet delay"));
 }

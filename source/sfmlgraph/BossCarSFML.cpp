@@ -3,11 +3,10 @@
 //
 
 #include "BossCarSFML.h"
-#include "../Logic/Transformation.h"
 
 BossCarSFML::BossCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y) : window(window)
 {
-        texture.loadFromFile("./Resources/BossCar.png");
+        texture.loadFromFile(RoadFighter::Configuration::Instance()->getPath("BossCar"));
         sprite.setTexture(texture);
         sprite.setScale(RoadFighter::Transformation::Instance()->getScaleX(),
                         RoadFighter::Transformation::Instance()->getScaleY());

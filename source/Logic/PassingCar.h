@@ -10,7 +10,7 @@
 namespace RoadFighter {
 enum CarType {
         Slow,
-        Speed
+        Quick
 };
 class PassingCar : public Entity
 {

@@ -33,11 +33,16 @@ protected:
         // Timestamp from last shot
         std::chrono::steady_clock::time_point shot = std::chrono::steady_clock::now();
 
+        // Speed limits:
+        int normalSpeed = Configuration::Instance()->getNormalSpeed();
+        int maxSpeed = Configuration::Instance()->getMaxSpeed();
+        int minSpeed = Configuration::Instance()->getMinSpeed();
+
         // Distance the player has traversed
         int distance = 0;
         // Distance from the finish line
         int finish = 20000;
-        // Speed at which the player is traveling
+        // Quick at which the player is traveling
         int speed = 0;
         // Pointer to Player
         std::shared_ptr<RoadFighter::PlayerCar> Player;

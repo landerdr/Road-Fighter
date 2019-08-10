@@ -9,13 +9,14 @@
 #include <memory>
 
 namespace RoadFighter {
+class MissingConfigFile : public ExceptionBase
+{
+};
 class Configuration
 {
         static std::shared_ptr<Configuration> m_pConfiguration;
 
         std::unique_ptr<FileReader> config;
-
-        static void createConfigFile();
 
 public:
         Configuration();
@@ -27,6 +28,18 @@ public:
         unsigned int getHeight() const;
 
         unsigned int getFPS() const;
+
+        unsigned int getMaxSpeed() const;
+
+        unsigned int getMinSpeed() const;
+
+        unsigned int getNormalSpeed() const;
+
+        unsigned int getPassingCarSpeed();
+
+        unsigned int getBulletDelay() const;
+
+        std::string getPath(const std::string& key);
 };
 } // namespace RoadFighter
 

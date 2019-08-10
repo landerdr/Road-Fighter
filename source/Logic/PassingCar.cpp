@@ -4,6 +4,6 @@
 
 #include "PassingCar.h"
 
-void RoadFighter::PassingCar::run(int speed) { c_y += (speed - 190) / 4000.0; }
+void RoadFighter::PassingCar::run(int speed) { c_y -= (Configuration::Instance()->getPassingCarSpeed() - speed) / 4000.0; }
 
 RoadFighter::CarType RoadFighter::PassingCar::getType() const { return type; }

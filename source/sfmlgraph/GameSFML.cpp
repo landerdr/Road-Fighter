@@ -3,7 +3,6 @@
 //
 
 #include "GameSFML.h"
-#include "../Logic/Transformation.h"
 #include <iomanip>
 #include <sstream>
 
@@ -51,11 +50,11 @@ void GameSFML::init_game()
 {
         std::string levelFile;
         if (selector == -1) {
-                levelFile = "./Resources/level1";
+                levelFile = RoadFighter::Configuration::Instance()->getPath("Level 1");
         } else if (selector == 0) {
-                levelFile = "./Resources/level2";
+                levelFile = RoadFighter::Configuration::Instance()->getPath("Level 2");
         } else if (selector == 1) {
-                levelFile = "./Resources/level3";
+                levelFile = RoadFighter::Configuration::Instance()->getPath("Level 3");
         }
 
         world = std::make_shared<WorldSFML>(window, levelFile);
@@ -114,7 +113,7 @@ GameSFML::GameSFML()
         //    window->setVerticalSyncEnabled(false);
         RoadFighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
 
-        font.loadFromFile("./Resources/ARCADECLASSIC.ttf");
+        font.loadFromFile(RoadFighter::Configuration::Instance()->getPath("Font"));
 
         level1 = sf::Text("Level 1", font);
         level1.setCharacterSize(60);

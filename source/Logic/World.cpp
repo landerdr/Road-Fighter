@@ -39,16 +39,16 @@ void RoadFighter::World::run()
         }
         randomEvent();
         // Handle keyboard input
-        if (speed < 400 && (!S || speed < 200)) {
+        if (speed < normalSpeed && (!S || speed < minSpeed)) {
                 speed += 1;
         }
-        if (speed < 600 && Z) {
+        if (speed < maxSpeed && Z) {
                 speed += 1;
         }
-        if (speed > 400 && (!Z || speed > 600)) {
+        if (speed > normalSpeed && (!Z || speed > maxSpeed)) {
                 speed -= 1;
         }
-        if (speed > 200 && S) {
+        if (speed > minSpeed && S) {
                 speed -= 1;
         }
         if (Space && shot + std::chrono::seconds(1) < std::chrono::steady_clock::now()) {
@@ -107,7 +107,7 @@ void RoadFighter::World::run()
                 if (!removed) {
                         collision = entityCollision(Player, *it);
                         if (std::get<0>(collision) || std::get<1>(collision)) {
-                                if ((*it)->getType() == Speed) {
+                                if ((*it)->getType() == Quick) {
                                         speed = std::max(0, speed + 200);
                                 } else {
                                         speed = std::max(0, speed - 200);
@@ -121,7 +121,7 @@ void RoadFighter::World::run()
                         for (auto& e : RaceCars) {
                                 collision = entityCollision(e, *it);
                                 if (std::get<0>(collision) || std::get<1>(collision)) {
-                                        if ((*it)->getType() == Speed) {
+                                        if ((*it)->getType() == Quick) {
                                                 e->slow(-200);
                                         } else {
                                                 e->slow(200);
@@ -188,7 +188,7 @@ void RoadFighter::World::run()
 
         // Check if bullet hits player
         for (auto Bullet = Bullets.begin(); Bullet != Bullets.end();) {
-                std::tuple<bool, bool> collision = entityCollision(Player, *Bullet);
+                std::tuple<bool, bool> collision = entityCollision(*Bullet, Player);
                 if (std::get<0>(collision) || std::get<1>(collision)) {
                         speed = std::max(0, speed - 100);
                         Bullet = Bullets.erase(Bullet);
@@ -210,7 +210,7 @@ void RoadFighter::World::randomEvent()
         } else if (event < 15) {
                 double x = -1.5 + 0.001 * (RoadFighter::Random::Instance()->getInt() % 2000);
                 x = std::min(std::max(x, -1.3), 0.3);
-                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, RoadFighter::Speed));
+                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, RoadFighter::Quick));
         }
 }
 

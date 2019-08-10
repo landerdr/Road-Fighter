@@ -3,7 +3,6 @@
 //
 
 #include "BossCar.h"
-#include "Random.h"
 
 bool RoadFighter::BossCar::hasShot()
 {
