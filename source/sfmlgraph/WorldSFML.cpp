@@ -9,7 +9,6 @@
 #include "AbstractFactorySFML.h"
 #include "PassingCarSFML.h"
 #include <cmath>
-#include <iostream>
 #include <utility>
 
 WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::string& levelFile) : window(std::move(window))
@@ -25,9 +24,7 @@ WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::strin
                 RaceCars.emplace(factory->createRacingCar(-0.5, -1));
         }
         if (levelConfig.getBool("Boss")) {
-                std::cout << "Spawning boss ..." << std::endl;
                 RaceCars.emplace(factory->createBossCar(-0.5, -2));
-                std::cout << "Boss awakened  ..." << std::endl;
         }
 
         finish = levelConfig.getInt("Finish");
