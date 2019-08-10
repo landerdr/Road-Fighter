@@ -100,6 +100,7 @@ void RoadFighter::World::run()
                                 Bullet = Bullets.erase(Bullet);
                                 it = PassingCars.erase(it);
                                 removed = true;
+                                break;
                         } else {
                                 ++Bullet;
                         }
