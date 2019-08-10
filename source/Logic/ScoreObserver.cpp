@@ -19,6 +19,6 @@ void RoadFighter::ScoreObserver::update()
                         placementScore += 5000;
                 }
         }
-        score = static_cast<int>(subject->getDistance() + placementScore - subject->getA_collisions()) * 500;
+        score = static_cast<int>(subject->getDistance() + placementScore - subject->getA_collisions() * 500);
         score = std::max(score, 0);
 }
