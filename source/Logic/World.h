@@ -27,6 +27,8 @@ protected:
         bool D = false;
         bool Space = false;
 
+        bool events = true;
+
         // Amount of collisions
         unsigned int a_collisions = 0;
 

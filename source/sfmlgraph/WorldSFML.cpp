@@ -26,6 +26,7 @@ WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::strin
         }
 
         finish = levelConfig.getInt("Finish");
+        events = levelConfig.getBool("Events");
 
         texture.loadFromFile(RoadFighter::Configuration::Instance()->getPath("Backdrop"));
         sprite.setTexture(texture);

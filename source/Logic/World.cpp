@@ -203,6 +203,9 @@ void RoadFighter::World::run()
 
 void RoadFighter::World::randomEvent()
 {
+        if (!events) {
+                return;
+        }
         int event = RoadFighter::Random::Instance()->getInt() % 5000;
         if (event < 10) {
                 double x = -1.5 + 0.001 * (RoadFighter::Random::Instance()->getInt() % 2000);

@@ -12,7 +12,7 @@ BulletSFML::BulletSFML(const std::shared_ptr<sf::RenderWindow>& window, double x
         r_w = (shape.getSize().x * RoadFighter::Transformation::Instance()->getScaleX() * 4.0 / window->getSize().x);
         r_h = (shape.getSize().y * RoadFighter::Transformation::Instance()->getScaleY() * 3.0 / window->getSize().y);
         c_x = x;
-        c_y = y - r_h;
+        c_y = y - 2*r_h;
 }
 
 void BulletSFML::draw()
