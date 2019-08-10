@@ -20,7 +20,8 @@ add_library(RoadFighterCore STATIC
 		source/Logic/Configuration.cpp source/Logic/Configuration.h
         source/Logic/ExceptionBase.hpp
         source/Logic/Game.cpp source/Logic/Game.h
-        source/Logic/FileReader.cpp source/Logic/FileReader.h)
+        source/Logic/FileReader.cpp source/Logic/FileReader.h
+        source/Logic/BossCar.cpp source/Logic/BossCar.h)
 
 add_executable(${EXECUTABLE_NAME} source/main.cpp
         source/sfmlgraph/GameSFML.cpp source/sfmlgraph/GameSFML.h
@@ -29,7 +30,8 @@ add_executable(${EXECUTABLE_NAME} source/main.cpp
         source/sfmlgraph/AbstractFactorySFML.cpp source/sfmlgraph/AbstractFactorySFML.h
         source/sfmlgraph/RacingCarSFML.cpp source/sfmlgraph/RacingCarSFML.h
         source/sfmlgraph/PassingCarSFML.cpp source/sfmlgraph/PassingCarSFML.h
-        source/sfmlgraph/BulletSFML.cpp source/sfmlgraph/BulletSFML.h)
+        source/sfmlgraph/BulletSFML.cpp source/sfmlgraph/BulletSFML.h
+        source/sfmlgraph/BossCarSFML.cpp source/sfmlgraph/BossCarSFML.h)
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
