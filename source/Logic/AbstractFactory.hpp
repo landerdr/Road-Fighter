@@ -20,7 +20,7 @@ public:
         virtual std::shared_ptr<RoadFighter::PassingCar> createPassingCar(double x, double y, CarType t) = 0;
         virtual std::shared_ptr<RoadFighter::RacingCar> createRacingCar(double x, double y) = 0;
         virtual std::shared_ptr<RoadFighter::Bullet> createBullet(double x, double y) = 0;
-        virtual std::shared_ptr<RoadFighter::BossCar> createBossCar(double x, double y) = 0;
+        virtual std::shared_ptr<RoadFighter::RacingCar> createBossCar(double x, double y) = 0;
 };
 } // namespace RoadFighter
 
