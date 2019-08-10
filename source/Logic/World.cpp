@@ -52,7 +52,7 @@ void RoadFighter::World::run()
                 speed -= 1;
         }
         if (Space && shot + std::chrono::seconds(Configuration::Instance()->getBulletDelay()) < std::chrono::steady_clock::now()) {
-                Bullets.emplace(factory->createBullet(Player->getC_x(), Player->getUpperY() - 0.6));
+                Bullets.emplace(factory->createBullet(Player->getC_x(), Player->getUpperY()));
                 shot = std::chrono::steady_clock::now();
         }
         Player->setM_right(D);
@@ -75,12 +75,12 @@ void RoadFighter::World::run()
         for (auto& e : RaceCars) {
                 e->run(speed);
                 if (e->hasShot()) {
-                        Bullets.emplace(factory->createBullet(e->getC_x(), e->getUpperY() - 0.6));
+                        Bullets.emplace(factory->createBullet(e->getC_x(), e->getUpperY()));
                 }
         }
 
         for (auto Bullet = Bullets.begin(); Bullet != Bullets.end();) {
-                (*Bullet)->run();
+                (*Bullet)->run(speed);
                 if ((*Bullet)->getLowerY() < -4) {
                         Bullet = Bullets.erase(Bullet);
                 } else {

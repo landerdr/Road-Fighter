@@ -53,5 +53,9 @@ unsigned int RoadFighter::Configuration::getPassingCarSpeed()
 }
 unsigned int RoadFighter::Configuration::getBulletDelay() const
 {
-        return static_cast<unsigned int>(config->getInt("Bullet delay"));
+        return static_cast<unsigned int>(config->getInt("Bullet Delay"));
+}
+unsigned int RoadFighter::Configuration::getBulletSpeed() const
+{
+        return static_cast<unsigned int>(config->getInt("Bullet Speed"));
 }

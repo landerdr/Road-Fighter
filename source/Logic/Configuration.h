@@ -39,6 +39,8 @@ public:
 
         unsigned int getBulletDelay() const;
 
+        unsigned int getBulletSpeed() const;
+
         std::string getPath(const std::string& key);
 };
 } // namespace RoadFighter

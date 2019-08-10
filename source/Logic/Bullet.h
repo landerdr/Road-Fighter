@@ -11,7 +11,7 @@ namespace RoadFighter {
 class Bullet : public Entity
 {
 public:
-        void run() override;
+        void run(int speed);
 };
 } // namespace RoadFighter
 
