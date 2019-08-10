@@ -52,6 +52,7 @@ void GameSFML::init_game()
         world = std::make_shared<WorldSFML>(window);
         score = std::make_shared<RoadFighter::ScoreObserver>(world);
         world->attach(score);
+        state = RoadFighter::Playing;
 }
 void GameSFML::update_title()
 {
@@ -75,10 +76,10 @@ void GameSFML::draw_menu()
                 } else if (event->type == sf::Event::KeyPressed) {
                         if (event->key.code == sf::Keyboard::Key::Z && selector > -1) {
                                 selector -= 1;
-                                std::cout << "one up" << std::endl;
                         } else if (event->key.code == sf::Keyboard::Key::S && selector < 1) {
                                 selector += 1;
-                                std::cout << "one down" << std::endl;
+                        } else if (event->key.code == sf::Keyboard::Key::Return) {
+                                init_game();
                         }
                 }
         }
