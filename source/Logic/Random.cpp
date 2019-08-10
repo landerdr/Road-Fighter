@@ -4,16 +4,16 @@
 
 #include "Random.h"
 
-std::shared_ptr<roadfighter::Random> roadfighter::Random::m_pRandom = nullptr;
+std::shared_ptr<RoadFighter::Random> RoadFighter::Random::m_pRandom = nullptr;
 
-roadfighter::Random::Random() { srand(1998); }
+RoadFighter::Random::Random() { srand(1998); }
 
-std::shared_ptr<roadfighter::Random> roadfighter::Random::Instance()
+std::shared_ptr<RoadFighter::Random> RoadFighter::Random::Instance()
 {
         if (m_pRandom == nullptr) {
-                m_pRandom = std::shared_ptr<roadfighter::Random>(new roadfighter::Random);
+                m_pRandom = std::shared_ptr<RoadFighter::Random>(new RoadFighter::Random);
         }
         return m_pRandom;
 }
 
-int roadfighter::Random::getInt() { return rand(); }
+int RoadFighter::Random::getInt() { return rand(); }

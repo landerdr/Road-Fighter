@@ -8,7 +8,7 @@
 #include "../Logic/PlayerCar.h"
 #include <SFML/Graphics.hpp>
 
-class PlayerCarSFML : public roadfighter::PlayerCar
+class PlayerCarSFML : public RoadFighter::PlayerCar
 {
         // Pointer to game window
         std::shared_ptr<sf::RenderWindow> window;

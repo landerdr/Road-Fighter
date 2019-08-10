@@ -8,7 +8,7 @@
 #include "../Logic/Bullet.h"
 #include <SFML/Graphics.hpp>
 
-class BulletSFML : public roadfighter::Bullet
+class BulletSFML : public RoadFighter::Bullet
 {
         // Bullet shape
         sf::RectangleShape shape;

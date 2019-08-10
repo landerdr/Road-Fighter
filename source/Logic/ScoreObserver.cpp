@@ -6,11 +6,11 @@
 
 #include <utility>
 
-roadfighter::ScoreObserver::ScoreObserver(std::shared_ptr<roadfighter::World>  subject) : subject(std::move(subject)) {}
+RoadFighter::ScoreObserver::ScoreObserver(std::shared_ptr<RoadFighter::World>  subject) : subject(std::move(subject)) {}
 
-int roadfighter::ScoreObserver::getScore() const { return score; }
+int RoadFighter::ScoreObserver::getScore() const { return score; }
 
-void roadfighter::ScoreObserver::update()
+void RoadFighter::ScoreObserver::update()
 {
         int placementScore = 0;
         for (auto& c : subject->getRaceCars()) {
@@ -19,6 +19,6 @@ void roadfighter::ScoreObserver::update()
                         placementScore += 5000;
                 }
         }
-        score = subject->getDistance() + placementScore - subject->getA_collisions() * 500;
+        score = static_cast<int>(subject->getDistance() + placementScore - subject->getA_collisions()) * 500;
         score = std::max(score, 0);
 }

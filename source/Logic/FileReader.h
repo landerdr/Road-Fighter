@@ -5,12 +5,12 @@
 #ifndef ROAD_FIGHTER_FILEREADER_H
 #define ROAD_FIGHTER_FILEREADER_H
 
-#include "ExceptionBase.h"
+#include "ExceptionBase.hpp"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace roadfighter {
+namespace RoadFighter {
 class KeyNotFound : public ExceptionBase
 {
 };
@@ -35,6 +35,6 @@ public:
 
         std::string getString(const std::string& key);
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_FILEREADER_H

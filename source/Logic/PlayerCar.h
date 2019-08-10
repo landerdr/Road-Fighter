@@ -7,7 +7,7 @@
 
 #include "Entity.h"
 
-namespace roadfighter {
+namespace RoadFighter {
 class PlayerCar : public Entity
 {
 protected:
@@ -35,6 +35,6 @@ public:
         void setM_right(bool m_right);
         void setPlayerspeed(int playerspeed);
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_PLAYERCAR_H

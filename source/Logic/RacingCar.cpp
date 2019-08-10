@@ -5,28 +5,28 @@
 #include "RacingCar.h"
 #include "Random.h"
 
-void roadfighter::RacingCar::moveleft()
+void RoadFighter::RacingCar::moveleft()
 {
         if (getLeftX() > -1.5) {
                 c_x -= 0.02;
         }
 }
 
-void roadfighter::RacingCar::moveright()
+void RoadFighter::RacingCar::moveright()
 {
         if (getRightX() < 0.5) {
                 c_x += 0.02;
         }
 }
 
-void roadfighter::RacingCar::run(int playerspeed)
+void RoadFighter::RacingCar::run(int playerspeed)
 {
         if (RacingCar::speed < 400) {
                 RacingCar::speed += 1;
         } else if (RacingCar::speed > 600) {
                 RacingCar::speed -= 1;
         }
-        int movement = roadfighter::Random::Instance()->getInt() % 3;
+        int movement = RoadFighter::Random::Instance()->getInt() % 3;
 
         if (movement == 0) {
                 moveleft();
@@ -37,4 +37,4 @@ void roadfighter::RacingCar::run(int playerspeed)
         c_y += (playerspeed - RacingCar::speed) / 4000.0;
 }
 
-void roadfighter::RacingCar::slow(int speedChange) { speed = std::max(0, speed - speedChange); }
+void RoadFighter::RacingCar::slow(int speedChange) { speed = std::max(0, speed - speedChange); }

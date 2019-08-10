@@ -8,15 +8,15 @@
 #include "World.h"
 #include <memory>
 
-namespace roadfighter {
+namespace RoadFighter {
 class World;
 class ScoreObserver
 {
         int score = 0;
-        std::shared_ptr<roadfighter::World> subject;
+        std::shared_ptr<RoadFighter::World> subject;
 
 public:
-        explicit ScoreObserver(std::shared_ptr<roadfighter::World>  subject);
+        explicit ScoreObserver(std::shared_ptr<RoadFighter::World>  subject);
         /**
          * Returns score
          * @return
@@ -27,6 +27,6 @@ public:
          */
         void update();
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_SCOREOBSERVER_H

@@ -12,7 +12,7 @@
 #include "RacingCarSFML.h"
 #include <SFML/Graphics.hpp>
 
-class WorldSFML : public roadfighter::World
+class WorldSFML : public RoadFighter::World
 {
         // Font data for text
         sf::Font font;

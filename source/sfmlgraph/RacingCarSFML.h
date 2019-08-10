@@ -8,7 +8,7 @@
 #include "../Logic/RacingCar.h"
 #include <SFML/Graphics.hpp>
 
-class RacingCarSFML : public roadfighter::RacingCar
+class RacingCarSFML : public RoadFighter::RacingCar
 {
         // Car sprite
         sf::Sprite sprite;

@@ -7,12 +7,12 @@
 
 #include "Entity.h"
 
-namespace roadfighter {
+namespace RoadFighter {
 class Bullet : public Entity
 {
 public:
         void run() override;
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_BULLET_H

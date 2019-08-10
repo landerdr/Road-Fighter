@@ -7,7 +7,7 @@
 
 #include <memory>
 
-namespace roadfighter {
+namespace RoadFighter {
 class Random
 {
 protected:
@@ -25,6 +25,6 @@ public:
 private:
         static std::shared_ptr<Random> m_pRandom;
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_RANDOM_H

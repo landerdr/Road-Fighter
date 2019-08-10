@@ -9,7 +9,7 @@
 #include "WorldSFML.h"
 #include <SFML/Graphics.hpp>
 
-class GameSFML : public roadfighter::Game
+class GameSFML : public RoadFighter::Game
 {
 private:
         std::shared_ptr<sf::RenderWindow> window;

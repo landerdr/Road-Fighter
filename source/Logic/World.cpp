@@ -6,8 +6,8 @@
 #include "Random.h"
 #include <tuple>
 
-std::tuple<bool, bool> roadfighter::World::entityCollision(const std::shared_ptr<roadfighter::Entity>& ent1,
-                                                           const std::shared_ptr<roadfighter::Entity>& ent2)
+std::tuple<bool, bool> RoadFighter::World::entityCollision(const std::shared_ptr<RoadFighter::Entity>& ent1,
+                                                           const std::shared_ptr<RoadFighter::Entity>& ent2)
 {
         if (ent1 == ent2)
                 return {false, false};
@@ -18,19 +18,19 @@ std::tuple<bool, bool> roadfighter::World::entityCollision(const std::shared_ptr
         return {left_x && (upper_y || lower_y), right_x && (upper_y || lower_y)};
 }
 
-void roadfighter::World::attach(std::shared_ptr<roadfighter::ScoreObserver>& score) { World::score = score; }
+void RoadFighter::World::attach(std::shared_ptr<RoadFighter::ScoreObserver>& score) { World::score = score; }
 
-int roadfighter::World::getDistance() const { return distance; }
+int RoadFighter::World::getDistance() const { return distance; }
 
-int roadfighter::World::getFinish() const { return finish; }
+int RoadFighter::World::getFinish() const { return finish; }
 
-int roadfighter::World::getSpeed() const { return speed; }
+int RoadFighter::World::getSpeed() const { return speed; }
 
-const std::shared_ptr<roadfighter::PlayerCar>& roadfighter::World::getPlayer() const { return Player; }
+const std::shared_ptr<RoadFighter::PlayerCar>& RoadFighter::World::getPlayer() const { return Player; }
 
-const std::set<std::shared_ptr<roadfighter::RacingCar>>& roadfighter::World::getRaceCars() const { return RaceCars; }
+const std::set<std::shared_ptr<RoadFighter::RacingCar>>& RoadFighter::World::getRaceCars() const { return RaceCars; }
 
-void roadfighter::World::run()
+void RoadFighter::World::run()
 {
         // Player passed finish
         if (distance > finish) {
@@ -175,21 +175,21 @@ void roadfighter::World::run()
         score->update();
 }
 
-void roadfighter::World::randomEvent()
+void RoadFighter::World::randomEvent()
 {
-        int event = roadfighter::Random::Instance()->getInt() % 5000;
+        int event = RoadFighter::Random::Instance()->getInt() % 5000;
         if (event < 10) {
-                double x = -1.5 + 0.001 * (roadfighter::Random::Instance()->getInt() % 2000);
+                double x = -1.5 + 0.001 * (RoadFighter::Random::Instance()->getInt() % 2000);
                 x = std::min(std::max(x, -1.3), 0.3);
-                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, roadfighter::Slow));
+                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, RoadFighter::Slow));
         } else if (event < 15) {
-                double x = -1.5 + 0.001 * (roadfighter::Random::Instance()->getInt() % 2000);
+                double x = -1.5 + 0.001 * (RoadFighter::Random::Instance()->getInt() % 2000);
                 x = std::min(std::max(x, -1.3), 0.3);
-                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, roadfighter::Speed));
+                PassingCars.emplace(factory->createPassingCar(static_cast<float>(x), -4, RoadFighter::Speed));
         }
 }
 
-void roadfighter::World::clearInput()
+void RoadFighter::World::clearInput()
 {
         Z = false;
         Q = false;
@@ -198,6 +198,6 @@ void roadfighter::World::clearInput()
         Space = false;
 }
 
-unsigned int roadfighter::World::getA_collisions() const { return a_collisions; }
+unsigned int RoadFighter::World::getA_collisions() const { return a_collisions; }
 
-int roadfighter::World::getScore() { return score->getScore(); }
+int RoadFighter::World::getScore() { return score->getScore(); }

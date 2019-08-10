@@ -7,7 +7,7 @@
 
 #include <memory>
 
-namespace roadfighter {
+namespace RoadFighter {
 class Transformation
 {
 public:
@@ -45,6 +45,6 @@ private:
         unsigned int x;
         unsigned int y;
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_TRANSFORMATION_H

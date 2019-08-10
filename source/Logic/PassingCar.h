@@ -7,7 +7,7 @@
 
 #include "Entity.h"
 
-namespace roadfighter {
+namespace RoadFighter {
 enum CarType {
         Slow,
         Speed
@@ -26,6 +26,6 @@ public:
 
         CarType getType() const;
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_PASSINGCAR_H

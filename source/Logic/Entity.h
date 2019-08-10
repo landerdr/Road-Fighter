@@ -9,7 +9,7 @@
 #include <memory>
 #include <string>
 
-namespace roadfighter {
+namespace RoadFighter {
 class Entity
 {
 protected:
@@ -56,6 +56,6 @@ public:
 
         virtual void run();
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_ENTITY_H

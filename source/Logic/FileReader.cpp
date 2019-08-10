@@ -7,7 +7,7 @@
 #include <iostream>
 #include <sstream>
 
-roadfighter::FileReader::FileReader(const std::string& fileName)
+RoadFighter::FileReader::FileReader(const std::string& fileName)
 {
         std::string line;
         std::string lastline;
@@ -42,7 +42,7 @@ roadfighter::FileReader::FileReader(const std::string& fileName)
 /*
  * code from: https://www.quora.com/How-do-I-split-a-string-by-space-into-an-array-in-c++
  */
-std::vector<std::string> roadfighter::FileReader::splitString(const std::string& str, char delimiter)
+std::vector<std::string> RoadFighter::FileReader::splitString(const std::string& str, char delimiter)
 {
         std::vector<std::string> internal;
         std::stringstream ss(str); // Turn the string into a stream.
@@ -55,7 +55,7 @@ std::vector<std::string> roadfighter::FileReader::splitString(const std::string&
         return internal;
 }
 
-int roadfighter::FileReader::getInt(const std::string& key)
+int RoadFighter::FileReader::getInt(const std::string& key)
 {
         auto it = data.find(key);
 
@@ -68,7 +68,7 @@ int roadfighter::FileReader::getInt(const std::string& key)
                 throw IncorrectKeyType();
         }
 }
-std::string roadfighter::FileReader::getString(const std::string& key)
+std::string RoadFighter::FileReader::getString(const std::string& key)
 {
         auto it = data.find(key);
 

@@ -7,7 +7,7 @@
 
 #include "Entity.h"
 
-namespace roadfighter {
+namespace RoadFighter {
 class RacingCar : public Entity
 {
 protected:
@@ -33,6 +33,6 @@ public:
          */
         void slow(int speedChange);
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_RACINGCAR_H

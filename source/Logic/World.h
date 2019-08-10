@@ -5,7 +5,7 @@
 #ifndef ROAD_FIGHTER_WORLD_H
 #define ROAD_FIGHTER_WORLD_H
 
-#include "AbstractFactory.h"
+#include "AbstractFactory.hpp"
 #include "Bullet.h"
 #include "Entity.h"
 #include "PassingCar.h"
@@ -15,7 +15,7 @@
 #include <chrono>
 #include <set>
 
-namespace roadfighter {
+namespace RoadFighter {
 class ScoreObserver;
 class World : public Entity
 {
@@ -40,17 +40,17 @@ protected:
         // Speed at which the player is traveling
         int speed = 0;
         // Pointer to Player
-        std::shared_ptr<roadfighter::PlayerCar> Player;
+        std::shared_ptr<RoadFighter::PlayerCar> Player;
         // Pointer to bullet
-        std::shared_ptr<roadfighter::Bullet> Bullet;
+        std::shared_ptr<RoadFighter::Bullet> Bullet;
         // Set with pointers to passing cars
         std::set<std::shared_ptr<PassingCar>> PassingCars;
         // Set with pointers to racing cars
         std::set<std::shared_ptr<RacingCar>> RaceCars;
         // Pointer to factory
-        std::shared_ptr<roadfighter::AbstractFactory> factory;
+        std::shared_ptr<RoadFighter::AbstractFactory> factory;
         // Pointer to ScoreObserver
-        std::shared_ptr<roadfighter::ScoreObserver> score;
+        std::shared_ptr<RoadFighter::ScoreObserver> score;
 
 public:
         int getDistance() const;
@@ -63,15 +63,15 @@ public:
          * Links the Observer to the world class
          * @param score
          */
-        void attach(std::shared_ptr<roadfighter::ScoreObserver>& score);
+        void attach(std::shared_ptr<RoadFighter::ScoreObserver>& score);
         /**
          * Returns tuple with collision results, one for each side (left or right)
          * @param ent1
          * @param ent2
          * @return
          */
-        static std::tuple<bool, bool> entityCollision(const std::shared_ptr<roadfighter::Entity>& ent1,
-                                               const std::shared_ptr<roadfighter::Entity>& ent2);
+        static std::tuple<bool, bool> entityCollision(const std::shared_ptr<RoadFighter::Entity>& ent1,
+                                               const std::shared_ptr<RoadFighter::Entity>& ent2);
         /**
          * Runs game, calls run from all entities
          */
@@ -89,6 +89,6 @@ public:
 
         int getScore();
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_WORLD_H

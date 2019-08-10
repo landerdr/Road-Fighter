@@ -5,7 +5,7 @@
 #include "HighSoreModule.h"
 #include <fstream>
 
-roadfighter::HighSoreModule::HighSoreModule()
+RoadFighter::HighSoreModule::HighSoreModule()
 {
         file = std::make_unique<FileReader>(FileReader("./Resources/save"));
 
@@ -14,9 +14,9 @@ roadfighter::HighSoreModule::HighSoreModule()
         }
 }
 
-int roadfighter::HighSoreModule::getHighscore() const { return highscore; }
+int RoadFighter::HighSoreModule::getHighscore() const { return highscore; }
 
-void roadfighter::HighSoreModule::save(int score)
+void RoadFighter::HighSoreModule::save(int score)
 {
         if (score > highscore) {
                 std::ofstream outfile("./Resources/save");

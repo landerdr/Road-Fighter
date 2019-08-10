@@ -8,7 +8,7 @@
 #include "../Logic/PassingCar.h"
 #include <SFML/Graphics.hpp>
 
-class PassingCarSFML : public roadfighter::PassingCar
+class PassingCarSFML : public RoadFighter::PassingCar
 {
         // Car sprite
         sf::Sprite sprite;
@@ -25,7 +25,8 @@ public:
          * @param y
          * @param t
          */
-        explicit PassingCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y, roadfighter::CarType t);
+        explicit PassingCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y,
+                                RoadFighter::CarType t);
         /**
          * Draws car on window
          */

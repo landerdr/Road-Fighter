@@ -4,7 +4,7 @@
 
 #include "PlayerCar.h"
 
-void roadfighter::PlayerCar::run()
+void RoadFighter::PlayerCar::run()
 {
         if (m_left) {
                 moveleft();
@@ -16,22 +16,22 @@ void roadfighter::PlayerCar::run()
         }
 }
 
-void roadfighter::PlayerCar::moveleft()
+void RoadFighter::PlayerCar::moveleft()
 {
         if (getLeftX() > -1.5) {
                 c_x -= (0.00005 * playerspeed);
         }
 }
 
-void roadfighter::PlayerCar::moveright()
+void RoadFighter::PlayerCar::moveright()
 {
         if (getRightX() < 0.5) {
                 c_x += (0.00005 * playerspeed);
         }
 }
 
-void roadfighter::PlayerCar::setM_left(bool m_left) { PlayerCar::m_left = m_left; }
+void RoadFighter::PlayerCar::setM_left(bool m_left) { PlayerCar::m_left = m_left; }
 
-void roadfighter::PlayerCar::setM_right(bool m_right) { PlayerCar::m_right = m_right; }
+void RoadFighter::PlayerCar::setM_right(bool m_right) { PlayerCar::m_right = m_right; }
 
-void roadfighter::PlayerCar::setPlayerspeed(int playerspeed) { PlayerCar::playerspeed = playerspeed; }
+void RoadFighter::PlayerCar::setPlayerspeed(int playerspeed) { PlayerCar::playerspeed = playerspeed; }

@@ -9,7 +9,7 @@
 #include <memory>
 #include <string>
 
-namespace roadfighter {
+namespace RoadFighter {
 class HighSoreModule
 {
         std::unique_ptr<FileReader> file;
@@ -22,6 +22,6 @@ public:
 
         void save(int score);
 };
-} // namespace roadfighter
+} // namespace RoadFighter
 
 #endif // ROAD_FIGHTER_HIGHSOREMODULE_H
