@@ -29,11 +29,13 @@ protected:
         std::shared_ptr<World> world;
         std::shared_ptr<RoadFighter::ScoreObserver> score;
         RoadFighter::HighSoreModule h;
+        GameState state = Menu;
 
 public:
         Game();
         void run();
         virtual void init_game() = 0;
+        virtual void draw_menu() = 0;
         virtual void draw_screen() = 0;
         virtual void update_title() = 0;
 };

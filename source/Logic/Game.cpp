@@ -24,13 +24,17 @@ void RoadFighter::Game::run()
                 // Calculates end of frame
                 next_frame += std::chrono::microseconds(1000000 / target_fps);
 
-                // Draws the screen
-                draw_screen();
+                if (state == Menu) {
+                        draw_menu();
+                }
+                else if (state == Playing) {
+                        draw_screen();
+                }
 
                 // Avg target_fps calculation
                 actual_fps += 1;
 
-                if (std::chrono::steady_clock::now() - fps_time > std::chrono::seconds(1)) {
+                if (std::chrono::steady_clock::now() - fps_time >= std::chrono::seconds(1)) {
                         fps_time = std::chrono::steady_clock::now();
                         avg_fps = 0.5 * avg_fps + 0.5 * actual_fps;
                         update_title();
