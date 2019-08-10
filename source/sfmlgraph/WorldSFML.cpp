@@ -44,7 +44,7 @@ WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::strin
         score_2.setPosition(RoadFighter::Transformation::Instance()->transX(2.2), 60);
         score_2.setStyle(sf::Text::Bold);
 
-        speed_1 = sf::Text("Quick", font);
+        speed_1 = sf::Text("Speed", font);
         speed_1.setCharacterSize(30);
         speed_1.setPosition(RoadFighter::Transformation::Instance()->transX(2), 90);
         speed_1.setStyle(sf::Text::Bold);
