@@ -51,8 +51,8 @@ void RoadFighter::World::run()
         if (speed > minSpeed && S) {
                 speed -= 1;
         }
-        if (Space && shot + std::chrono::seconds(1) < std::chrono::steady_clock::now()) {
-                Bullets.emplace(factory->createBullet(Player->getC_x(), Player->getUpperY()));
+        if (Space && shot + std::chrono::seconds(Configuration::Instance()->getBulletDelay()) < std::chrono::steady_clock::now()) {
+                Bullets.emplace(factory->createBullet(Player->getC_x(), Player->getUpperY() - 0.6));
                 shot = std::chrono::steady_clock::now();
         }
         Player->setM_right(D);

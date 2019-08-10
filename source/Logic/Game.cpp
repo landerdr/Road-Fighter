@@ -32,7 +32,7 @@ void RoadFighter::Game::run()
                 }
                 else if (state == VictoryScreen) {
                         draw_victory();
-                        if (timePoint + std::chrono::seconds(5) > std::chrono::steady_clock::now()) {
+                        if (timePoint + std::chrono::seconds(15) < std::chrono::steady_clock::now()) {
                                 if (selector == 1) {
                                         continue;
                                 }

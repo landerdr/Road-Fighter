@@ -12,4 +12,4 @@ bool RoadFighter::BossCar::hasShot()
         }
         return ret;
 }
-bool RoadFighter::BossCar::canShoot() { return shot + std::chrono::seconds(1) < std::chrono::steady_clock::now(); }
+bool RoadFighter::BossCar::canShoot() { return shot + std::chrono::seconds(Configuration::Instance()->getBulletDelay()) < std::chrono::steady_clock::now(); }
