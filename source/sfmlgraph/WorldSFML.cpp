@@ -21,10 +21,10 @@ WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::strin
         if (levelConfig.getBool("Enemies")) {
                 RaceCars.emplace(factory->createRacingCar(-1, 0));
                 RaceCars.emplace(factory->createRacingCar(-1, 1));
-                RaceCars.emplace(factory->createRacingCar(static_cast<float>(-0.5), -1));
+                RaceCars.emplace(factory->createRacingCar(-0.5, -1));
         }
         if (levelConfig.getBool("Boss")) {
-
+                RaceCars.emplace(factory->createBossCar(-2, -1));
         }
 
         finish = levelConfig.getInt("Finish");
@@ -77,8 +77,8 @@ void WorldSFML::draw()
 
         Player->draw();
 
-        if (Bullet) {
-                Bullet->draw();
+        for (auto& e : Bullets) {
+                e->draw();
         }
 
         // UI elements

@@ -51,8 +51,8 @@ void RoadFighter::World::run()
         if (speed > 200 && S) {
                 speed -= 1;
         }
-        if (!Bullet && Space && shot + std::chrono::seconds(1) < std::chrono::steady_clock::now()) {
-                Bullet = factory->createBullet(Player->getC_x(), Player->getUpperY());
+        if (Space && shot + std::chrono::seconds(1) < std::chrono::steady_clock::now()) {
+                Bullets.emplace(factory->createBullet(Player->getC_x(), Player->getUpperY()));
                 shot = std::chrono::steady_clock::now();
         }
         Player->setM_right(D);
@@ -71,13 +71,20 @@ void RoadFighter::World::run()
                         ++it;
                 }
         }
+
         for (auto& e : RaceCars) {
                 e->run(speed);
+                if (e->hasShot()) {
+                        Bullets.emplace(factory->createBullet(e->getC_x(), e->getUpperY()));
+                }
         }
-        if (Bullet) {
-                Bullet->run();
-                if (Bullet->getLowerY() < -4) {
-                        Bullet = nullptr;
+
+        for (auto Bullet = Bullets.begin(); Bullet != Bullets.end();) {
+                (*Bullet)->run();
+                if ((*Bullet)->getLowerY() < -4) {
+                        Bullet = Bullets.erase(Bullet);
+                } else {
+                        ++Bullet;
                 }
         }
 
@@ -87,12 +94,14 @@ void RoadFighter::World::run()
         for (auto it = PassingCars.begin(); it != PassingCars.end();) {
                 std::tuple<bool, bool> collision;
                 bool removed = false;
-                if (Bullet) {
-                        collision = entityCollision(Bullet, *it);
+                for (auto Bullet = Bullets.begin(); Bullet != Bullets.end();) {
+                        collision = entityCollision(*Bullet, *it);
                         if (std::get<0>(collision) || std::get<1>(collision)) {
-                                Bullet = nullptr;
+                                Bullet = Bullets.erase(Bullet);
                                 it = PassingCars.erase(it);
                                 removed = true;
+                        } else {
+                                ++Bullet;
                         }
                 }
                 if (!removed) {
@@ -129,6 +138,7 @@ void RoadFighter::World::run()
         }
 
         for (auto& e : RaceCars) {
+                // Race car collision with player check
                 std::tuple<bool, bool> collision = entityCollision(Player, e);
                 if (std::get<0>(collision)) {
                         Player->moveright();
@@ -145,6 +155,7 @@ void RoadFighter::World::run()
                         e->moveright();
                         e->slow(50);
                 }
+                // Race car collision with other race car check
                 for (auto& e2 : RaceCars) {
                         collision = entityCollision(e, e2);
                         if (std::get<0>(collision)) {
@@ -163,12 +174,26 @@ void RoadFighter::World::run()
                                 e2->slow(20);
                         }
                 }
-                if (Bullet) {
-                        collision = entityCollision(Bullet, e);
+                // Race car collision with bullet check
+                for (auto Bullet = Bullets.begin(); Bullet != Bullets.end();) {
+                        collision = entityCollision(*Bullet, e);
                         if (std::get<0>(collision) || std::get<1>(collision)) {
-                                Bullet = nullptr;
+                                Bullet = Bullets.erase(Bullet);
                                 e->slow(100);
+                        } else {
+                                ++Bullet;
                         }
+                }
+        }
+
+        // Check if bullet hits player
+        for (auto Bullet = Bullets.begin(); Bullet != Bullets.end();) {
+                std::tuple<bool, bool> collision = entityCollision(Player, *Bullet);
+                if (std::get<0>(collision) || std::get<1>(collision)) {
+                        speed = std::max(0, speed - 100);
+                        Bullet = Bullets.erase(Bullet);
+                } else {
+                        ++Bullet;
                 }
         }
 

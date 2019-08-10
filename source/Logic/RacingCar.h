@@ -32,6 +32,8 @@ public:
          * @param speedChange
          */
         void slow(int speedChange);
+
+        virtual bool hasShot() { return false; };
 };
 } // namespace RoadFighter
 

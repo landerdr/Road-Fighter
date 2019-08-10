@@ -31,7 +31,7 @@ protected:
         unsigned int a_collisions = 0;
 
         // Timestamp from last shot
-        std::chrono::steady_clock::time_point shot = std::chrono::steady_clock::now();
+        std::chrono::steady_clock::time_point shot;
 
         // Distance the player has traversed
         int distance = 0;
@@ -42,7 +42,7 @@ protected:
         // Pointer to Player
         std::shared_ptr<RoadFighter::PlayerCar> Player;
         // Pointer to bullet
-        std::shared_ptr<RoadFighter::Bullet> Bullet;
+        std::set<std::shared_ptr<RoadFighter::Bullet>> Bullets;
         // Set with pointers to passing cars
         std::set<std::shared_ptr<PassingCar>> PassingCars;
         // Set with pointers to racing cars
