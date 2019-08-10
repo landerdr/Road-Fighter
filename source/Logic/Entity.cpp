@@ -8,9 +8,9 @@ double RoadFighter::Entity::getLeftX() { return c_x - r_w; }
 
 double RoadFighter::Entity::getRightX() { return c_x + r_w; }
 
-double RoadFighter::Entity::getUpperY() { return c_y + r_h; }
+double RoadFighter::Entity::getUpperY() { return c_y - r_h; }
 
-double RoadFighter::Entity::getLowerY() { return c_y - r_h; }
+double RoadFighter::Entity::getLowerY() { return c_y + r_h; }
 
 void RoadFighter::Entity::draw() {}
 
