@@ -10,7 +10,6 @@ Max Speed:600
 PassingCar Speed:190
 Bullet delay:1
 
-
 // Resource files
 BossCar:./Resources/BossCar.png
 PassingCar Slow:./Resources/PassingCar.png
