@@ -24,7 +24,7 @@ WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::strin
                 RaceCars.emplace(factory->createRacingCar(-0.5, -1));
         }
         if (levelConfig.getBool("Boss")) {
-                RaceCars.emplace(factory->createBossCar(-2, -1));
+                RaceCars.emplace(factory->createBossCar(-0.5, -2));
         }
 
         finish = levelConfig.getInt("Finish");
