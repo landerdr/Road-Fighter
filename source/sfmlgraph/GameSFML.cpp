@@ -45,6 +45,11 @@ void GameSFML::draw_screen()
         world->run();
         world->draw();
         window->display();
+
+        if (world->ended()) {
+                state = RoadFighter::VictoryScreen;
+                timePoint = std::chrono::steady_clock::now();
+        }
 }
 void GameSFML::init_game()
 {
@@ -133,8 +138,48 @@ GameSFML::GameSFML()
                            RoadFighter::Transformation::Instance()->transY(1.5));
         level3.setStyle(sf::Text::Bold);
 
+        Victory = sf::Text("Victory", font);
+        Victory.setCharacterSize(120);
+        Victory.setPosition(RoadFighter::Transformation::Instance()->transX(-2),
+                            RoadFighter::Transformation::Instance()->transY(2));
+        Victory.setStyle(sf::Text::Bold);
+
+        score1 = sf::Text("Score", font);
+        score1.setCharacterSize(60);
+        score1.setPosition(RoadFighter::Transformation::Instance()->transX(-1),
+                           RoadFighter::Transformation::Instance()->transY(1));
+        score1.setStyle(sf::Text::Bold);
+
+        score2 = sf::Text("0", font);
+        score2.setCharacterSize(60);
+        score2.setPosition(RoadFighter::Transformation::Instance()->transX(-1.5),
+                           RoadFighter::Transformation::Instance()->transY(1.5));
+        score2.setStyle(sf::Text::Bold);
+
         indicator.setSize(sf::Vector2f(5, 5));
         indicator.setScale(RoadFighter::Transformation::Instance()->getScaleX(),
                            RoadFighter::Transformation::Instance()->getScaleY());
         indicator.setFillColor(sf::Color::White);
+}
+void GameSFML::draw_victory()
+{
+        window->clear();
+
+        // do something
+        std::unique_ptr<sf::Event> event = std::make_unique<sf::Event>();
+        while (window->pollEvent(*event)) {
+                if (event->type == sf::Event::Closed ||
+                    (event->type == sf::Event::KeyPressed && event->key.code == sf::Keyboard::Key::Escape)) {
+                        h.save(world->getScore());
+                        window->close();
+                        running = false;
+                }
+        }
+
+        score2.setString(std::to_string(score->getScore()));
+
+        window->draw(Victory);
+        window->draw(score1);
+        window->draw(score2);
+        window->display();
 }

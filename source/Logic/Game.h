@@ -17,7 +17,7 @@ namespace RoadFighter {
 enum GameState {
         Menu,
         Playing,
-        Paused
+        VictoryScreen
 };
 
 class Game
@@ -30,6 +30,8 @@ protected:
         std::shared_ptr<RoadFighter::ScoreObserver> score;
         RoadFighter::HighSoreModule h;
         GameState state = Menu;
+        std::chrono::steady_clock::time_point timePoint;
+        int selector = -1;
 
 public:
         Game();
@@ -38,6 +40,7 @@ public:
         virtual void draw_menu() = 0;
         virtual void draw_screen() = 0;
         virtual void update_title() = 0;
+        virtual void draw_victory() = 0;
 };
 } // namespace RoadFighter
 

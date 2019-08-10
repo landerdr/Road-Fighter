@@ -93,6 +93,8 @@ public:
         virtual void handleInput() = 0;
 
         int getScore();
+
+        bool ended();
 };
 } // namespace RoadFighter
 

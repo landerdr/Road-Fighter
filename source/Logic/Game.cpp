@@ -30,6 +30,16 @@ void RoadFighter::Game::run()
                 else if (state == Playing) {
                         draw_screen();
                 }
+                else if (state == VictoryScreen) {
+                        draw_victory();
+                        if (timePoint + std::chrono::seconds(5) > std::chrono::steady_clock::now()) {
+                                if (selector == 1) {
+                                        continue;
+                                }
+                                selector += 1;
+                                init_game();
+                        }
+                }
 
                 // Avg target_fps calculation
                 actual_fps += 1;

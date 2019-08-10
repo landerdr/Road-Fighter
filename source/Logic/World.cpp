@@ -33,7 +33,7 @@ const std::set<std::shared_ptr<RoadFighter::RacingCar>>& RoadFighter::World::get
 void RoadFighter::World::run()
 {
         // Player passed finish
-        if (distance > finish) {
+        if (ended()) {
                 speed = 0;
                 return;
         }
@@ -227,3 +227,5 @@ void RoadFighter::World::clearInput()
 unsigned int RoadFighter::World::getA_collisions() const { return a_collisions; }
 
 int RoadFighter::World::getScore() { return score->getScore(); }
+
+bool RoadFighter::World::ended() { return distance > finish; }

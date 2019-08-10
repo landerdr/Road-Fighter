@@ -20,8 +20,10 @@ private:
         sf::Text level1;
         sf::Text level2;
         sf::Text level3;
+        sf::Text Victory;
+        sf::Text score1;
+        sf::Text score2;
         sf::RectangleShape indicator;
-        int selector = -1;
 
 public:
         GameSFML();
@@ -29,6 +31,7 @@ public:
         void init_game() override;
         void update_title() override;
         void draw_menu() override;
+        void draw_victory() override;
 };
 
 #endif // ROAD_FIGHTER_GAMESFML_H
