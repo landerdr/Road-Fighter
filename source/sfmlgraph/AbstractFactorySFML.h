@@ -18,7 +18,7 @@ public:
         std::shared_ptr<RoadFighter::PassingCar> createPassingCar(double x, double y, RoadFighter::CarType t) override;
         std::shared_ptr<RoadFighter::RacingCar> createRacingCar(double x, double y) override;
         std::shared_ptr<RoadFighter::Bullet> createBullet(double x, double y) override;
-        std::shared_ptr<RoadFighter::BossCar> createBossCar(double x, double y) override;
+        std::shared_ptr<RoadFighter::RacingCar> createBossCar(double x, double y) override;
 };
 
 #endif // ROAD_FIGHTER_ABSTRACTFACTORYSFML_H

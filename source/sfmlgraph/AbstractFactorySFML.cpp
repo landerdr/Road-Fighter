@@ -32,7 +32,7 @@ std::shared_ptr<RoadFighter::Bullet> AbstractFactorySFML::createBullet(double x,
 {
         return std::make_shared<BulletSFML>(window, x, y);
 }
-std::shared_ptr<RoadFighter::BossCar> AbstractFactorySFML::createBossCar(double x, double y)
+std::shared_ptr<RoadFighter::RacingCar> AbstractFactorySFML::createBossCar(double x, double y)
 {
         return std::make_shared<BossCarSFML>(window, x, y);
 }
