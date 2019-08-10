@@ -33,6 +33,8 @@ public:
 
         int getInt(const std::string& key);
 
+        bool getBool(const std::string& key);
+
         std::string getString(const std::string& key);
 };
 } // namespace RoadFighter

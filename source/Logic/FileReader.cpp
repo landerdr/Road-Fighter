@@ -77,3 +77,13 @@ std::string RoadFighter::FileReader::getString(const std::string& key)
 
         return it->second;
 }
+
+bool RoadFighter::FileReader::getBool(const std::string& key)
+{
+        auto it = data.find(key);
+
+        if (it == data.end())
+                throw KeyNotFound();
+
+        return it->second == "true";
+}
