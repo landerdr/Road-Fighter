@@ -93,7 +93,7 @@ void GameSFML::draw_menu()
         window->draw(level3);
 
         indicator.setPosition(RoadFighter::Transformation::Instance()->transX(-2),
-                              RoadFighter::Transformation::Instance()->transY(selector * 2));
+                              RoadFighter::Transformation::Instance()->transY(selector * 1.5));
 
         window->draw(indicator);
 
@@ -106,7 +106,7 @@ GameSFML::GameSFML()
         level1 = sf::Text("Level 1", font);
         level1.setCharacterSize(60);
         level1.setPosition(RoadFighter::Transformation::Instance()->transX(-1),
-                           RoadFighter::Transformation::Instance()->transY(-2));
+                           RoadFighter::Transformation::Instance()->transY(-1.5));
         level1.setStyle(sf::Text::Bold);
 
         level2 = sf::Text("Level 2", font);
@@ -118,7 +118,7 @@ GameSFML::GameSFML()
         level3 = sf::Text("Level 3", font);
         level3.setCharacterSize(60);
         level3.setPosition(RoadFighter::Transformation::Instance()->transX(-1),
-                           RoadFighter::Transformation::Instance()->transY(2));
+                           RoadFighter::Transformation::Instance()->transY(1.5));
         level3.setStyle(sf::Text::Bold);
 
         indicator.setSize(sf::Vector2f(5, 5));
