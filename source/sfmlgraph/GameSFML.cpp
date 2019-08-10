@@ -49,13 +49,6 @@ void GameSFML::draw_screen()
 }
 void GameSFML::init_game()
 {
-        unsigned int x = RoadFighter::Configuration::Instance()->getWidth();
-        unsigned int y = RoadFighter::Configuration::Instance()->getHeight();
-
-        window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing Game");
-        //    window->setVerticalSyncEnabled(false);
-        RoadFighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
-
         world = std::make_shared<WorldSFML>(window);
         score = std::make_shared<RoadFighter::ScoreObserver>(world);
         world->attach(score);
@@ -82,8 +75,10 @@ void GameSFML::draw_menu()
                 } else if (event->type == sf::Event::KeyPressed) {
                         if (event->key.code == sf::Keyboard::Key::Z && selector > -1) {
                                 selector -= 1;
+                                std::cout << "one up" << std::endl;
                         } else if (event->key.code == sf::Keyboard::Key::S && selector < 1) {
                                 selector += 1;
+                                std::cout << "one down" << std::endl;
                         }
                 }
         }
@@ -101,6 +96,14 @@ void GameSFML::draw_menu()
 }
 GameSFML::GameSFML()
 {
+        unsigned int x = RoadFighter::Configuration::Instance()->getWidth();
+        unsigned int y = RoadFighter::Configuration::Instance()->getHeight();
+
+        window = std::make_shared<sf::RenderWindow>(sf::VideoMode(x, y), "Racing Game");
+        //    window->setVerticalSyncEnabled(false);
+        RoadFighter::Transformation::Instance()->setSize(window->getSize().x, window->getSize().y);
+
+
         font.loadFromFile("./Resources/ARCADECLASSIC.ttf");
 
         level1 = sf::Text("Level 1", font);

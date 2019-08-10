@@ -12,7 +12,7 @@ void RoadFighter::Game::run()
          */
 
         // Sets required variables
-        init_game();
+        // init_game();
 
         auto next_frame = std::chrono::steady_clock::now();
 
