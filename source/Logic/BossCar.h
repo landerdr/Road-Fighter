@@ -12,7 +12,7 @@ namespace RoadFighter {
 class BossCar : public RacingCar
 {
 protected:
-        std::chrono::steady_clock::time_point shot;
+        std::chrono::steady_clock::time_point shot = std::chrono::steady_clock::now();
 
         bool canShoot();
 public:

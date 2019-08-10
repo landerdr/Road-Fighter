@@ -31,7 +31,7 @@ protected:
         unsigned int a_collisions = 0;
 
         // Timestamp from last shot
-        std::chrono::steady_clock::time_point shot;
+        std::chrono::steady_clock::time_point shot = std::chrono::steady_clock::now();
 
         // Distance the player has traversed
         int distance = 0;
