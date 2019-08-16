@@ -27,6 +27,7 @@ protected:
         bool D = false;
         bool Space = false;
 
+        // Controls if random events are enabled (obstacles)
         bool events = true;
 
         // Amount of collisions
@@ -78,7 +79,7 @@ public:
          * @return
          */
         static std::tuple<bool, bool> entityCollision(const std::shared_ptr<RoadFighter::Entity>& ent1,
-                                               const std::shared_ptr<RoadFighter::Entity>& ent2);
+                                                      const std::shared_ptr<RoadFighter::Entity>& ent2);
         /**
          * Runs game, calls run from all entities
          */
@@ -93,9 +94,15 @@ public:
         void clearInput();
 
         virtual void handleInput() = 0;
-
+        /**
+         * Returns score
+         * @return
+         */
         int getScore();
-
+        /**
+         * Checks if player reached finish line
+         * @return
+         */
         bool ended();
 };
 } // namespace RoadFighter

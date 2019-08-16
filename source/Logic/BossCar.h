@@ -13,9 +13,17 @@ class BossCar : public RacingCar
 {
 protected:
         std::chrono::steady_clock::time_point shot = std::chrono::steady_clock::now();
-
+        /**
+         * Check if entity can shoot
+         * @return
+         */
         bool canShoot();
+
 public:
+        /**
+         * Checks if entity has shot
+         * @return
+         */
         bool hasShot();
 };
 } // namespace RoadFighter

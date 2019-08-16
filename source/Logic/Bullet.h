@@ -11,6 +11,10 @@ namespace RoadFighter {
 class Bullet : public Entity
 {
 public:
+        /**
+         * Moves bullet 1 tick
+         * @param speed
+         */
         void run(int speed);
 };
 } // namespace RoadFighter

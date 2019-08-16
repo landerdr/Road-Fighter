@@ -26,7 +26,7 @@ float RoadFighter::Transformation::transX(double fx)
          * Hardcoded to use -4 : 4
          * changes fx to 0 : 1 * screensize
          */
-        return static_cast<float >((fx + 4) * (x / 8.0));
+        return static_cast<float>((fx + 4) * (x / 8.0));
 }
 
 float RoadFighter::Transformation::transY(double fy)
@@ -35,7 +35,7 @@ float RoadFighter::Transformation::transY(double fy)
          * Hardcoded to use -3 : 3
          * changes fy to 0 : 1 * screensize
          */
-        return static_cast<float >((fy + 3) * (y / 6.0));
+        return static_cast<float>((fy + 3) * (y / 6.0));
 }
 
 float RoadFighter::Transformation::getScaleX()

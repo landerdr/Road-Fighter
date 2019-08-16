@@ -26,11 +26,9 @@ void RoadFighter::Game::run()
 
                 if (state == Menu) {
                         draw_menu();
-                }
-                else if (state == Playing) {
+                } else if (state == Playing) {
                         draw_screen();
-                }
-                else if (state == VictoryScreen) {
+                } else if (state == VictoryScreen) {
                         draw_victory();
                         if (timePoint + std::chrono::seconds(10) < std::chrono::steady_clock::now()) {
                                 if (selector == 1) {
@@ -55,7 +53,8 @@ void RoadFighter::Game::run()
                 std::this_thread::sleep_until(next_frame);
         }
 }
-RoadFighter::Game::Game() {
+RoadFighter::Game::Game()
+{
         target_fps = static_cast<int>(RoadFighter::Configuration::Instance()->getFPS());
         avg_fps = static_cast<double>(target_fps);
 }

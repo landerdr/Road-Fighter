@@ -17,9 +17,15 @@ class HighSoreModule
 
 public:
         HighSoreModule();
-
+        /**
+         * Gets high score
+         * @return
+         */
         int getHighscore() const;
-
+        /**
+         * Saves new high score if score is bigger than high score
+         * @param score
+         */
         void save(int score);
 };
 } // namespace RoadFighter

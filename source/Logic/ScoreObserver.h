@@ -16,7 +16,7 @@ class ScoreObserver
         std::shared_ptr<RoadFighter::World> subject;
 
 public:
-        explicit ScoreObserver(std::shared_ptr<RoadFighter::World>  subject);
+        explicit ScoreObserver(std::shared_ptr<RoadFighter::World> subject);
         /**
          * Returns score
          * @return

@@ -20,6 +20,8 @@ RoadFighter::FileReader::FileReader(const std::string& fileName)
                         // Scans variable name
                         getline(readFile, line);
 
+                        // Checks if 2 following lines are the same, end if this is the case (so doesn't support 2
+                        // whitespace lines)
                         if (lastline == line) {
                                 break;
                         }

@@ -9,7 +9,7 @@
 #include "PassingCarSFML.h"
 #include <utility>
 
-WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow>  window, const std::string& levelFile) : window(std::move(window))
+WorldSFML::WorldSFML(std::shared_ptr<sf::RenderWindow> window, const std::string& levelFile) : window(std::move(window))
 {
         auto levelConfig = RoadFighter::FileReader(levelFile);
         factory = std::make_shared<AbstractFactorySFML>(WorldSFML::window);

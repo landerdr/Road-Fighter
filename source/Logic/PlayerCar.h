@@ -30,9 +30,20 @@ public:
          * Moves player right if possible
          */
         void moveright();
-
+        /**
+         * Sets move left bool, will make car move to the left if run is called
+         * @param m_left
+         */
         void setM_left(bool m_left);
+        /**
+         * Sets move right bool, will make car move to the right if run is called
+         * @param m_right
+         */
         void setM_right(bool m_right);
+        /**
+         * Updates player speed
+         * @param playerspeed
+         */
         void setPlayerspeed(int playerspeed);
 };
 } // namespace RoadFighter

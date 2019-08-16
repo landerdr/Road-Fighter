@@ -8,7 +8,8 @@
 #include "Entity.h"
 
 namespace RoadFighter {
-enum CarType {
+enum CarType
+{
         Slow,
         Quick
 };
@@ -19,11 +20,14 @@ protected:
 
 public:
         /**
-         * Calculates virtual position on screen depending on playerspeed
+         * Calculates virtual position on screen depending on player speed
          * @param speed
          */
         void run(int speed);
-
+        /**
+         * Returns type of passing car
+         * @return
+         */
         CarType getType() const;
 };
 } // namespace RoadFighter

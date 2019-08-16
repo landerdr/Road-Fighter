@@ -4,4 +4,7 @@
 
 #include "Bullet.h"
 
-void RoadFighter::Bullet::run(int speed) { c_y -= (static_cast<int>(Configuration::Instance()->getBulletSpeed()) - speed) / 4000.0; }
+void RoadFighter::Bullet::run(int speed)
+{
+        c_y -= (static_cast<int>(Configuration::Instance()->getBulletSpeed()) - speed) / 4000.0;
+}

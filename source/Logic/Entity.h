@@ -5,11 +5,11 @@
 #ifndef ROAD_FIGHTER_ENTITY_H
 #define ROAD_FIGHTER_ENTITY_H
 
+#include "../Logic/Configuration.h"
+#include "../Logic/Transformation.h"
 #include <algorithm>
 #include <memory>
 #include <string>
-#include "../Logic/Configuration.h"
-#include "../Logic/Transformation.h"
 
 namespace RoadFighter {
 class Entity
@@ -25,12 +25,25 @@ protected:
         double r_h = 0;
 
 public:
+        /**
+         * Returns x center value
+         * @return
+         */
         double getC_x() const;
-
+        /**
+         * Returns y center value
+         * @return
+         */
         double getC_y() const;
-
+        /**
+         * Returns half of entity width
+         * @return
+         */
         double getR_w() const;
-
+        /**
+         * Returns half of entity height
+         * @return
+         */
         double getR_h() const;
 
         /**
@@ -53,9 +66,13 @@ public:
          * @return
          */
         double getLowerY();
-
+        /**
+         * Virtual entity draw
+         */
         virtual void draw();
-
+        /**
+         * Virtual run for 1 tick
+         */
         virtual void run();
 };
 } // namespace RoadFighter

@@ -6,7 +6,7 @@
 
 #include <utility>
 
-RoadFighter::ScoreObserver::ScoreObserver(std::shared_ptr<RoadFighter::World>  subject) : subject(std::move(subject)) {}
+RoadFighter::ScoreObserver::ScoreObserver(std::shared_ptr<RoadFighter::World> subject) : subject(std::move(subject)) {}
 
 int RoadFighter::ScoreObserver::getScore() const { return score; }
 

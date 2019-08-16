@@ -7,9 +7,9 @@
 
 #include <exception>
 namespace RoadFighter {
+// Base exception class for RoadFighter project
 class ExceptionBase : public std::exception
 {
-
 };
 } // namespace RoadFighter
 

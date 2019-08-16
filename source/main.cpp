@@ -3,6 +3,10 @@
 int main()
 {
         GameSFML g;
-        g.run();
+        try {
+                g.run();
+        } catch (std::exception& ex) {
+                std::cout << ex.what();
+        }
         return 0;
 }

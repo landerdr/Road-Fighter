@@ -14,7 +14,6 @@ class GameSFML : public RoadFighter::Game
 private:
         std::shared_ptr<sf::RenderWindow> window;
 
-
         // Menu section
         sf::Font font;
         sf::Text level1;
@@ -27,10 +26,25 @@ private:
 
 public:
         GameSFML();
+        /**
+         * Handles displaying game screen
+         */
         void draw_screen() override;
+        /**
+         * Handles initialising the level
+         */
         void init_game() override;
+        /**
+         * Updates program title (for fps)
+         */
         void update_title() override;
+        /**
+         * Draws the selection menu for levels
+         */
         void draw_menu() override;
+        /**
+         * Draws the victory screen
+         */
         void draw_victory() override;
 };
 

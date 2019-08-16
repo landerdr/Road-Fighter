@@ -10,7 +10,7 @@
 #include "RacingCarSFML.h"
 #include <utility>
 
-AbstractFactorySFML::AbstractFactorySFML(std::shared_ptr<sf::RenderWindow>  window) : window(std::move(window)) {}
+AbstractFactorySFML::AbstractFactorySFML(std::shared_ptr<sf::RenderWindow> window) : window(std::move(window)) {}
 
 std::shared_ptr<RoadFighter::PlayerCar> AbstractFactorySFML::createPlayerCar(double x, double y)
 {

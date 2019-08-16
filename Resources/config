@@ -9,7 +9,7 @@ Normal Speed:400
 Max Speed:600
 PassingCar Speed:190
 Bullet Delay:1
-Bullet Speed: 800
+Bullet Speed:900
 
 // Resource files
 BossCar:./Resources/BossCar.png
