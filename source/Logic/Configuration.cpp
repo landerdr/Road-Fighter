@@ -10,7 +10,7 @@ std::shared_ptr<RoadFighter::Configuration> RoadFighter::Configuration::m_pConfi
 std::shared_ptr<RoadFighter::Configuration> RoadFighter::Configuration::Instance()
 {
         if (m_pConfiguration == nullptr) {
-                m_pConfiguration = std::make_shared<RoadFighter::Configuration>();
+                m_pConfiguration = std::shared_ptr<RoadFighter::Configuration>(new Configuration());
         }
         return m_pConfiguration;
 }
