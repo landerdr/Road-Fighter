@@ -3,8 +3,6 @@
 //
 
 #include "PlayerCarSFML.h"
-#include "../Logic/Configuration.h"
-#include "../Logic/Transformation.h"
 
 PlayerCarSFML::PlayerCarSFML(const std::shared_ptr<sf::RenderWindow>& window, double x, double y) : window(window)
 {
